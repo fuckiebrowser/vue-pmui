@@ -15,6 +15,8 @@
     props: {
       type: { type: String, default: 'default' },
       size: { type: String, default: 'normal' },
+      long: Boolean,
+      round: Boolean,
       disabled: Boolean
     },
     computed: {
@@ -24,9 +26,10 @@
           'gay-button--primary': type === 'primary',
           'gay-button--default': type === 'default',
           'gay-button--danger': type === 'danger',
-          'gay-button--sm': size === 'small',
-          'gay-button--lg': size === 'large',
-          'gay-button--disabled': this.disabled
+          'gay-button--small': size === 'small',
+          'gay-button--long': this.long,
+          'gay-button--disabled': this.disabled,
+          'gay-button--round': this.round
         };
       }
     },

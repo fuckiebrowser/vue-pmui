@@ -1,0 +1,51 @@
+.gay-header {
+  @include background-gradient($primary-color-1, $primary-color-2);
+
+  color: $navbar-font-color;
+  font-size: $navbar-font-size;
+  box-shadow: 0 1px 6px #ccc;
+
+  display: flex;
+
+  //transition: all 0.5s;
+  //&.reversed {
+  //  @include background-gradient($primary-color-2, $primary-color-1);
+  //}
+
+  &.fixed {
+    position: fixed;
+    width: 100vw;
+  }
+}
+
+.gay-header-left,
+.gay-header-right,
+.gay-header-title {
+  height: $navbar-height;
+  line-height: $navbar-height;
+
+  display: flex;
+  align-items: center;
+}
+
+.gay-header-left,
+.gay-header-right {
+  flex-basis: 25%;
+
+  > * {
+    padding: 0 15px;
+  }
+}
+
+.gay-header-title {
+  flex-basis: 50%;
+  justify-content: center;
+}
+
+.gay-header-left {
+  justify-content: flex-start;
+}
+
+.gay-header-right {
+  justify-content: flex-end;
+}

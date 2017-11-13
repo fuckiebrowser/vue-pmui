@@ -3,15 +3,10 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-
-import Button from '../packages/button';
-
-import Ripple from './directives/ripple';
+import GayUI from '../src/index';
 
 Vue.config.productionTip = false;
-
-Vue.use(Ripple);
-Vue.use(Button);
+Vue.use(GayUI);
 
 /* eslint-disable no-new */
 new Vue({

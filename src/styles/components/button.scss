@@ -1,18 +1,20 @@
 .gay-button {
   position: relative;
   color: $button-font-color;
-
-  height: 41px;
-  font-size: 18px;
-
+  height: 50px;
+  font-size: 16px;
   outline: none;
+  line-height: 1;
+  padding: 17px 16px;
   box-sizing: border-box;
-  border: 1px solid currentColor;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
 }
 
 .gay-button--default {
-  color: #222;
-  background-color: #fff;
+  color: #666;
+  background: #fcfcfc;
 }
 
 .gay-button--primary {
@@ -23,7 +25,17 @@
   @include background-gradient($danger-color-1, $danger-color-2);
 }
 
-.gay-button--lg {
+.gay-button--long {
   display: block;
   width: 100%;
+}
+
+.gay-button--small {
+  height: 30px;
+  padding: 9px 10px;
+  font-size: 12px;
+}
+
+.gay-button--round {
+  border-radius: 20px;
 }
