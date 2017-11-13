@@ -1,0 +1,29 @@
+.gay-button {
+  position: relative;
+  color: $button-font-color;
+
+  height: 41px;
+  font-size: 18px;
+
+  outline: none;
+  box-sizing: border-box;
+  border: 1px solid currentColor;
+}
+
+.gay-button--default {
+  color: #222;
+  background-color: #fff;
+}
+
+.gay-button--primary {
+  @include background-gradient($primary-color-1, $primary-color-2);
+}
+
+.gay-button--danger {
+  @include background-gradient($danger-color-1, $danger-color-2);
+}
+
+.gay-button--lg {
+  display: block;
+  width: 100%;
+}

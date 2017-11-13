@@ -1,0 +1,33 @@
+
+.ripple__container {
+  color: inherit;
+  border-radius: inherit;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ripple__animation {
+  color: inherit;
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  transition: 0.4s cubic-bezier(0, 0, 0.2, 1);
+  pointer-events: none;
+  overflow: hidden;
+  will-change: opacity;
+}
+
+.ripple__animation--enter {
+  transition: none;
+}
+
+.ripple__animation--visible {
+  opacity: 0.15;
+}
