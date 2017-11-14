@@ -20,7 +20,7 @@
 
   export default {
     components: { GayButton },
-    name: 'GayHeader',
+    name: 'GayTabbar',
     props: {
       title: String,
       fixed: Boolean

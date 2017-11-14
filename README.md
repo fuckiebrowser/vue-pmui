@@ -1,27 +1,14 @@
-# gay-ui
+# Gay-UI
 
-> Vue UI components for gays
+> Gay里Gay气的Vue组件库，个人玩乐用
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+计划
+1. Button
+2. Header
+3. Tabbar
+5. Tabs
+4. Checkbox
+5. CheckboxGroup
+6. Switch
+7. Radio
+8. Swipe

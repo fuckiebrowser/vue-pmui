@@ -37,6 +37,10 @@
     margin: 0;
   }
 
+  h1, h2, h3, h4, h5 {
+    font-weight: normal;
+  }
+
   .wrapper {
     padding: 15px;
   }
@@ -48,7 +52,7 @@
   .app-view {
     transform: translateZ(0);
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: #efeff4;
   }
 
