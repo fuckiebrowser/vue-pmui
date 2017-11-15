@@ -41,19 +41,17 @@
     font-weight: normal;
   }
 
-  .wrapper {
-    padding: 15px;
-  }
-
   .gay-header.fixed + .wrapper {
     padding-top: 60px;
   }
 
-  .app-view {
+  .gay-layout {
     transform: translateZ(0);
-    width: 100vw;
-    min-height: 100vh;
     background: #efeff4;
+  }
+
+  .gay-container {
+    padding: 15px;
   }
 
   .slide-out-enter-active,

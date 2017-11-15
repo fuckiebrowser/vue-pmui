@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <gay-header title="Button"></gay-header>
+  <gay-layout title="Button">
     <div class="wrapper">
       <h2>Small</h2>
       <gay-button size="small">default</gay-button>
@@ -19,7 +18,7 @@
       <gay-button type="primary" round long>primary</gay-button>
       <gay-button type="danger" round long>danger</gay-button>
     </div>
-  </div>
+  </gay-layout>
 </template>
 <style scoped>
   .gay-button {

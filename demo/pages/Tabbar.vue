@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <gay-header title="Tabbar"></gay-header>
-    <div class="wrapper">
-      <gay-tabbar></gay-tabbar>
-    </div>
-  </div>
+  <gay-layout title="Tabbar">
+    <gay-tabbar></gay-tabbar>
+  </gay-layout>
 </template>
 <style scoped>
   .wrapper .gay-header {
@@ -12,5 +9,5 @@
   }
 </style>
 <script>
-  export default {};
+  export default { };
 </script>

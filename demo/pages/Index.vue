@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <gay-header fixed>菜单</gay-header>
+  <gay-layout title="Gay UI">
+    <!--<gay-header fixed>菜单</gay-header>-->
     <div class="wrapper">
       <h2>GayUI</h2>
       <h4>基佬紫与少女粉</h4>
@@ -13,7 +13,7 @@
       </gay-button>
 
     </div>
-  </div>
+  </gay-layout>
 </template>
 <style scoped>
   h2, h4 {
@@ -31,7 +31,8 @@
         list: [
           'button',
           'header',
-          'tabbar'
+          'tabbar',
+          'tabs'
         ]
       };
     }

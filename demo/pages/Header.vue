@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <gay-header title="Header"></gay-header>
+  <gay-layout title="Header">
     <div class="wrapper">
       <gay-header title="默认"></gay-header>
       <gay-header title="右侧纯文字">
@@ -15,7 +14,7 @@
         <input type="text" value="中间插槽">
       </gay-header>
     </div>
-  </div>
+  </gay-layout>
 </template>
 <style scoped>
   .wrapper .gay-header {
@@ -23,7 +22,5 @@
   }
 </style>
 <script>
-  import GayButton from "../../packages/button/button.vue";
-
-  export default { components: { GayButton } };
+  export default {};
 </script>

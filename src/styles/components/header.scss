@@ -6,6 +6,8 @@
   box-shadow: 0 1px 6px #ccc;
   display: flex;
 
+  min-height: 44px;
+
   &.fixed {
     position: fixed;
     width: 100vw;
