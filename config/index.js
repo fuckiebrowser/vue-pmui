@@ -16,7 +16,7 @@ module.exports = {
     // Various Dev Server settings
     host: '10.1.39.111', // can be overwritten by process.env.HOST
     port: 5230, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
