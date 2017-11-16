@@ -1,0 +1,41 @@
+.gay-badge {
+  display: inline-block;
+  text-align: center;
+
+  font-size: 0.5em;
+
+  min-width: 2em;
+  line-height: 1.6em;
+  border-radius: 0.8em;
+
+  color: #666;
+  border: 1px solid #666;
+
+  &--primary,
+  &--success,
+  &--warning,
+  &--danger {
+    color: $white-color;
+    border: none;
+  }
+
+  &--primary {
+    @include background-gradient($primary-color-1, $primary-color-2);
+  }
+
+  &--success {
+    @include background-gradient($success-color-1, $success-color-2);
+  }
+
+  &--warning {
+    @include background-gradient($warning-color-1, $warning-color-2);
+  }
+
+  &--danger {
+    @include background-gradient($danger-color-1, $danger-color-2);
+  }
+
+  &--square {
+    border-radius: 2px;
+  }
+}

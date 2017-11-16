@@ -1,22 +1,51 @@
 <template>
-  <div class="gay-tabbar">
+  <footer class="gay-tabbar">
     <slot></slot>
-  </div>
+  </footer>
 </template>
 
 <script>
-  import GayButton from '../button';
-
   export default {
-    components: { GayButton },
     name: 'GayTabbar',
-    props: {
-      title: String,
-      fixed: Boolean
+    props: { type: String, index: Number },
+    data() {
+      return {
+        items: [],
+        activeIndex: this.index || 0
+      };
+    },
+    watch: {
+      index(index) {
+        this.activeIndex = index;
+      },
+      activeIndex(index) {
+        this.$emit('update:index', index);
+      }
+    },
+    computed: {
+      styleClass() {
+        const { type } = this;
+        return {
+          'gay-tabbar--primary': type === 'primary',
+          'gay-tabbar--success': type === 'success',
+          'gay-tabbar--warning': type === 'warning',
+          'gay-tabbar--danger': type === 'danger'
+        };
+      }
     },
     methods: {
-      back() {
-        if (this.$router) this.$router.back();
+      getChildActive(uid) {
+        return +this.activeIndex === +this.items.indexOf(uid);
+      },
+      activeChild(uid) {
+        this.activeIndex = this.items.indexOf(uid);
+      },
+      registerChild(uid) {
+        this.items.push(uid);
+      },
+      destroyChild(uid) {
+        const index = this.items.indexOf(uid);
+        this.items.splice(index, 1);
       }
     }
   };

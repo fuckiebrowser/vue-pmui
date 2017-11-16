@@ -1,7 +1,8 @@
 <template>
   <div class="gay-tab-item"
        :class="{ [activeClass]: active }">
-    <slot name="title">{{title}}</slot>
+    {{title}}
+    <gay-badge></gay-badge>
   </div>
 </template>
 

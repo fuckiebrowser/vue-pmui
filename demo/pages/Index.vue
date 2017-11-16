@@ -32,7 +32,8 @@
           'button',
           'header',
           'tabbar',
-          'tabs'
+          'tabs',
+          'badge'
         ]
       };
     }

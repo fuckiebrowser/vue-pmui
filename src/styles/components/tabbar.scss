@@ -1,0 +1,23 @@
+.gay-tabbar {
+  background: $white-color;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+
+  &-item {
+    flex: 1;
+    text-align: center;
+    padding: 5px 5px;
+
+    &.active {
+      color: $primary-color-1;
+      //color: $primary-color-2;
+    }
+  }
+
+  .gay-icon {
+    display: block;
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+}
