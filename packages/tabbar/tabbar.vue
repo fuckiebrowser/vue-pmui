@@ -7,19 +7,19 @@
 <script>
   export default {
     name: 'GayTabbar',
-    props: { type: String, index: Number },
+    props: { type: String, value: [Number, String] },
     data() {
       return {
         items: [],
-        activeIndex: this.index || 0
+        activeIndex: this.value
       };
     },
     watch: {
-      index(index) {
-        this.activeIndex = index;
+      value(val) {
+        this.activeIndex = val;
       },
       activeIndex(index) {
-        this.$emit('update:index', index);
+        this.$emit('input', index);
       }
     },
     computed: {
@@ -34,17 +34,17 @@
       }
     },
     methods: {
-      getChildActive(uid) {
-        return +this.activeIndex === +this.items.indexOf(uid);
+      getChildActive(childIndex) {
+        return this.activeIndex === childIndex;
       },
-      activeChild(uid) {
-        this.activeIndex = this.items.indexOf(uid);
+      activeChild(childIndex) {
+        this.activeIndex = childIndex;
       },
-      registerChild(uid) {
-        this.items.push(uid);
+      registerChild(childIndex) {
+        this.items.push(childIndex);
       },
-      destroyChild(uid) {
-        const index = this.items.indexOf(uid);
+      destroyChild(childIndex) {
+        const index = this.items.indexOf(childIndex);
         this.items.splice(index, 1);
       }
     }

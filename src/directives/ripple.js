@@ -1,7 +1,7 @@
 const DEFAULT_OPTION = {
   class: '', // Animation container className
   center: false, // Position of animation
-  duration: 1000, // Duration of animation  (unit: ms)
+  duration: 500, // Duration of animation  (unit: ms)
   color: '', // Background color of Animation
   radius: '' // Radius of Animation ( default: the longer between width and height )
 };
@@ -33,7 +33,7 @@ function show(e, $el, binding) {
   animation.style.width = radius;
   animation.style.height = radius;
   // Set the duration of animation
-  animation.style.transitionDuration = `${binding.duration || 1000}ms`;
+  animation.style.transitionDuration = `${binding.duration || 500}ms`;
   // Set the background color of animation
   animation.style.background = binding.color || 'currentColor';
 

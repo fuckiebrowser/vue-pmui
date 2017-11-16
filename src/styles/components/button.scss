@@ -1,6 +1,5 @@
 .gay-button {
   position: relative;
-  color: $button-font-color;
   height: 50px;
   font-size: 16px;
   outline: none;
@@ -11,10 +10,14 @@
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
 
+  color: #666;
+  background: #fcfcfc;
 
-  &--default {
-    color: #666;
-    background: #fcfcfc;
+  &--primary,
+  &--success,
+  &--warning,
+  &--danger {
+    color: $button-font-color;
   }
 
   &--primary {

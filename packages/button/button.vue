@@ -23,8 +23,10 @@
       btnClass() {
         const { type, size } = this;
         return {
+//          'gay-button--default': ['primary', 'success', 'warning', 'danger'],
           'gay-button--primary': type === 'primary',
-          'gay-button--default': type === 'default',
+          'gay-button--success': type === 'success',
+          'gay-button--warning': type === 'warning',
           'gay-button--danger': type === 'danger',
           'gay-button--small': size === 'small',
           'gay-button--long': this.long,

@@ -6,8 +6,21 @@
 
   &-item {
     flex: 1;
+    position: relative;
     text-align: center;
     padding: 5px 5px;
+
+    //&.dot:before {
+    //  content: ' ';
+    //  position: absolute;
+    //  display: block;
+    //  height: 6px;
+    //  width: 6px;
+    //  top: 10%;
+    //  right: 10%;
+    //  border-radius: 3px;
+    //  @include background-gradient($danger-color-1, $danger-color-2);
+    //}
 
     &.active {
       color: $primary-color-1;
