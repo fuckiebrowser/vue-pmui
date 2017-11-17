@@ -7,8 +7,8 @@
   padding: 2px 8px;
 
   color: #666;
-  background: $white-color;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  background: $color-white;
+  @include default-shadow();
 
   &--small {
     border-radius: 8px;
@@ -25,24 +25,24 @@
   &--success,
   &--warning,
   &--danger {
-    color: $white-color;
+    color: $color-white;
     border: none;
   }
 
   &--primary {
-    @include background-gradient($primary-color-1, $primary-color-2);
+    @include background-gradient($color-primary-1, $color-primary-2);
   }
 
   &--success {
-    @include background-gradient($success-color-1, $success-color-2);
+    @include background-gradient($color-success-1, $color-success-2);
   }
 
   &--warning {
-    @include background-gradient($warning-color-1, $warning-color-2);
+    @include background-gradient($color-warning-1, $color-warning-2);
   }
 
   &--danger {
-    @include background-gradient($danger-color-1, $danger-color-2);
+    @include background-gradient($color-danger-1, $color-danger-2);
   }
 
   &--square {

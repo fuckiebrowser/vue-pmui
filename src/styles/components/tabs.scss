@@ -1,0 +1,23 @@
+.gay-tabs {
+  background: $tabs-background;
+  @include default-shadow();
+}
+
+.gay-tabs-nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+
+  &-item {
+    @include vertical-center();
+    flex: 1;
+    justify-content: center;
+    height: 48px;
+    box-sizing: border-box;
+    border-bottom: 4px solid transparent;
+    &.active {
+      color: $color-primary-1;
+      border-bottom-color: $color-primary-1;
+    }
+  }
+}

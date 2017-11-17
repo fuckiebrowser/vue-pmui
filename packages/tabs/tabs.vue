@@ -1,25 +1,58 @@
-<script>
+<script type="text/jsx">
   export default {
     name: 'GayTabs',
     render(h) {
-//      this.$slots.default.filter(item => {
-//        return item.elm.nodeType === 1 && /\bel-tab-pane\b/.test(item.elm.className);
-//      }).indexOf(item.$vnode);
-      const navItems = this.$slots.default
-        .filter(v => v.componentOptions && v.componentOptions.tag === 'gay-tab-item') // 拿到子级里的gay-tab-item的vnode
-        .map(v => v.componentInstance || v.componentOptions.propsData) // 拿到子级里的gay-tab-item的组件实例
-        .map(props => h('li', {
-          domProps: {
-            className: `gay-tab-nav-item ${this.index === props.index ? 'active' : ''}`
-          }
-        }, props.$slots ? props.$slots.default : props.title)); // 拿到子级里的gay-tab-item的组件实例
-      const nav = h('ul', { domProps: { className: 'gay-tabs-nav' } }, navItems);
+      const navItems = this.tabs.map(tab => (
+        <li class={[
+          'gay-tabs-nav-item',
+          this.currentIndex === tab.index ? 'active' : null
+        ]}
+            onClick={ev => this.clickHandler(tab.index)}
+            v-ripple>
+          {tab.currentTitle}
+        </li>
+      ));
 
+      const nav = <ul class="gay-tabs-nav">{navItems}</ul>;
+      const content = <div class="ga-tabs-content">{this.$slots.default}</div>;
 
-      return h('div', { domProps: { className: 'gay-tabs' } }, [nav, this.$slots.default]);
+      return (<div class="gay-tabs">
+        {[nav, content]}
+      </div>)
     },
     props: {
       value: [Number, String]
+    },
+    data() {
+      return {
+        currentIndex: this.value,
+        tabs: []
+      };
+    },
+    watch: {
+      value(index) {
+        this.currentIndex = index;
+      },
+      currentIndex(index) {
+        this.$emit('input', index);
+      }
+    },
+    methods: {
+      clickHandler(index) {
+        this.$emit('tabClick', index);
+        this.currentIndex = index;
+      },
+      registerChild(child) {
+        const { index, title, $slots } = child;
+        const currentTitle = $slots.title || title;
+        this.tabs.push({ index, currentTitle });
+      },
+      destroyChild(child) {
+        const { index } = child;
+        const childIndex = this.tabs.findIndex(tab => `${tab.index}` === `${index}`);
+        if (childIndex < 0) return;
+        this.tabs.splice(childIndex, 1);
+      }
     }
   };
 </script>

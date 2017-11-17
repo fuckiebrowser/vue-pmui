@@ -1,5 +1,5 @@
 .gay-tabbar {
-  background: $white-color;
+  background: $color-white;
   display: flex;
   justify-content: space-between;
   font-size: 12px;
@@ -20,12 +20,12 @@
     //  top: 10%;
     //  right: 10%;
     //  border-radius: 3px;
-    //  @include background-gradient($danger-color-1, $danger-color-2);
+    //  @include background-gradient($color-danger-1, $color-danger-2);
     //}
 
     &.active {
-      color: $primary-color-1;
-      //color: $primary-color-2;
+      color: $color-primary-1;
+      //color: $color-primary-2;
     }
   }
 

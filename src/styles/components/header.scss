@@ -1,5 +1,5 @@
 .gay-header {
-  @include background-gradient($primary-color-1, $primary-color-2);
+  @include background-gradient($color-primary-1, $color-primary-2);
 
   color: $navbar-font-color;
   font-size: $navbar-font-size;

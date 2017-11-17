@@ -1,8 +1,7 @@
 <template>
-  <div class="gay-tab-item"
-       :class="{ [activeClass]: active }">
-    {{title}}
-    <gay-badge></gay-badge>
+  <div class="gay-tabs-content-item"
+       v-show="show">
+    <slot></slot>
   </div>
 </template>
 
@@ -10,20 +9,24 @@
   export default {
     name: 'GayTabItem',
     props: {
-      index: [String, Number],
-      title: [String, Number],
-      activeClass: {
-        type: String,
-        default: 'gay-tab-panel-active'
-      }
+      index: {
+        type: [String, Number],
+        require: true
+      },
+      title: [String, Number]
     },
     computed: {
-      active() {
+      show() {
+        return this.$parent.currentIndex === this.index;
       }
     },
-    methods: {},
-    created() {
-      this.$parent.$forceUpdate();
+    mounted() {
+      const registerChild = this.$parent.registerChild;
+      if (registerChild) registerChild(this);
+    },
+    beforeDestroy() {
+      const destroyChild = this.$parent.destroyChild;
+      if (destroyChild) destroyChild(this);
     }
   };
 </script>

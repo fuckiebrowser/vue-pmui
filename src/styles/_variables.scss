@@ -1,15 +1,15 @@
-$white-color: #fff;
-$primary-color-1: #b993d6;
-$primary-color-2: #8ca6db;
+$color-white: #fff;
+$color-primary-1: #b993d6;
+$color-primary-2: #8ca6db;
 
-$danger-color-2: #ec008c;
-$danger-color-1: #fc6767;
+$color-danger-2: #ec008c;
+$color-danger-1: #fc6767;
 
-$success-color-1: #56ab2f;
-$success-color-2: #a8e063;
+$color-success-1: #56ab2f;
+$color-success-2: #a8e063;
 
-$warning-color-1: #ffb75e;
-$warning-color-2: #ed8f03;
+$color-warning-1: #ffb75e;
+$color-warning-2: #ed8f03;
 
 $button-font-color: #fff;
 
@@ -19,3 +19,6 @@ $navbar-height: 44px;
 //$navbar-bg: ;
 $navbar-font-color: #fff;
 //$navbar-padding:;
+
+/* tabs */
+$tabs-background: $color-white;
