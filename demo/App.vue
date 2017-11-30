@@ -51,7 +51,7 @@
   }
 
   .gay-container {
-    padding: 15px;
+    padding: 15px 0;
   }
 
   .slide-out-enter-active,

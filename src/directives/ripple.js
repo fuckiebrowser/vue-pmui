@@ -93,6 +93,7 @@ function bind(el, { value = DEFAULT_OPTION }) {
   el.addEventListener('mousedown', e => show(e, el, value), false);
 
   [
+    'tap',
     'touchend',
     'touchcancel',
     'mouseup',

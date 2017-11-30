@@ -1,5 +1,8 @@
 <script type="text/jsx">
+  import BetterScroll from "../better-scroll/better-scroll";
+
   export default {
+    components: { BetterScroll },
     name: 'GayTabs',
     render(h) {
       const navItems = this.tabs.map(tab => (
@@ -13,13 +16,20 @@
         </li>
       ));
 
-      const nav = <div ref="nav">
-        <ul class="gay-tabs-nav">{navItems}</ul>
-      </div>;
-      const content = <div class="ga-tabs-content">{this.$slots.default}</div>;
+      const nav =
+        <better-scroll ref="scroll"
+                       style="width:100%;"
+                       scrollX
+                       tap="touchend"
+                       data={this.tabs}>
+          <ul class="gay-tabs-nav"
+              style={{ width: this.scrollWidth + 'px' }}>{navItems}</ul>
+        </better-scroll>
+      ;
+      const content = <div class="gay-tabs-content">{this.$slots.default}</div>;
 
       return (<div class="gay-tabs">
-        {[nav, slider, content]}
+        {[nav, content]}
       </div>)
     },
     props: {
@@ -27,37 +37,44 @@
     },
     data() {
       return {
-        BScroller: null,
+        scrollWidth: 0,
+        scroll: null,
         currentIndex: this.value,
         tabs: []
       };
     },
-    computed: {
-      scrollWidth() {
-      },
-      scrollX() {
-      }
-    },
     watch: {
-      'tabs.length'() {
-        if (this.BScroller) this.BScroller.refresh();
-      },
       value(index) {
         this.currentIndex = index;
       },
-      currentIndex(index) {
+      async currentIndex(index) {
         this.$emit('input', index);
-      }
+        await this.$nextTick();
+        this.autoScroll();
+      },
+      async tabs() {
+        await this.$nextTick();
+        const tabs = this.$el.querySelectorAll('.gay-tabs-nav-item');
+        let width = 0;
+        tabs.forEach((t) => {
+          width += +t.offsetWidth;
+        });
+        this.scrollWidth = width;
+      },
     },
     methods: {
+      autoScroll() {
+        const currentTab = this.$el.querySelector('.gay-tabs-nav-item.active');
+        this.$refs.scroll.scrollToElement(currentTab, 200, true);
+      },
       clickHandler(index) {
         this.$emit('tabClick', index);
         this.currentIndex = index;
       },
       registerChild(child) {
-        const { index, title, $slots } = child;
+        const { index, title, $slots, $el } = child;
         const currentTitle = $slots.title || title;
-        this.tabs.push({ index, currentTitle });
+        this.tabs.push({ index, currentTitle, $el });
       },
       destroyChild(child) {
         const { index } = child;

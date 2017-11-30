@@ -8,6 +8,7 @@ import TabItem from '../packages/tab-item';
 import Badge from '../packages/badge';
 import CellGroup from '../packages/cell-group';
 import CellItem from '../packages/cell-item';
+import BetterScroll from '../packages/better-scroll';
 
 // directive
 import Ripple from './directives/ripple';
@@ -15,6 +16,7 @@ import Ripple from './directives/ripple';
 const version = '0.0.1';
 
 const components = [
+  BetterScroll,
   Button,
   Header,
   Tabbar,
