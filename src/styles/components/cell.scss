@@ -1,0 +1,49 @@
+.gay-cell {
+  &-group {
+    box-shadow: 0 0 0.2rem #dadada;
+  }
+
+  &-item {
+    @include vertical-center();
+    background: $color-white;
+    padding-left: 16px;
+    height: $cell-height;
+
+    & + & {
+      border-top: 1px solid $cell-border-color;
+    }
+
+    &__label {
+    }
+    &__content {
+      flex: 1;
+      justify-content: flex-end;
+      height: 100%;
+      @include vertical-center();
+
+      //line-height: $cell-height;
+      padding: 0 16px;
+      display: flex;
+
+      input,
+      select {
+        flex: 1;
+        outline: none;
+        border: none;
+        text-align: $cell-content-text-align;
+      }
+
+      .icon-right {
+        color: $cell-placeholder-color;
+        margin-left: 16px;
+      }
+
+      input,
+      textarea {
+        &::-webkit-input-placeholder {
+          color: $cell-placeholder-color;
+        }
+      }
+    }
+  }
+}

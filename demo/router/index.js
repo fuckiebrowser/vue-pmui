@@ -10,6 +10,7 @@ export default new Router({
     { path: '/header', name: 'Header', component: () => import('../pages/Header') },
     { path: '/tabbar', name: 'tabbar', component: () => import('../pages/Tabbar') },
     { path: '/tabs', name: 'tabs', component: () => import('../pages/Tabs') },
-    { path: '/badge', name: 'badge', component: () => import('../pages/Badge') }
+    { path: '/badge', name: 'badge', component: () => import('../pages/Badge') },
+    { path: '/cell', name: 'badge', component: () => import('../pages/Cell') }
   ]
 });

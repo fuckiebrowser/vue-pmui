@@ -33,7 +33,8 @@
           'header',
           'tabbar',
           'tabs',
-          'badge'
+          'badge',
+          'cell'
         ]
       };
     }

@@ -6,6 +6,8 @@ import TabbarItem from '../packages/tabbar-item';
 import Tabs from '../packages/tabs';
 import TabItem from '../packages/tab-item';
 import Badge from '../packages/badge';
+import CellGroup from '../packages/cell-group';
+import CellItem from '../packages/cell-item';
 
 // directive
 import Ripple from './directives/ripple';
@@ -20,7 +22,9 @@ const components = [
   Layout,
   Tabs,
   TabItem,
-  Badge
+  Badge,
+  CellGroup,
+  CellItem
 ];
 
 function install(Vue) {

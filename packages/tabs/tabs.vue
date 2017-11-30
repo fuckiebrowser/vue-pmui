@@ -13,11 +13,13 @@
         </li>
       ));
 
-      const nav = <ul class="gay-tabs-nav">{navItems}</ul>;
+      const nav = <div ref="nav">
+        <ul class="gay-tabs-nav">{navItems}</ul>
+      </div>;
       const content = <div class="ga-tabs-content">{this.$slots.default}</div>;
 
       return (<div class="gay-tabs">
-        {[nav, content]}
+        {[nav, slider, content]}
       </div>)
     },
     props: {
@@ -25,11 +27,21 @@
     },
     data() {
       return {
+        BScroller: null,
         currentIndex: this.value,
         tabs: []
       };
     },
+    computed: {
+      scrollWidth() {
+      },
+      scrollX() {
+      }
+    },
     watch: {
+      'tabs.length'() {
+        if (this.BScroller) this.BScroller.refresh();
+      },
       value(index) {
         this.currentIndex = index;
       },

@@ -6,18 +6,30 @@
 .gay-tabs-nav {
   list-style: none;
   padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
   display: flex;
 
   &-item {
     @include vertical-center();
-    flex: 1;
     justify-content: center;
+    flex-grow: 1;
+
     height: 48px;
+    min-width: 20%;
+    line-height: 48px;
+    text-align: center;
     box-sizing: border-box;
-    border-bottom: 4px solid transparent;
+    //border-bottom: 4px solid transparent;
+
+    //flex-basis: 20%;
+
+    flex-shrink: 0;
+    transition: color 500ms;
+
     &.active {
       color: $color-primary-1;
-      border-bottom-color: $color-primary-1;
+      //border-bottom-color: $color-primary-1;
     }
   }
 }
