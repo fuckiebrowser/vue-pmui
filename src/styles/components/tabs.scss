@@ -1,31 +1,56 @@
 .gay-tabs {
   background: $tabs-background;
   @include default-shadow();
-}
 
-.gay-tabs-nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  white-space: nowrap;
-
-  &-item {
-    display: inline-block;
-    height: 48px;
-    min-width: 20vw;
-    line-height: 48px;
-
-    padding: 0 16px;
-
-    text-align: center;
-    box-sizing: border-box;
-    border-bottom: 4px solid transparent;
-
+  &-bar {
+    position: relative;
+    height: 4px;
+    background: $color-primary-1;
     transition: all 500ms;
-    &.active {
-      color: $color-primary-1;
-      border-bottom-color: $color-primary-1;
+  }
+
+  &-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    &-item {
+      @include vertical-center();
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+
+      height: 48px;
+      min-width: 20vw;
+      padding: 0 16px;
+      text-align: center;
+      box-sizing: border-box;
+      transition: all 500ms;
+
+      &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: $color-primary-1;
+        transition: transform 500ms;
+        transform: scale(0, 1);
+      }
+
+      &.active {
+        color: $color-primary-1;
+
+        &::after {
+          transform: scale(1, 1);
+        }
+      }
     }
   }
 }
+
+

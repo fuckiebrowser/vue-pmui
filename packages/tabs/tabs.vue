@@ -23,7 +23,7 @@
                        tap="touchend"
                        data={this.tabs}>
           <ul class="gay-tabs-nav"
-              style={{ width: this.scrollWidth + 'px' }}>{navItems}</ul>
+              style={this.navStyle}>{navItems}</ul>
         </better-scroll>
       ;
       const content = <div class="gay-tabs-content">{this.$slots.default}</div>;
@@ -35,8 +35,17 @@
     props: {
       value: [Number, String]
     },
+    computed: {
+      navStyle() {
+        return {
+          width: `${this.scrollWidth}px`
+        };
+      }
+    },
     data() {
       return {
+        barLeft: 0,
+        barWidth: 0,
         scrollWidth: 0,
         scroll: null,
         currentIndex: this.value,
@@ -63,9 +72,9 @@
       },
     },
     methods: {
-      autoScroll() {
+      async autoScroll() {
         const currentTab = this.$el.querySelector('.gay-tabs-nav-item.active');
-        this.$refs.scroll.scrollToElement(currentTab, 200, true);
+        this.$refs.scroll.scrollToElement(currentTab, 500, true);
       },
       clickHandler(index) {
         this.$emit('tabClick', index);
@@ -82,6 +91,10 @@
         if (childIndex < 0) return;
         this.tabs.splice(childIndex, 1);
       }
+    },
+    async mounted() {
+      await this.$nextTick();
+      this.autoScroll();
     }
   };
 </script>

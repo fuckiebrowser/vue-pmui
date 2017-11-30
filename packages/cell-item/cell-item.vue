@@ -1,5 +1,6 @@
 <template>
-  <label class="gay-cell-item">
+  <label class="gay-cell-item"
+         @click="clickHandler">
     <div class="gay-cell-item__label">
       <slot name="label">
         {{label}}
@@ -7,7 +8,8 @@
     </div>
     <div class="gay-cell-item__content">
       <slot></slot>
-      <i v-if="arrow" class="iconfont icon-right"></i>
+      <i v-if="arrow"
+         class="iconfont icon-right"></i>
     </div>
   </label>
 </template>
@@ -17,7 +19,21 @@
     name: 'GayCellItem',
     props: {
       label: String,
-      arrow: Boolean
+      arrow: Boolean,
+      link: [String, Object],
+      route: Boolean
+    },
+    methods: {
+      clickHandler() {
+        if (!this.link) {
+          return;
+        }
+        if (this.route && this.$router) {
+          this.$router.push(this.link);
+          return;
+        }
+        location.href = this.link;
+      }
     }
   };
 </script>

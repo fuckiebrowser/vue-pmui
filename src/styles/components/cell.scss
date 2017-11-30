@@ -28,6 +28,7 @@
       input,
       select {
         flex: 1;
+        font-size: inherit;
         outline: none;
         border: none;
         text-align: $cell-content-text-align;

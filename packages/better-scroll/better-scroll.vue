@@ -108,14 +108,13 @@
         }
 
         // 是否派发滚动到底部事件，用于上拉加载
-        if (this.pullup) {
-          this.scroll.on('scrollEnd', () => {
-            // 滚动到底部
-            if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
-              this.$emit('scrollToEnd');
-            }
-          });
-        }
+        this.scroll.on('scrollEnd', () => {
+          // 滚动到底部
+          this.$emit('scrollEnd');
+          if (this.pullup && this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+            this.$emit('scrollToEnd');
+          }
+        });
 
         // 是否派发顶部下拉事件，用于下拉刷新
         if (this.pulldown) {
@@ -152,7 +151,6 @@
       },
       scrollToElement(el, time, offsetX, offsetY, easing) {
         // 代理better-scroll的scrollToElement方法
-        console.log(el, time, offsetX, offsetY, easing);
         if (this.scroll) this.scroll.scrollToElement(el, time, offsetX, offsetY, easing);
       }
     },

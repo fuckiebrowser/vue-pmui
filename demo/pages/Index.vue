@@ -5,12 +5,16 @@
       <h2>GayUI</h2>
       <h4>基佬紫与少女粉</h4>
 
-      <gay-button v-for="item in list"
-                  :key="item"
-                  @click="$router.push('/'+item)"
-                  long>
-        {{item}}
-      </gay-button>
+      <gay-cell-group>
+        <gay-cell-item v-for="item in list"
+                       :label="item"
+                       :key="item"
+                       :link="'/'+item"
+                       route
+                       arrow
+                       v-ripple>
+        </gay-cell-item>
+      </gay-cell-group>
 
     </div>
   </gay-layout>
