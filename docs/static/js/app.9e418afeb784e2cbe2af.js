@@ -1,20 +1,27 @@
 webpackJsonp([9],{
 
-/***/ "PwRR":
+/***/ "5Pyl":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ "Rvwf":
+/***/ "9X7l":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ "V5w8":
+/***/ "ZmQO":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "dGBo":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -69,7 +76,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_demo_App = (esExports);
 // CONCATENATED MODULE: ./demo/App.vue
 function injectStyle (ssrContext) {
-  __webpack_require__("Rvwf")
+  __webpack_require__("9X7l")
 }
 var normalizeComponent = __webpack_require__("/Xao")
 /* script */
@@ -175,7 +182,7 @@ var button_esExports = { render: button_render, staticRenderFns: button_staticRe
 /* harmony default export */ var selectortype_template_index_0_packages_button_button = (button_esExports);
 // CONCATENATED MODULE: ./packages/button/button.vue
 function button_injectStyle (ssrContext) {
-  __webpack_require__("V5w8")
+  __webpack_require__("dGBo")
 }
 var button_normalizeComponent = __webpack_require__("/Xao")
 /* script */
@@ -304,7 +311,7 @@ var layout_esExports = { render: layout_render, staticRenderFns: layout_staticRe
 /* harmony default export */ var layout_layout = (layout_esExports);
 // CONCATENATED MODULE: ./packages/layout/layout.vue
 function layout_injectStyle (ssrContext) {
-  __webpack_require__("sIEF")
+  __webpack_require__("jXUd")
 }
 var layout_normalizeComponent = __webpack_require__("/Xao")
 /* script */
@@ -794,8 +801,8 @@ var better_scroll_esExports = { render: better_scroll_render, staticRenderFns: b
 /* harmony default export */ var better_scroll_better_scroll = (better_scroll_esExports);
 // CONCATENATED MODULE: ./packages/better-scroll/better-scroll.vue
 function better_scroll_injectStyle (ssrContext) {
-  __webpack_require__("we7t")
-  __webpack_require__("PwRR")
+  __webpack_require__("ZmQO")
+  __webpack_require__("5Pyl")
 }
 var better_scroll_normalizeComponent = __webpack_require__("/Xao")
 /* script */
@@ -1156,7 +1163,7 @@ var cell_group_esExports = { render: cell_group_render, staticRenderFns: cell_gr
 /* harmony default export */ var cell_item_cell_group = (cell_group_esExports);
 // CONCATENATED MODULE: ./packages/cell-item/cell-group.vue
 function cell_group_injectStyle (ssrContext) {
-  __webpack_require__("pwdA")
+  __webpack_require__("nWdU")
 }
 var cell_group_normalizeComponent = __webpack_require__("/Xao")
 /* script */
@@ -1235,7 +1242,7 @@ var cell_item_esExports = { render: cell_item_render, staticRenderFns: cell_item
 /* harmony default export */ var cell_item_cell_item = (cell_item_esExports);
 // CONCATENATED MODULE: ./packages/cell-item/cell-item.vue
 function cell_item_injectStyle (ssrContext) {
-  __webpack_require__("tGUU")
+  __webpack_require__("twl7")
 }
 var cell_item_normalizeComponent = __webpack_require__("/Xao")
 /* script */
@@ -1290,22 +1297,51 @@ var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableA
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ var swipe_swipe = ({
   name: 'GaySwipe',
+  /**
+   * @param {String} height 轮播高度
+   * @param {Boolean} speed 动画滚动速度
+   * @param {Boolean} loop 是否循环滚动
+   * @param {Boolean} autoPlay 是否自动播放
+   * @param {Boolean} showDots 是否显示导航点
+   * @param {Boolean} interval 滚动间隔
+   */
   props: {
     height: String,
-    loop: Boolean, // 是否循环播放
-    showDots: Boolean // 是否显示导航点
+    loop: Boolean,
+    showDots: Boolean,
+    speed: Number,
+    autoPlay: {
+      type: Boolean,
+      default: true
+    },
+    interval: {
+      type: Number,
+      default: 3000
+    }
   },
   data: function data() {
     return {
-      swipe: null,
-      // swipeWidth: 100,
-      currentIndex: 0,
-      dots: 0
+      currentIndex: 1,
+      dots: []
     };
   },
 
@@ -1313,7 +1349,7 @@ var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableA
     initStyle: function initStyle() {
       var container = this.$refs.container;
       var swipe = this.$refs.swipe;
-      var width = swipe.offsetWidth;
+      var width = swipe.clientWidth;
       // init children
       this.children = [].concat(toConsumableArray_default()(container.children));
       // set child width
@@ -1323,11 +1359,61 @@ var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableA
       // set container width
       container.style.width = this.children.length + (this.loop ? 2 : 0) + '00%';
       // set dots
-      this.dots = this.length;
+      this.dots = this.children.length;
+    },
+    initScroll: function initScroll() {
+      var _this = this;
+
+      this.swipe = new bscroll_esm["a" /* default */](this.$refs.swipe, {
+        momentum: false,
+        scrollX: true,
+        scrollY: false,
+        click: true,
+        tap: true,
+        snap: {
+          loop: this.loop,
+          threshold: 0.1,
+          speed: this.speed || 500,
+          click: true,
+          observeDOM: false
+        }
+      });
+
+      var swipe = this.swipe;
+
+      swipe.on('scrollEnd', function () {
+        var _swipe$getCurrentPage = swipe.getCurrentPage(),
+            pageX = _swipe$getCurrentPage.pageX;
+
+        _this.currentIndex = pageX;
+        _this.$emit('change', pageX);
+        _this.play();
+      });
+
+      swipe.on('flick', function () {
+        clearTimeout(_this.timer);
+      });
+    },
+    play: function play() {
+      var _this2 = this;
+
+      this.timer = setTimeout(function () {
+        _this2.next();
+      }, this.interval);
+    },
+    next: function next() {
+      console.log('next');
+      clearTimeout(this.timer);
+      this.swipe.next();
+    },
+    prev: function prev() {
+      console.log('prev');
+      clearTimeout(this.timer);
+      this.swipe.prev();
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this3 = this;
 
     return asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee() {
       return regenerator_default.a.wrap(function _callee$(_context) {
@@ -1335,38 +1421,28 @@ var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableA
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _this.$nextTick();
+              return _this3.$nextTick();
 
             case 2:
+              _this3.initStyle();
+              _this3.initScroll();
+              _this3.play();
 
-              _this.initStyle();
-
-              // init child width
-
-
-              _this.swipe = new bscroll_esm["a" /* default */](_this.$refs.swipe, {
-                scrollX: true,
-                scrollY: false,
-                snap: {
-                  loop: _this.loop,
-                  threshold: 0.1,
-                  speed: 500,
-                  click: true,
-                  observeDOM: false
-                }
-              });
-
-            case 4:
+            case 5:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, _this);
+      }, _callee, _this3);
     }))();
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.swipe.disable();
+    clearTimeout(this.timer);
   }
 });
-// CONCATENATED MODULE: ./node_modules/_vue-loader@13.5.0@vue-loader/lib/template-compiler?{"id":"data-v-ca91c180","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/_vue-loader@13.5.0@vue-loader/lib/selector.js?type=template&index=0!./packages/swipe/swipe.vue
-var swipe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"swipe",staticClass:"gay-swipe"},[_c('div',{ref:"container",staticClass:"gay-swipe-container"},[_vm._t("default")],2),_vm._v(" "),(_vm.showDots)?_c('div',{staticClass:"gay-swipe-dots"},_vm._l((_vm.dots),function(item,index){return _c('span',{class:{active: _vm.currentIndex === index}})})):_vm._e()])}
+// CONCATENATED MODULE: ./node_modules/_vue-loader@13.5.0@vue-loader/lib/template-compiler?{"id":"data-v-79579d30","hasScoped":false,"transformToRequire":{"video":"src","source":"src","img":"src","image":"xlink:href"},"buble":{"transforms":{}}}!./node_modules/_vue-loader@13.5.0@vue-loader/lib/selector.js?type=template&index=0!./packages/swipe/swipe.vue
+var swipe_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"gay-swipe"},[_c('div',{ref:"swipe",staticClass:"gay-swipe-scroll"},[_c('div',{ref:"container",staticClass:"gay-swipe-container"},[_vm._t("default")],2)]),_vm._v(" "),(_vm.showDots)?_c('div',{staticClass:"gay-swipe-dots"},_vm._l((_vm.dots),function(item){return _c('span',{class:{active: _vm.currentIndex === item}})})):_vm._e(),_vm._v(" "),_c('a',{directives:[{name:"ripple",rawName:"v-ripple"}],staticClass:"gay-swipe-prev",on:{"click":_vm.prev}},[_c('i',{staticClass:"iconfont icon-back"})]),_vm._v(" "),_c('a',{directives:[{name:"ripple",rawName:"v-ripple"}],staticClass:"gay-swipe-next",on:{"click":_vm.next}},[_c('i',{staticClass:"iconfont icon-right"})])])}
 var swipe_staticRenderFns = []
 var swipe_esExports = { render: swipe_render, staticRenderFns: swipe_staticRenderFns }
 /* harmony default export */ var selectortype_template_index_0_packages_swipe_swipe = (swipe_esExports);
@@ -1575,7 +1651,7 @@ function unbind(el, _ref2) {
     return show(e, el, value);
   }, false);
   // remove hide event handler
-  ['touchend', 'touchcancel', 'mouseup', 'mouseleave', 'dragstart'].forEach(function (en) {
+  ['tap', 'touchend', 'touchcancel', 'mouseup', 'mouseleave', 'dragstart'].forEach(function (en) {
     return el.removeEventListener(en, function () {
       return hide(el, value);
     }, false);
@@ -1650,28 +1726,21 @@ new vue_esm["a" /* default */]({
 
 /***/ }),
 
-/***/ "pwdA":
+/***/ "jXUd":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ "sIEF":
+/***/ "nWdU":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ "tGUU":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "we7t":
+/***/ "twl7":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -1679,4 +1748,3 @@ new vue_esm["a" /* default */]({
 /***/ })
 
 },["iXgl"]);
-//# sourceMappingURL=app.233542ad8472a8e9e182.js.map

@@ -108,6 +108,7 @@ function unbind(el, { value = DEFAULT_OPTION }) {
   el.removeEventListener('mousedown', e => show(e, el, value), false);
   // remove hide event handler
   [
+    'tap',
     'touchend',
     'touchcancel',
     'mouseup',

@@ -1,6 +1,8 @@
 <template>
   <gay-layout title="Swipe">
-    <gay-swipe loop>
+    <gay-swipe @change="changeHandler"
+               loop
+               show-dots>
       <gay-swipe-item>
         <img src="https://f12.baidu.com/it/u=3921373078,4265237256&fm=72"
              alt="">
@@ -18,6 +20,7 @@
              alt="">
       </gay-swipe-item>
     </gay-swipe>
+    {{index}}
   </gay-layout>
 </template>
 
@@ -28,7 +31,14 @@
 <script>
   export default {
     data() {
-      return {};
+      return {
+        index: 1
+      };
+    },
+    methods: {
+      changeHandler(index) {
+        this.index = index;
+      }
     }
   };
 </script>
