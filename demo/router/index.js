@@ -11,6 +11,7 @@ export default new Router({
     { path: '/tabbar', name: 'tabbar', component: () => import('../pages/Tabbar') },
     { path: '/tabs', name: 'tabs', component: () => import('../pages/Tabs') },
     { path: '/badge', name: 'badge', component: () => import('../pages/Badge') },
-    { path: '/cell', name: 'badge', component: () => import('../pages/Cell') }
+    { path: '/cell', name: 'badge', component: () => import('../pages/Cell') },
+    { path: '/swipe', name: 'swipe', component: () => import('../pages/Swipe') }
   ]
 });

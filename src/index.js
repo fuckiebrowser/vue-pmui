@@ -8,6 +8,8 @@ import TabItem from '../packages/tab-item';
 import Badge from '../packages/badge';
 import CellGroup from '../packages/cell-group';
 import CellItem from '../packages/cell-item';
+import Swipe from '../packages/swipe';
+import SwipeItem from '../packages/swipe-item';
 import BetterScroll from '../packages/better-scroll';
 
 // directive
@@ -26,7 +28,9 @@ const components = [
   TabItem,
   Badge,
   CellGroup,
-  CellItem
+  CellItem,
+  Swipe,
+  SwipeItem
 ];
 
 function install(Vue) {

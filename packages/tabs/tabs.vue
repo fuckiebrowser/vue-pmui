@@ -6,14 +6,14 @@
     name: 'GayTabs',
     render(h) {
       const navItems = this.tabs.map(tab => (
-        <li class={[
+        <a class={[
           'gay-tabs-nav-item',
           this.currentIndex === tab.index ? 'active' : null
         ]}
             onClick={ev => this.clickHandler(tab.index)}
             v-ripple>
           {tab.currentTitle}
-        </li>
+        </a>
       ));
 
       const nav =
@@ -22,8 +22,11 @@
                        scrollX
                        tap="touchend"
                        data={this.tabs}>
-          <ul class="gay-tabs-nav"
-              style={this.navStyle}>{navItems}</ul>
+          <div class="gay-tabs-nav"
+              style={this.navStyle}>
+            {navItems}
+            <div class="gay-tabs-bar" style={this.barStyle}> </div>
+          </div>
         </better-scroll>
       ;
       const content = <div class="gay-tabs-content">{this.$slots.default}</div>;
@@ -39,6 +42,12 @@
       navStyle() {
         return {
           width: `${this.scrollWidth}px`
+        };
+      },
+      barStyle() {
+        return {
+          width: `${this.barWidth}px`,
+          transform: `translate(${this.barLeft}px,0)`
         };
       }
     },
@@ -74,6 +83,8 @@
     methods: {
       async autoScroll() {
         const currentTab = this.$el.querySelector('.gay-tabs-nav-item.active');
+        this.barLeft = currentTab.offsetLeft;
+        this.barWidth = currentTab.offsetWidth;
         this.$refs.scroll.scrollToElement(currentTab, 500, true);
       },
       clickHandler(index) {

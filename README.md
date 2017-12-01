@@ -1,6 +1,6 @@
 # Gay-UI
 
-> Gay里Gay气的Vue组件库，个人玩乐用
+> 一个骚气又Gay里Gay气的Vue组件库
 
 计划
 1. Button :heavy_check_mark:

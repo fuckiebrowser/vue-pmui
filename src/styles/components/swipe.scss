@@ -1,0 +1,20 @@
+.gay-swipe {
+  overflow: hidden;
+  height: (100*9/16)*1vw;
+
+  &-container {
+    height: 100%;
+    display: flex;
+  }
+
+  &-item {
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  &-dots {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+  }
+}

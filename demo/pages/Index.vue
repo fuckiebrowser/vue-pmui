@@ -36,9 +36,11 @@
           'button',
           'header',
           'tabbar',
-          'tabs',
+          'swipe',
           'badge',
-          'cell'
+          'cell',
+          'tabs',
+          'swipe'
         ]
       };
     }
