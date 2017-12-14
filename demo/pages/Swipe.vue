@@ -4,19 +4,19 @@
                loop
                show-dots>
       <gay-swipe-item>
-        <img src="https://f12.baidu.com/it/u=3921373078,4265237256&fm=72"
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3069472720,3661376600&fm=27&gp=0.jpg"
              alt="">
       </gay-swipe-item>
       <gay-swipe-item>
-        <img src="https://f12.baidu.com/it/u=941395880,868059849&fm=72"
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3791826132,2455842012&fm=27&gp=0.jpg"
              alt="">
       </gay-swipe-item>
       <gay-swipe-item>
-        <img src="https://f10.baidu.com/it/u=3463746399,1321843695&fm=72"
+        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4213947888,4286234652&fm=27&gp=0.jpg"
              alt="">
       </gay-swipe-item>
       <gay-swipe-item>
-        <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=344653212,2825482209&fm=11&gp=0.jpg"
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3803592998,823198989&fm=27&gp=0.jpg"
              alt="">
       </gay-swipe-item>
     </gay-swipe>

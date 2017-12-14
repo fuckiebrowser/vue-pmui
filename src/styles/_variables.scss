@@ -1,9 +1,10 @@
+$prefix: 'gay';
 $color-white: #fff;
 $color-primary-1: #b993d6;
 $color-primary-2: #8ca6db;
 
-$color-danger-2: #ec008c;
 $color-danger-1: #fc6767;
+$color-danger-2: #ec008c;
 
 $color-success-1: #56ab2f;
 $color-success-2: #a8e063;
@@ -11,14 +12,29 @@ $color-success-2: #a8e063;
 $color-warning-1: #ffb75e;
 $color-warning-2: #ed8f03;
 
+@mixin background() {
+  &__primary {
+    @include background-gradient($color-primary-1, $color-primary-2);
+  }
+  &__danger {
+    @include background-gradient($color-danger-1, $color-danger-2);
+  }
+  &__success {
+    @include background-gradient($color-success-1, $color-success-2);
+  }
+  &__warning {
+    @include background-gradient($color-warning-1, $color-warning-2);
+  }
+}
+
 $button-font-color: #fff;
 
 /* Navbar */
 $navbar-font-size: 16px;
 $navbar-height: 44px;
-//$navbar-bg: ;
+// $navbar-bg: ;
 $navbar-font-color: #fff;
-//$navbar-padding:;
+// $navbar-padding:;
 
 /* tabs */
 $tabs-background: $color-white;

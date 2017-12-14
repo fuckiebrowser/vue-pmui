@@ -7,10 +7,13 @@
         <slot></slot>
       </div>
     </div>
-    <div class="gay-swipe-dots"
-         v-if="showDots">
+
+    <div v-if="showDots"
+         class="gay-swipe-dots">
       <span :class="{active: currentIndex === item}"
-            v-for="item in dots"></span>
+            v-for="item in dots"
+            @click="jump(item)">
+      </span>
     </div>
 
     <a class="gay-swipe-prev"
@@ -43,7 +46,10 @@
       height: String,
       loop: Boolean,
       showDots: Boolean,
-      speed: Number,
+      speed: {
+        type: Number,
+        default: 500
+      },
       autoPlay: {
         type: Boolean,
         default: true
@@ -55,6 +61,7 @@
     },
     data() {
       return {
+        swipe: null,
         currentIndex: 1,
         dots: []
       };
@@ -72,8 +79,6 @@
         });
         // set container width
         container.style.width = `${this.children.length + (this.loop ? 2 : 0)}00%`;
-        // set dots
-        this.dots = this.children.length;
       },
       initScroll() {
         this.swipe = new BScroll(this.$refs.swipe, {
@@ -82,10 +87,11 @@
           scrollY: false,
           click: true,
           tap: true,
+          probeType: 2,
           snap: {
             loop: this.loop,
             threshold: 0.1,
-            speed: this.speed || 500,
+            speed: this.speed,
             click: true,
             observeDOM: false
           }
@@ -93,16 +99,24 @@
 
         const swipe = this.swipe;
 
+        swipe.on('beforeScrollStart', () => {
+          clearTimeout(this.timer);
+        });
+
+        swipe.on('scrollCancel', () => {
+          if (this.autoPlay) this.play();
+        });
+
         swipe.on('scrollEnd', () => {
           const { pageX } = swipe.getCurrentPage();
           this.currentIndex = pageX;
           this.$emit('change', pageX);
           this.play();
         });
-
-        swipe.on('flick', () => {
-          clearTimeout(this.timer);
-        });
+      },
+      initDots() {
+        // set dots
+        this.dots = this.children.length;
       },
       play() {
         this.timer = setTimeout(() => {
@@ -110,24 +124,27 @@
         }, this.interval);
       },
       next() {
-        console.log('next');
         clearTimeout(this.timer);
         this.swipe.next();
       },
       prev() {
-        console.log('prev');
         clearTimeout(this.timer);
         this.swipe.prev();
+      },
+      jump(index) {
+        clearTimeout(this.timer);
+        this.swipe.goToPage(index, 0, this.speed);
       }
     },
     async mounted() {
       await this.$nextTick();
       this.initStyle();
       this.initScroll();
-      this.play();
+      if (this.autoPlay) this.play();
+      if (this.showDots) this.initDots();
     },
     beforeDestroy() {
-      this.swipe.disable();
+      this.swipe.destroy();
       clearTimeout(this.timer);
     }
   };

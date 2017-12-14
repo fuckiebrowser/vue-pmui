@@ -5,7 +5,7 @@ import App from './App';
 import router from './router';
 import GayUI from '../src/index';
 
-Vue.config.productionTip = false;
+// Vue.config.productionTip = false;
 Vue.use(GayUI);
 
 /* eslint-disable no-new */

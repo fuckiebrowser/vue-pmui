@@ -1,4 +1,4 @@
-.gay-tabs {
+.#{$prefix}-tabs {
   background: $tabs-background;
   @include default-shadow();
 

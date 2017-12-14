@@ -1,4 +1,4 @@
-.gay-header {
+.#{$prefix}-header {
   @include background-gradient($color-primary-1, $color-primary-2);
 
   color: $navbar-font-color;

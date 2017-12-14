@@ -92,11 +92,11 @@
     mounted() {
       // 保证在DOM渲染完毕后初始化better-scroll
       setTimeout(() => {
-        this._initScroll();
+        this.initScroll();
       }, 20);
     },
     methods: {
-      _initScroll() {
+      initScroll() {
         if (!this.$refs.wrapper) {
           return;
         }
