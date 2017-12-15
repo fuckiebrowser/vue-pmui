@@ -1,6 +1,8 @@
 @import './variables';
 @import './mixins';
-
 @import './ripple';
-
 @import './components/index';
+
+div {
+  box-sizing: border-box;
+}

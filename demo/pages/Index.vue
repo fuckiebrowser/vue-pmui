@@ -6,13 +6,14 @@
       <h4>基佬紫与少女粉</h4>
 
       <gay-cell-group>
-        <gay-cell-item v-for="item in list"
-                       :label="item"
-                       :key="item"
-                       :link="'/'+item"
-                       route
-                       arrow
-                       v-ripple>
+        <gay-cell-item
+          v-for="item in list"
+          :label="item"
+          :key="item"
+          :link="'/'+item"
+          route
+          arrow
+          v-ripple>
         </gay-cell-item>
       </gay-cell-group>
 
@@ -40,7 +41,8 @@
           'badge',
           'cell',
           'tabs',
-          'swipe'
+          'swipe',
+          'picker'
         ]
       };
     }

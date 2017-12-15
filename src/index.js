@@ -10,6 +10,7 @@ import CellGroup from '../packages/cell-group';
 import CellItem from '../packages/cell-item';
 import Swipe from '../packages/swipe';
 import SwipeItem from '../packages/swipe-item';
+import Picker from '../packages/picker';
 import BetterScroll from '../packages/better-scroll';
 
 // directive
@@ -30,7 +31,8 @@ const components = [
   CellGroup,
   CellItem,
   Swipe,
-  SwipeItem
+  SwipeItem,
+  Picker
 ];
 
 function install(Vue) {

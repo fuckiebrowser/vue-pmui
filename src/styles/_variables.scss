@@ -12,6 +12,8 @@ $color-success-2: #a8e063;
 $color-warning-1: #ffb75e;
 $color-warning-2: #ed8f03;
 
+$border-color: #ebebeb;
+
 @mixin background() {
   &__primary {
     @include background-gradient($color-primary-1, $color-primary-2);

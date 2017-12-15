@@ -1,0 +1,33 @@
+.#{$prefix}-popup {
+  &__mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .2);
+  }
+
+  &__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  &__left {
+    right: auto;
+  }
+  &__top {
+    bottom: auto;
+  }
+  &__right {
+    left: auto;
+  }
+  &__bottom {
+    top: auto;
+  }
+}

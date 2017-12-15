@@ -1,0 +1,84 @@
+$_border: 1px solid $border-color;
+.#{$prefix}-picker {
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    height: 273px;
+    background: $color-white;
+  }
+
+  &__container {
+    /* flex */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    padding: 20px 0;
+    position: relative;
+    height: 100%;
+  }
+
+  &__toolbar {
+    /* flex */
+    @include vertical-center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    /* box */
+    height: 60px;
+    /* style */
+    border-bottom: $_border;
+  }
+
+  &__target {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    height: 37px;
+    width: 100%;
+    border-top: $_border;
+    border-bottom: $_border;
+  }
+
+  &__cancel,
+  &__submit {
+    background: transparent;
+    border: none;
+    height: 100%;
+    padding: 0 16px;
+    outline: none;
+
+    &:active {
+      background: $border-color;
+    }
+  }
+
+  &__submit {
+    color: $color-primary-1;
+  }
+
+  &__wheel {
+    font-size: 20px;
+    display: flex;
+    flex-grow: 1;
+
+    > div {
+      flex: 1;
+      height: 173px;
+      padding-top: 68px;
+      overflow: hidden;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    li {
+      height: 37px;
+      line-height: 37px;
+    }
+  }
+}
