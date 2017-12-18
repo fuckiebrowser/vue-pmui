@@ -37,11 +37,11 @@
           'button',
           'header',
           'tabbar',
-          'swipe',
           'badge',
           'cell',
           'tabs',
           'swipe',
+          'popup',
           'picker'
         ]
       };

@@ -21,11 +21,12 @@
 <script>
   export default {
     data() {
+      const now = new Date();
       return {
-        value: [16, 1],
+        value: [now.getMonth() + 1, now.getDate()],
         slots: [
-          { values: new Array(24).fill().map((v, i) => i) },
-          { values: new Array(60).fill().map((v, i) => i) }
+          { values: new Array(12).fill().map((v, i) => i + 1) },
+          { values: new Array(31).fill().map((v, i) => i + 1) }
         ]
       };
     },

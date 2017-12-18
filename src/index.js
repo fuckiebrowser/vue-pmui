@@ -10,6 +10,7 @@ import CellGroup from '../packages/cell-group';
 import CellItem from '../packages/cell-item';
 import Swipe from '../packages/swipe';
 import SwipeItem from '../packages/swipe-item';
+import Popup from '../packages/popup';
 import Picker from '../packages/picker';
 import BetterScroll from '../packages/better-scroll';
 
@@ -32,6 +33,7 @@ const components = [
   CellItem,
   Swipe,
   SwipeItem,
+  Popup,
   Picker
 ];
 

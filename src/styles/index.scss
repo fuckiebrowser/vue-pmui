@@ -2,7 +2,8 @@
 @import './mixins';
 @import './ripple';
 @import './components/index';
+@import './transitions';
 
-div {
+a, div, ul, li, span, p {
   box-sizing: border-box;
 }

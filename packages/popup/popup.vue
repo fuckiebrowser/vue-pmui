@@ -1,17 +1,22 @@
 <template>
-  <div class="gay-popup"
-       v-show="visible">
-    <div class="gay-popup__mask"
-         @click="close"
-         v-if="mask">
-      <slot name="mask"></slot>
-    </div>
-    <div class="gay-popup__container"
-         :class="posClass">
-      <div class="gay-popup__content">
-        <slot></slot>
+  <div class="gay-popup">
+    <transition name="fade">
+      <div class="gay-popup__mask"
+           @click="close"
+           v-show="visible"
+           v-if="mask">
+        <slot name="mask"></slot>
       </div>
-    </div>
+    </transition>
+    <transition :name="transitionName">
+      <div class="gay-popup__container"
+           v-show="visible"
+           :class="posClass">
+        <div class="gay-popup__content">
+          <slot></slot>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -20,6 +25,7 @@
    * @params {Boolean} mask 是否显示遮罩层
    * @params {String} position popup显示位置 省略居中 top/left/right/bottom
    */
+
   export default {
     name: 'GayPopup',
     props: {
@@ -29,12 +35,23 @@
       },
       position: {
         type: String
+      },
+      visible: {
+        type: Boolean
       }
     },
     data() {
       return {
-        visible: false
+        // visible: false
       };
+    },
+    watch: {
+      visible(val) {
+        // animation duration 300ms
+        // setTimeout(() => {
+        this.$emit(val ? 'show' : 'hide');
+        // }, 300);
+      }
     },
     computed: {
       posClass() {
@@ -44,14 +61,19 @@
           'gay-popup__right': this.position === 'right',
           'gay-popup__bottom': this.position === 'bottom'
         };
+      },
+      transitionName() {
+        const position = this.position;
+        if (position) return `slide-from-${position}`;
+        return '';
       }
     },
     methods: {
       open() {
-        this.visible = true;
+        this.$emit('update:visible', true);
       },
       close() {
-        this.visible = false;
+        this.$emit('update:visible', false);
       }
     }
   };

@@ -1,7 +1,8 @@
 <template>
   <popup ref="popup"
          class="gay-picker"
-         position="bottom">
+         position="bottom"
+         :visible.sync="visible">
     <div class="gay-picker__panel">
       <div class="gay-picker__toolbar">
         <button class="gay-picker__cancel"
@@ -15,7 +16,7 @@
       <div class="gay-picker__container">
         <div class="gay-picker__target"></div>
         <div class="gay-picker__wheel">
-          <div class="wheelWrapperClass"
+          <div class="wheel-scroll"
                v-for="(s,si) in slots"
                ref="wheels"
                :key="si">
@@ -49,22 +50,40 @@
     },
     data() {
       return {
+        visible: false,
         valueIndex: this.slots.map(() => 0)
       };
     },
-    watch: {
-      value: 'setValue'
-    },
     methods: {
-      open() {
+      async open() {
+        // already open
+        if (this.visible) return;
+        // change the state
+        this.visible = true;
+
+        if (!this.wheels) {
+          // wheels have not been created
+          await this.$nextTick();
+          this.wheels = this.$refs.wheels.map((el, i) => this.createWheel(el, i));
+        } else {
+          // wheels have been created
+          // enable the wheels
+          this.wheels.forEach(wheel => wheel.enable());
+        }
         this.setValue();
-        this.$refs.popup.open();
       },
       cancel() {
-        this.setValue();
-        this.$refs.popup.close();
+        this.visible = false;
+        // disable the wheels
+        this.wheels.forEach(wheel => wheel.disable());
       },
-      initWheel(el, i) {
+      confirm() {
+        const { valueIndex, slots } = this;
+        const value = valueIndex.map((v, i) => slots[i].values[v]);
+        this.$emit('input', value);
+        this.cancel();
+      },
+      createWheel(el, i) {
         if (this.wheels && this.wheels[i]) {
           this.wheels[i].refresh();
           return this.wheels[i];
@@ -81,8 +100,8 @@
 
         wheel.on('scrollEnd', () => {
           this.valueIndex[i] = wheel.getSelectedIndex();
-          this.$forceUpdate();
         });
+
         return wheel;
       },
       setValue() {
@@ -93,21 +112,7 @@
           const currentIndex = selections.indexOf(val);
           currentWheel.wheelTo(currentIndex);
         });
-      },
-      confirm() {
-        const { valueIndex, slots } = this;
-        const value = valueIndex.map((v, i) => slots[i].values[v]);
-        this.$emit('input', value);
-        this.$refs.popup.close();
       }
-    },
-    async mounted() {
-      await this.$nextTick();
-      this.wheels = this.$refs.wheels.map((el, i) => this.initWheel(el, i));
     }
   };
 </script>
-
-<style scoped>
-
-</style>
