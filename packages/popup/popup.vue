@@ -2,7 +2,7 @@
   <div class="gay-popup">
     <transition name="fade">
       <div class="gay-popup__mask"
-           @click="close"
+           @click="maskClick"
            v-show="visible"
            v-if="mask">
         <slot name="mask"></slot>
@@ -22,8 +22,10 @@
 
 <script>
   /**
+   * @params {Boolean} visible 显示关闭弹出层
    * @params {Boolean} mask 是否显示遮罩层
    * @params {String} position popup显示位置 省略居中 top/left/right/bottom
+   * @event mask-click 点击遮罩层触发
    */
 
   export default {
@@ -40,17 +42,9 @@
         type: Boolean
       }
     },
-    data() {
-      return {
-        // visible: false
-      };
-    },
     watch: {
       visible(val) {
-        // animation duration 300ms
-        // setTimeout(() => {
         this.$emit(val ? 'show' : 'hide');
-        // }, 300);
       }
     },
     computed: {
@@ -69,6 +63,9 @@
       }
     },
     methods: {
+      maskClick(e) {
+        this.$emit('mask-click', e);
+      },
       open() {
         this.$emit('update:visible', true);
       },

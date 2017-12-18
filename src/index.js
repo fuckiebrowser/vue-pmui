@@ -12,6 +12,7 @@ import Swipe from '../packages/swipe';
 import SwipeItem from '../packages/swipe-item';
 import Popup from '../packages/popup';
 import Picker from '../packages/picker';
+import ActionSheet from '../packages/action-sheet';
 import BetterScroll from '../packages/better-scroll';
 
 // directive
@@ -34,7 +35,8 @@ const components = [
   Swipe,
   SwipeItem,
   Popup,
-  Picker
+  Picker,
+  ActionSheet
 ];
 
 function install(Vue) {

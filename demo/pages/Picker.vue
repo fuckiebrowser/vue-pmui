@@ -5,7 +5,7 @@
         label="时间"
         arrow>
         <span @click="pick">
-          {{value}}
+          {{value[0]}}月{{value[1]}}日
         </span>
       </gay-cell-item>
     </gay-cell-group>

@@ -18,5 +18,5 @@
 12. Toast
 13. Swipe :heavy_check_mark:
 14. Popup :heavy_check_mark:
-15. ActionSheet
+15. ActionSheet :heavy_check_mark:
 16. Picker :heavy_check_mark:

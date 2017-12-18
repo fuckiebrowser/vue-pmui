@@ -2,6 +2,7 @@
   <popup ref="popup"
          class="gay-picker"
          position="bottom"
+         @mask-click="cancel"
          :visible.sync="visible">
     <div class="gay-picker__panel">
       <div class="gay-picker__toolbar">

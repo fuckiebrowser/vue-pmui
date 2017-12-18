@@ -1,0 +1,27 @@
+.#{$prefix}-action-sheet {
+  &__panel {
+  }
+
+  &-item {
+    background: $color-white;
+    text-align: center;
+    padding: 17px 16px;
+    font-size: 16px;
+
+    & + & {
+      border-top: $_border;
+    }
+
+    &.highlight {
+      color: $color-primary-1;
+    }
+
+    &.cancel {
+      margin-top: 6px;
+    }
+
+    &:active {
+      background: $border-color;
+    }
+  }
+}

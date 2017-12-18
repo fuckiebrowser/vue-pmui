@@ -42,7 +42,8 @@
           'tabs',
           'swipe',
           'popup',
-          'picker'
+          'picker',
+          'actionSheet'
         ]
       };
     }
