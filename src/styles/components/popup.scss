@@ -11,23 +11,31 @@
 
   &__container {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     z-index: 2;
   }
 
+  &__center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   &__left {
+    left: 0;
+    top: 0;
     right: auto;
   }
   &__top {
+    top: 0;
     bottom: auto;
   }
   &__right {
+    top: 0;
+    right: 0;
     left: auto;
   }
   &__bottom {
+    bottom: 0;
     top: auto;
   }
 }

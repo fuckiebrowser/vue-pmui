@@ -100,10 +100,12 @@
         const swipe = this.swipe;
 
         swipe.on('beforeScrollStart', () => {
+          this.scrolling = true;
           clearTimeout(this.timer);
         });
 
         swipe.on('scrollCancel', () => {
+          this.scrolling = false;
           if (this.autoPlay) this.play();
         });
 
@@ -124,14 +126,17 @@
         }, this.interval);
       },
       next() {
+        if (this.scrolling) return;
         clearTimeout(this.timer);
         this.swipe.next();
       },
       prev() {
+        if (this.scrolling) return;
         clearTimeout(this.timer);
         this.swipe.prev();
       },
       jump(index) {
+        if (this.scrolling) return;
         clearTimeout(this.timer);
         this.swipe.goToPage(index, 0, this.speed);
       }

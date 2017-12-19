@@ -12,9 +12,7 @@
       <div class="gay-popup__container"
            v-show="visible"
            :class="posClass">
-        <div class="gay-popup__content">
-          <slot></slot>
-        </div>
+        <slot></slot>
       </div>
     </transition>
   </div>
@@ -49,12 +47,15 @@
     },
     computed: {
       posClass() {
+        const position = this.position;
         return {
-          'gay-popup__top': this.position === 'top',
-          'gay-popup__left': this.position === 'left',
-          'gay-popup__right': this.position === 'right',
-          'gay-popup__bottom': this.position === 'bottom'
-        };
+          'gay-popup__top': position === 'top',
+          'gay-popup__left': position === 'left',
+          'gay-popup__right': position === 'right',
+          'gay-popup__bottom': position === 'bottom',
+          'gay-popup__center': ['top', 'left', 'right', 'bottom'].indexOf(position) < 0
+        }
+          ;
       },
       transitionName() {
         const position = this.position;

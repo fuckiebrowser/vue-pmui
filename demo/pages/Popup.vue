@@ -1,50 +1,60 @@
 <template>
   <gay-layout title="Popup">
     <gay-cell-group>
-      <gay-cell-item
-        @click.native="top = true"
-        label="top"
-        v-ripple
-        arrow>
+      <gay-cell-item @click.native="center = true"
+                     label="center"
+                     v-ripple
+                     arrow>
       </gay-cell-item>
-      <gay-cell-item
-        @click.native="left = true"
-        label="left"
-        v-ripple
-        arrow>
+      <gay-cell-item @click.native="top = true"
+                     label="top"
+                     v-ripple
+                     arrow>
       </gay-cell-item>
-      <gay-cell-item
-        @click.native="right = true"
-        label="right"
-        v-ripple
-        arrow>
+      <gay-cell-item @click.native="left = true"
+                     label="left"
+                     v-ripple
+                     arrow>
       </gay-cell-item>
-      <gay-cell-item
-        @click.native="bottom = true"
-        label="bottom"
-        v-ripple
-        arrow>
+      <gay-cell-item @click.native="right = true"
+                     label="right"
+                     v-ripple
+                     arrow>
+      </gay-cell-item>
+      <gay-cell-item @click.native="bottom = true"
+                     label="bottom"
+                     v-ripple
+                     arrow>
       </gay-cell-item>
     </gay-cell-group>
 
     <gay-popup
+      :visible.sync="center"
+      @mask-click="center = false">
+      <div class="popup-center">center</div>
+    </gay-popup>
+    <gay-popup
       :visible.sync="top"
-      position="top">
+      position="top"
+      @mask-click="top = false">
       <div class="popup-top">top</div>
     </gay-popup>
     <gay-popup
       :visible.sync="left"
-      position="left">
+      position="left"
+      @mask-click="left = false">
       <div class="popup-left">left</div>
     </gay-popup>
     <gay-popup
       :visible.sync="right"
-      position="right">
+      position="right"
+      @mask-click="right = false">
       <div class="popup-right">right</div>
     </gay-popup>
     <gay-popup
       :visible.sync="bottom"
-      position="bottom">
+      position="bottom"
+      @mask-click="bottom = false">
       <div class="popup-bottom">bottom</div>
     </gay-popup>
   </gay-layout>
@@ -55,7 +65,8 @@
     &-top,
     &-left,
     &-right,
-    &-bottom {
+    &-bottom,
+    &-center {
       background: #fff;
       padding: 30px;
       display: flex;
@@ -81,7 +92,8 @@
         top: false,
         left: false,
         right: false,
-        bottom: false
+        bottom: false,
+        center: false
       };
     }
   };
