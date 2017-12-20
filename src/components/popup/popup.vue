@@ -1,7 +1,7 @@
 <template>
   <div class="gay-popup">
     <transition name="fade">
-      <div class="gay-popup__mask"
+      <div class="gay-popup--mask"
            @click="maskClick"
            v-show="visible"
            v-if="mask">
@@ -9,7 +9,7 @@
       </div>
     </transition>
     <transition :name="transitionName">
-      <div class="gay-popup__container"
+      <div class="gay-popup--container"
            v-show="visible"
            :class="posClass">
         <slot></slot>
@@ -49,11 +49,11 @@
       posClass() {
         const position = this.position;
         return {
-          'gay-popup__top': position === 'top',
-          'gay-popup__left': position === 'left',
-          'gay-popup__right': position === 'right',
-          'gay-popup__bottom': position === 'bottom',
-          'gay-popup__center': ['top', 'left', 'right', 'bottom'].indexOf(position) < 0
+          'gay-popup--top': position === 'top',
+          'gay-popup--left': position === 'left',
+          'gay-popup--right': position === 'right',
+          'gay-popup--bottom': position === 'bottom',
+          'gay-popup--center': ['top', 'left', 'right', 'bottom'].indexOf(position) < 0
         }
           ;
       },

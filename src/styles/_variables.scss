@@ -15,16 +15,16 @@ $color-warning-2: #ed8f03;
 $border-color: #ebebeb;
 
 @mixin background() {
-  &__primary {
+  &--primary {
     @include background-gradient($color-primary-1, $color-primary-2);
   }
-  &__danger {
+  &--danger {
     @include background-gradient($color-danger-1, $color-danger-2);
   }
-  &__success {
+  &--success {
     @include background-gradient($color-success-1, $color-success-2);
   }
-  &__warning {
+  &--warning {
     @include background-gradient($color-warning-1, $color-warning-2);
   }
 }

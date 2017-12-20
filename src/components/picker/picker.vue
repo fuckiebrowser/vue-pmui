@@ -4,19 +4,19 @@
          position="bottom"
          @mask-click="cancel"
          :visible.sync="visible">
-    <div class="gay-picker__panel">
-      <div class="gay-picker__toolbar">
-        <button class="gay-picker__cancel"
+    <div class="gay-picker--panel">
+      <div class="gay-picker--toolbar">
+        <button class="gay-picker--cancel"
                 @click="cancel">{{cancelTxt}}
         </button>
         <slot name="title">{{title}}</slot>
-        <button class="gay-picker__submit"
+        <button class="gay-picker--submit"
                 @click="confirm">{{confirmTxt}}
         </button>
       </div>
-      <div class="gay-picker__container">
-        <div class="gay-picker__target"></div>
-        <div class="gay-picker__wheel">
+      <div class="gay-picker--container">
+        <div class="gay-picker--target"></div>
+        <div class="gay-picker--wheel">
           <div class="wheel-scroll"
                v-for="(s,si) in slots"
                ref="wheels"

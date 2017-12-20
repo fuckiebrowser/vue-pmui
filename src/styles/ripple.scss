@@ -1,5 +1,5 @@
 
-.ripple__container {
+.ripple-container {
   color: inherit;
   border-radius: inherit;
   position: absolute;
@@ -12,7 +12,7 @@
   pointer-events: none;
 }
 
-.ripple__animation {
+.ripple-animation {
   color: inherit;
   position: absolute;
   border-radius: 50%;
@@ -24,10 +24,10 @@
   will-change: opacity;
 }
 
-.ripple__animation--enter {
+.ripple-animation--enter {
   transition: none;
 }
 
-.ripple__animation--visible {
+.ripple-animation--visible {
   opacity: 0.15;
 }

@@ -19,7 +19,7 @@ function show(e, $el, binding) {
   const animation = document.createElement('span');
 
   container.appendChild(animation);
-  container.className = 'ripple__container';
+  container.className = 'ripple-container';
 
   // Add the animation container className
   if (binding.class) {
@@ -28,7 +28,7 @@ function show(e, $el, binding) {
   // Set the radius of animation
   const size = binding.radius ||
     (el.clientWidth > el.clientHeight ? el.clientWidth : el.clientHeight);
-  animation.className = 'ripple__animation';
+  animation.className = 'ripple-animation';
   const radius = `${size * (binding.center ? 1 : 2)}px`;
   animation.style.width = radius;
   animation.style.height = radius;
@@ -45,8 +45,8 @@ function show(e, $el, binding) {
   const x = binding.center ? '50%' : `${e.clientX - offset.left}px`;
   const y = binding.center ? '50%' : `${e.clientY - offset.top}px`;
 
-  animation.classList.add('ripple__animation--enter');
-  animation.classList.add('ripple__animation--visible');
+  animation.classList.add('ripple-animation--enter');
+  animation.classList.add('ripple-animation--visible');
 
   // Set the position of animation
   animation.style.left = x;
@@ -57,14 +57,14 @@ function show(e, $el, binding) {
   animation.dataset.activated = Date.now();
 
   setTimeout(() => {
-    animation.classList.remove('ripple__animation--enter');
+    animation.classList.remove('ripple-animation--enter');
     style(animation, 'translate(-50%, -50%) scale3d(0.99,0.99,0.99)', binding);
   }, 0);
 }
 
 function hide($el, binding) {
   const el = $el;
-  const ripples = el.getElementsByClassName('ripple__animation');
+  const ripples = el.getElementsByClassName('ripple-animation');
 
   if (ripples.length === 0) return;
   const animation = ripples[ripples.length - 1];
@@ -73,7 +73,7 @@ function hide($el, binding) {
   delay = delay < 0 ? 0 : delay;
 
   setTimeout(() => {
-    animation.classList.remove('ripple__animation--visible');
+    animation.classList.remove('ripple-animation--visible');
 
     setTimeout(() => {
       // Need to figure out a new way to do this

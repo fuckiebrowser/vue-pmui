@@ -15,25 +15,25 @@
   @include default-shadow;
   @include background;
 
-  &__primary,
-  &__success,
-  &__warning,
-  &__danger {
+  &--primary,
+  &--success,
+  &--warning,
+  &--danger {
     color: $button-font-color;
   }
 
-  &__long {
+  &--long {
     display: block;
     width: 100%;
   }
 
-  &__small {
+  &--small {
     height: 30px;
     padding: 9px 10px;
     font-size: 12px;
   }
 
-  &__round {
+  &--round {
     border-radius: 25px;
   }
 }

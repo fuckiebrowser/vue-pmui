@@ -23,15 +23,15 @@
       btnClass() {
         const { type, size } = this;
         return {
-//          'gay-button__default': ['primary', 'success', 'warning', 'danger'],
-          'gay-button__primary': type === 'primary',
-          'gay-button__success': type === 'success',
-          'gay-button__warning': type === 'warning',
-          'gay-button__danger': type === 'danger',
-          'gay-button__small': size === 'small',
-          'gay-button__long': this.long,
-          'gay-button__disabled': this.disabled,
-          'gay-button__round': this.round
+//          'gay-button--default': ['primary', 'success', 'warning', 'danger'],
+          'gay-button--primary': type === 'primary',
+          'gay-button--success': type === 'success',
+          'gay-button--warning': type === 'warning',
+          'gay-button--danger': type === 'danger',
+          'gay-button--small': size === 'small',
+          'gay-button--long': this.long,
+          'gay-button--disabled': this.disabled,
+          'gay-button--round': this.round
         };
       }
     },

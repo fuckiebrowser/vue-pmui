@@ -1,12 +1,12 @@
 <template>
   <label class="gay-cell-item"
          @click="clickHandler">
-    <div class="gay-cell-item__label">
+    <div class="gay-cell-item--label">
       <slot name="label">
         {{label}}
       </slot>
     </div>
-    <div class="gay-cell-item__content">
+    <div class="gay-cell-item--content">
       <slot></slot>
       <i v-if="arrow"
          class="iconfont icon-right"></i>

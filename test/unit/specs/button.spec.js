@@ -16,7 +16,7 @@ describe('Button', () => {
     expect(dom.classList.contains('gay-button')).to.equal(true);
     ['primary', 'success', 'danger', 'warning', 'small', 'long', 'round', 'disabled']
       .forEach(async (cssClass) => {
-        expect(dom.classList.contains(`gay-button__${cssClass}`)).to.equal(false);
+        expect(dom.classList.contains(`gay-button--${cssClass}`)).to.equal(false);
       });
   });
 
@@ -25,32 +25,32 @@ describe('Button', () => {
       vm = createTest(Button, { type });
       const dom = vm.$el;
       await vm.$nextTick();
-      expect(dom.classList.contains(`gay-button__${type}`)).to.equal(true);
+      expect(dom.classList.contains(`gay-button--${type}`)).to.equal(true);
     });
   });
 
   it('size small', () => {
     vm = createTest(Button, { size: 'small' });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button__small')).to.equal(true);
+    expect(dom.classList.contains('gay-button--small')).to.equal(true);
   });
 
-  it('long', () => {
+  it('shape long', () => {
     vm = createTest(Button, { long: true });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button__long')).to.equal(true);
+    expect(dom.classList.contains('gay-button--long')).to.equal(true);
   });
 
-  it('round', () => {
+  it('shape round', () => {
     vm = createTest(Button, { round: true });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button__round')).to.equal(true);
+    expect(dom.classList.contains('gay-button--round')).to.equal(true);
   });
 
-  it('disabled', () => {
+  it('status disabled', () => {
     vm = createTest(Button, { disabled: true });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button__disabled')).to.equal(true);
+    expect(dom.classList.contains('gay-button--disabled')).to.equal(true);
   });
 
   it('click enable', () => {
@@ -103,5 +103,11 @@ describe('Button', () => {
     expect(clickHandler).to.have.callCount(0);
     vm.$el.click();
     expect(clickHandler).to.have.been.callCount(0);
+  });
+
+  it('slot', () => {
+    const slotTxt = 'slot txt';
+    vm = createTest({ render: h => h(Button, slotTxt) });
+    expect(vm.$el.innerText === slotTxt).to.equal(true);
   });
 });

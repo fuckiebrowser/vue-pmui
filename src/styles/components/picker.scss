@@ -1,13 +1,13 @@
 $_border: 1px solid $border-color;
 .#{$prefix}-picker {
-  &__panel {
+  &--panel {
     display: flex;
     flex-direction: column;
     height: 273px;
     background: $color-white;
   }
 
-  &__container {
+  &--container {
     /* flex */
     flex-grow: 1;
     display: flex;
@@ -18,7 +18,7 @@ $_border: 1px solid $border-color;
     height: 100%;
   }
 
-  &__toolbar {
+  &--toolbar {
     /* flex */
     @include vertical-center;
     justify-content: space-between;
@@ -29,7 +29,7 @@ $_border: 1px solid $border-color;
     border-bottom: $_border;
   }
 
-  &__target {
+  &--target {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -40,8 +40,8 @@ $_border: 1px solid $border-color;
     border-bottom: $_border;
   }
 
-  &__cancel,
-  &__submit {
+  &--cancel,
+  &--submit {
     background: transparent;
     border: none;
     height: 100%;
@@ -53,11 +53,11 @@ $_border: 1px solid $border-color;
     }
   }
 
-  &__submit {
+  &--submit {
     color: $color-primary-1;
   }
 
-  &__wheel {
+  &--wheel {
     font-size: 20px;
     display: flex;
     flex-grow: 1;
