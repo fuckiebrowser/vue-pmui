@@ -8,7 +8,7 @@
       <div class="gay-action-sheet-item"
            v-for="(a,i) in actions"
            :class="{ highlight: a.highlight }"
-           @click="confirm(a)"
+           @click="confirm(a,i)"
            :key="i">
         {{a.title}}
       </div>
@@ -42,8 +42,8 @@
       cancel() {
         this.visible = false;
       },
-      confirm(a) {
-        if (a.callback) a.callback(a);
+      confirm(action, index) {
+        if (action.callback) action.callback({ action, index });
         this.cancel();
       }
     }

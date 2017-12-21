@@ -18,8 +18,8 @@
 <script>
   export default {
     data() {
-      const callback = (a) => {
-        this.label = a.title;
+      const callback = ({ action }) => {
+        this.label = action.title;
       };
 
       return {

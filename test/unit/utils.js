@@ -42,4 +42,8 @@ export function createTest(component, propsData, mount = false) {
 }
 
 
+export function setTimeoutAsync(delay) {
+  return new Promise(resolve => setTimeout(resolve, delay));
+}
+
 export default null;
