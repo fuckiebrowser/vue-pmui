@@ -1,22 +1,22 @@
 <template>
-  <gay-layout title="Tabs">
-    <gay-tabs v-model="index">
-      <gay-tab-item index="0" title="0">1</gay-tab-item>
-      <gay-tab-item index="1" title="1">2</gay-tab-item>
-      <gay-tab-item index="2">
+  <pm-layout title="Tabs">
+    <pm-tabs v-model="index">
+      <pm-tab-item index="0" title="0">1</pm-tab-item>
+      <pm-tab-item index="1" title="1">2</pm-tab-item>
+      <pm-tab-item index="2">
         <template slot="title">
           呵呵呵dadadadada
-          <gay-badge type="danger" size="small"></gay-badge>
+          <pm-badge type="danger" size="small"></pm-badge>
         </template>
         3
-      </gay-tab-item>
-      <gay-tab-item index="3" title="3">3</gay-tab-item>
-      <gay-tab-item index="4" title="4">4</gay-tab-item>
-      <gay-tab-item index="5" title="5">5</gay-tab-item>
-      <gay-tab-item index="6" title="6">6</gay-tab-item>
-      <gay-tab-item index="7" title="7">7</gay-tab-item>
-    </gay-tabs>
-  </gay-layout>
+      </pm-tab-item>
+      <pm-tab-item index="3" title="3">3</pm-tab-item>
+      <pm-tab-item index="4" title="4">4</pm-tab-item>
+      <pm-tab-item index="5" title="5">5</pm-tab-item>
+      <pm-tab-item index="6" title="6">6</pm-tab-item>
+      <pm-tab-item index="7" title="7">7</pm-tab-item>
+    </pm-tabs>
+  </pm-layout>
 </template>
 
 <style scoped>

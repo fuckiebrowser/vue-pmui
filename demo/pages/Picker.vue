@@ -1,21 +1,21 @@
 <template>
-  <gay-layout title="Picker">
-    <gay-cell-group>
-      <gay-cell-item
+  <pm-layout title="Picker">
+    <pm-cell-group>
+      <pm-cell-item
         label="时间"
         arrow>
         <span @click="pick">
           {{value[0]}}月{{value[1]}}日
         </span>
-      </gay-cell-item>
-    </gay-cell-group>
+      </pm-cell-item>
+    </pm-cell-group>
 
-    <gay-picker
+    <pm-picker
       ref="picker"
       v-model="value"
       :slots="slots">
-    </gay-picker>
-  </gay-layout>
+    </pm-picker>
+  </pm-layout>
 </template>
 <style scoped></style>
 <script>

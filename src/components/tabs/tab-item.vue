@@ -1,5 +1,5 @@
 <template>
-  <div class="gay-tabs-content-item"
+  <div class="pm-tabs-content-item"
        v-show="show">
     <slot></slot>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'GayTabItem',
+    name: 'PmTabItem',
     props: {
       index: {
         type: [String, Number],

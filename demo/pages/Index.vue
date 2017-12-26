@@ -1,12 +1,12 @@
 <template>
-  <gay-layout title="Gay UI">
-    <!--<gay-header fixed>菜单</gay-header>-->
+  <pm-layout title="Pm UI">
+    <!--<pm-header fixed>菜单</pm-header>-->
     <div class="wrapper">
-      <h2>GayUI</h2>
+      <h2>PmUI</h2>
       <h4>基佬紫与少女粉</h4>
 
-      <gay-cell-group>
-        <gay-cell-item
+      <pm-cell-group>
+        <pm-cell-item
           v-for="item in list"
           :label="item"
           :key="item"
@@ -14,18 +14,18 @@
           route
           arrow
           v-ripple>
-        </gay-cell-item>
-      </gay-cell-group>
+        </pm-cell-item>
+      </pm-cell-group>
 
     </div>
-  </gay-layout>
+  </pm-layout>
 </template>
 <style scoped>
   h2, h4 {
     text-align: center;
   }
 
-  .gay-button + .gay-button {
+  .pm-button + .pm-button {
     margin-top: 5px;
   }
 </style>

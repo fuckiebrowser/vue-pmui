@@ -1,11 +1,11 @@
 <template>
-  <div class="gay-swipe-item">
+  <div class="pm-swipe-item">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'GaySwipeItem'
+    name: 'PmSwipeItem'
   };
 </script>

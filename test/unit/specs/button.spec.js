@@ -13,10 +13,10 @@ describe('Button', () => {
   it('create', () => {
     vm = createTest(Button);
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button')).to.equal(true);
+    expect(dom.classList.contains('pm-button')).to.equal(true);
     ['primary', 'success', 'danger', 'warning', 'small', 'long', 'round', 'disabled']
       .forEach(async (cssClass) => {
-        expect(dom.classList.contains(`gay-button--${cssClass}`)).to.equal(false);
+        expect(dom.classList.contains(`pm-button--${cssClass}`)).to.equal(false);
       });
   });
 
@@ -25,32 +25,32 @@ describe('Button', () => {
       vm = createTest(Button, { type });
       const dom = vm.$el;
       await vm.$nextTick();
-      expect(dom.classList.contains(`gay-button--${type}`)).to.equal(true);
+      expect(dom.classList.contains(`pm-button--${type}`)).to.equal(true);
     });
   });
 
   it('size small', () => {
     vm = createTest(Button, { size: 'small' });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button--small')).to.equal(true);
+    expect(dom.classList.contains('pm-button--small')).to.equal(true);
   });
 
   it('shape long', () => {
     vm = createTest(Button, { long: true });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button--long')).to.equal(true);
+    expect(dom.classList.contains('pm-button--long')).to.equal(true);
   });
 
   it('shape round', () => {
     vm = createTest(Button, { round: true });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button--round')).to.equal(true);
+    expect(dom.classList.contains('pm-button--round')).to.equal(true);
   });
 
   it('status disabled', () => {
     vm = createTest(Button, { disabled: true });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-button--disabled')).to.equal(true);
+    expect(dom.classList.contains('pm-button--disabled')).to.equal(true);
   });
 
   it('click enable', () => {

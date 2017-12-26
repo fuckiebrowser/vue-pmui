@@ -9,13 +9,9 @@ $_border: 1px solid $border-color;
 
   &--container {
     /* flex */
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-
     padding: 20px 0;
     position: relative;
-    height: 100%;
+    width: 100vw;
   }
 
   &--toolbar {

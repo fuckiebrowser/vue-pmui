@@ -13,7 +13,7 @@ describe('ActionSheet', () => {
   it('create', () => {
     vm = createTest(ActionSheet);
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-action-sheet')).to.equal(true);
+    expect(dom.classList.contains('pm-action-sheet')).to.equal(true);
   });
 
   it('render actions', () => {
@@ -24,7 +24,7 @@ describe('ActionSheet', () => {
     ];
     vm = createTest(ActionSheet, { actions });
     const dom = vm.$el;
-    const items = dom.querySelectorAll('.gay-action-sheet-item');
+    const items = dom.querySelectorAll('.pm-action-sheet-item');
     // action 数量校验
     expect(items.length - 1).to.equal(actions.length);
     // title 校验
@@ -42,7 +42,7 @@ describe('ActionSheet', () => {
     ];
     vm = createTest(ActionSheet, { actions });
     const dom = vm.$el;
-    const items = dom.querySelectorAll('.gay-action-sheet-item');
+    const items = dom.querySelectorAll('.pm-action-sheet-item');
     // action 数量校验
     expect(items.length - 1).to.equal(actions.length);
     // title 校验
@@ -67,7 +67,7 @@ describe('ActionSheet', () => {
     vm = createTest(ActionSheet, { actions }, true);
 
     const dom = vm.$el;
-    const panel = dom.querySelector('.gay-popup--container');
+    const panel = dom.querySelector('.pm-popup--container');
     // 初始化隐藏
     const before = getComputedStyle(panel);
     expect(vm.visible).to.equal(false);
@@ -94,14 +94,14 @@ describe('ActionSheet', () => {
     vm.open();
     vm.$nextTick();
     const dom = vm.$el;
-    const panel = dom.querySelector('.gay-popup--container');
+    const panel = dom.querySelector('.pm-popup--container');
     // 打开
     vm.open();
     // 等待渲染
     await vm.$nextTick();
     // 显示状态, 动画延迟300ms
     await setTimeoutAsync(300);
-    const btnCancel = dom.querySelector('.gay-action-sheet-item.cancel');
+    const btnCancel = dom.querySelector('.pm-action-sheet-item.cancel');
     btnCancel.click();
     await vm.$nextTick();
     await setTimeoutAsync(300);

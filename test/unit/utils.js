@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import GayUI from '../../src/index';
+import PmUI from '../../src/index';
 
-Vue.use(GayUI);
+Vue.use(PmUI);
 
 /**
  * @var id 自增

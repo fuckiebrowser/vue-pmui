@@ -3,10 +3,10 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import GayUI from '../src/index';
+import PmUI from '../src/index';
 
 // Vue.config.productionTip = false;
-Vue.use(GayUI);
+Vue.use(PmUI);
 
 /* eslint-disable no-new */
 new Vue({

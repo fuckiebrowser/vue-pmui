@@ -42,16 +42,16 @@
     font-weight: normal;
   }
 
-  .gay-header.fixed + .wrapper {
+  .pm-header.fixed + .wrapper {
     padding-top: 60px;
   }
 
-  .gay-layout {
+  .pm-layout {
     transform: translateZ(0);
     background: #efeff4;
   }
 
-  .gay-container {
+  .pm-container {
     padding: 15px 0;
   }
 

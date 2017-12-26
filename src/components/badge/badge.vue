@@ -1,5 +1,5 @@
 <template>
- <span class="gay-badge"
+ <span class="pm-badge"
        :class="styleClass">
    <slot>0</slot>
  </span>
@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'GayBadge',
+    name: 'PmBadge',
     props: {
       type: String,
       size: String,
@@ -17,13 +17,13 @@
       styleClass() {
         const { type, size, square } = this;
         return {
-          'gay-badge--square': square,
-          'gay-badge--primary': type === 'primary',
-          'gay-badge--success': type === 'success',
-          'gay-badge--warning': type === 'warning',
-          'gay-badge--danger': type === 'danger',
-          'gay-badge--small': size === 'small',
-          'gay-badge--large': size === 'large'
+          'pm-badge--square': square,
+          'pm-badge--primary': type === 'primary',
+          'pm-badge--success': type === 'success',
+          'pm-badge--warning': type === 'warning',
+          'pm-badge--danger': type === 'danger',
+          'pm-badge--small': size === 'small',
+          'pm-badge--large': size === 'large'
         };
       }
     }

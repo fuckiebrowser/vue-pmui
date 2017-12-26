@@ -1,5 +1,5 @@
 <template>
-  <input class="gay-switch"
+  <input class="pm-switch"
          type="text">
 </template>
 
@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'GaySwitch',
+    name: 'PmSwitch',
     props: {
       actions: {
         type: Array, default: () => []

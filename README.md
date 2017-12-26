@@ -1,7 +1,7 @@
-# Gay-UI
+# pm-UI
 
-> 一个骚气又Gay里Gay气的Vue组件库
-> [demo](https://fuckiebrowser.github.io/GayUI/)
+> 骚气的紫色 mobile UI
+> [demo](https://fuckiebrowser.github.io/vue-pmui
 
 计划
 1. Button :heavy_check_mark:

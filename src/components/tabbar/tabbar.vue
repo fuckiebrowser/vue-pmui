@@ -1,12 +1,12 @@
 <template>
-  <footer class="gay-tabbar">
+  <footer class="pm-tabbar">
     <slot></slot>
   </footer>
 </template>
 
 <script>
   export default {
-    name: 'GayTabbar',
+    name: 'PmTabbar',
     props: { type: String, value: [Number, String] },
     data() {
       return {
@@ -26,10 +26,10 @@
       styleClass() {
         const { type } = this;
         return {
-          'gay-tabbar--primary': type === 'primary',
-          'gay-tabbar--success': type === 'success',
-          'gay-tabbar--warning': type === 'warning',
-          'gay-tabbar--danger': type === 'danger'
+          'pm-tabbar--primary': type === 'primary',
+          'pm-tabbar--success': type === 'success',
+          'pm-tabbar--warning': type === 'warning',
+          'pm-tabbar--danger': type === 'danger'
         };
       }
     },

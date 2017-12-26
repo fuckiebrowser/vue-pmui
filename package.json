@@ -1,7 +1,7 @@
 {
-  "name": "gay-ui",
+  "name": "vue-pmui",
   "version": "1.0.0",
-  "description": "Vue UI components for gays",
+  "description": "Vue Mobile UI components",
   "author": "fuckiebrowser <1608880758@qq.com>",
   "private": true,
   "scripts": {

@@ -1,27 +1,27 @@
 <template>
-  <div class="gay-swipe">
-    <div class="gay-swipe-scroll"
+  <div class="pm-swipe">
+    <div class="pm-swipe-scroll"
          ref="swipe">
-      <div class="gay-swipe-container"
+      <div class="pm-swipe-container"
            ref="container">
         <slot></slot>
       </div>
     </div>
 
     <div v-if="showDots"
-         class="gay-swipe-dots">
+         class="pm-swipe-dots">
       <span :class="{active: currentIndex === item}"
             v-for="item in dots"
             @click="jump(item)">
       </span>
     </div>
 
-    <a class="gay-swipe-prev"
+    <a class="pm-swipe-prev"
        @click="prev"
        v-ripple>
       <i class="iconfont icon-back"></i>
     </a>
-    <a class="gay-swipe-next"
+    <a class="pm-swipe-next"
        @click="next"
        v-ripple>
       <i class="iconfont icon-right"></i>
@@ -33,7 +33,7 @@
   import BScroll from 'better-scroll';
 
   export default {
-    name: 'GaySwipe',
+    name: 'PmSwipe',
     /**
      * @param {String} height 轮播高度
      * @param {Boolean} speed 动画滚动速度

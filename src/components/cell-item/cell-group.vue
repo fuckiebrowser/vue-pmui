@@ -1,12 +1,12 @@
 <template>
-  <div class="gay-cell-group">
+  <div class="pm-cell-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'GayCellGroup'
+    name: 'PmCellGroup'
   };
 </script>
 

@@ -1,21 +1,21 @@
 <template>
-  <div class="gay-tabbar-item"
+  <div class="pm-tabbar-item"
        :class="styleClass"
        @click="clickHandler"
        v-ripple>
     <slot name="icon">
-      <i class="gay-icon" :class="icon"></i>
+      <i class="pm-icon" :class="icon"></i>
     </slot>
     <slot></slot>
   </div>
 </template>
 
 <script>
-  import GayBadge from '../badge';
+  import PmBadge from '../badge';
 
   export default {
-    components: { GayBadge },
-    name: 'GayTabbarItem',
+    components: { PmBadge },
+    name: 'PmTabbarItem',
     props: {
       dot: Boolean, // 圆点
       icon: String, // 图标类

@@ -3,11 +3,11 @@
 
   export default {
     components: { BetterScroll },
-    name: 'GayTabs',
+    name: 'PmTabs',
     render(h) {
       const navItems = this.tabs.map(tab => (
         <a class={[
-          'gay-tabs-nav-item',
+          'pm-tabs-nav-item',
           this.currentIndex === tab.index ? 'active' : null
         ]}
             onClick={ev => this.clickHandler(tab.index)}
@@ -22,16 +22,16 @@
                        scrollX
                        tap="touchend"
                        data={this.tabs}>
-          <div class="gay-tabs-nav"
+          <div class="pm-tabs-nav"
               style={this.navStyle}>
             {navItems}
-            <div class="gay-tabs-bar" style={this.barStyle}> </div>
+            <div class="pm-tabs-bar" style={this.barStyle}> </div>
           </div>
         </better-scroll>
       ;
-      const content = <div class="gay-tabs-content">{this.$slots.default}</div>;
+      const content = <div class="pm-tabs-content">{this.$slots.default}</div>;
 
-      return (<div class="gay-tabs">
+      return (<div class="pm-tabs">
         {[nav, content]}
       </div>)
     },
@@ -72,7 +72,7 @@
       },
       async tabs() {
         await this.$nextTick();
-        const tabs = this.$el.querySelectorAll('.gay-tabs-nav-item');
+        const tabs = this.$el.querySelectorAll('.pm-tabs-nav-item');
         let width = 0;
         tabs.forEach((t) => {
           width += +t.offsetWidth;
@@ -82,7 +82,7 @@
     },
     methods: {
       async autoScroll() {
-        const currentTab = this.$el.querySelector('.gay-tabs-nav-item.active');
+        const currentTab = this.$el.querySelector('.pm-tabs-nav-item.active');
         this.barLeft = currentTab.offsetLeft;
         this.barWidth = currentTab.offsetWidth;
         this.$refs.scroll.scrollToElement(currentTab, 500, true);

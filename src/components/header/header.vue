@@ -1,26 +1,26 @@
 <template>
-  <header class="gay-header"
+  <header class="pm-header"
           :class="{ fixed }">
-    <div class="gay-header-left">
+    <div class="pm-header-left">
       <slot name="left">
-        <gay-button @click="back"><i class="iconfont icon-back"></i></gay-button>
+        <pm-button @click="back"><i class="iconfont icon-back"></i></pm-button>
       </slot>
     </div>
-    <div class="gay-header-title">
+    <div class="pm-header-title">
       <slot>{{title}}</slot>
     </div>
-    <div class="gay-header-right">
+    <div class="pm-header-right">
       <slot name="right"></slot>
     </div>
   </header>
 </template>
 
 <script>
-  import GayButton from '../button';
+  import PmButton from '../button';
 
   export default {
-    components: { GayButton },
-    name: 'GayHeader',
+    components: { PmButton },
+    name: 'PmHeader',
     props: {
       title: String,
       fixed: Boolean

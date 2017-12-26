@@ -1,9 +1,9 @@
 <template>
-  <div class="gay-layout">
+  <div class="pm-layout">
     <slot name="top">
-      <gay-header :title="title"></gay-header>
+      <pm-header :title="title"></pm-header>
     </slot>
-    <section class="gay-container">
+    <section class="pm-container">
       <slot></slot>
     </section>
     <slot name="bottom"></slot>
@@ -12,7 +12,7 @@
 <style scoped></style>
 <script>
   export default {
-    name: 'GayLayout',
+    name: 'PmLayout',
     props: { title: String }
   };
 </script>

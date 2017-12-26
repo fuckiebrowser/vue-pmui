@@ -1,18 +1,18 @@
 <template>
-  <gay-layout title="ActionSheet">
-    <gay-cell-group>
-      <gay-cell-item
+  <pm-layout title="ActionSheet">
+    <pm-cell-group>
+      <pm-cell-item
         @click.native="pick"
         :label="label"
         arrow>
-      </gay-cell-item>
-    </gay-cell-group>
+      </pm-cell-item>
+    </pm-cell-group>
 
-    <gay-action-sheet
+    <pm-action-sheet
       ref="sheet"
       :actions="actions">
-    </gay-action-sheet>
-  </gay-layout>
+    </pm-action-sheet>
+  </pm-layout>
 </template>
 <style scoped></style>
 <script>

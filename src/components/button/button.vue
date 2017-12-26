@@ -1,6 +1,6 @@
 <template>
   <button
-    class="gay-button"
+    class="pm-button"
     :type="type"
     :class="btnClass"
     @click="handleClick"
@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'gay-button',
+    name: 'pm-button',
     props: {
       type: { type: String, default: 'default' },
       size: { type: String, default: 'normal' },
@@ -23,15 +23,15 @@
       btnClass() {
         const { type, size } = this;
         return {
-//          'gay-button--default': ['primary', 'success', 'warning', 'danger'],
-          'gay-button--primary': type === 'primary',
-          'gay-button--success': type === 'success',
-          'gay-button--warning': type === 'warning',
-          'gay-button--danger': type === 'danger',
-          'gay-button--small': size === 'small',
-          'gay-button--long': this.long,
-          'gay-button--disabled': this.disabled,
-          'gay-button--round': this.round
+//          'pm-button--default': ['primary', 'success', 'warning', 'danger'],
+          'pm-button--primary': type === 'primary',
+          'pm-button--success': type === 'success',
+          'pm-button--warning': type === 'warning',
+          'pm-button--danger': type === 'danger',
+          'pm-button--small': size === 'small',
+          'pm-button--long': this.long,
+          'pm-button--disabled': this.disabled,
+          'pm-button--round': this.round
         };
       }
     },

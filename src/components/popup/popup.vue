@@ -1,7 +1,7 @@
 <template>
-  <div class="gay-popup">
+  <div class="pm-popup">
     <transition name="fade">
-      <div class="gay-popup--mask"
+      <div class="pm-popup--mask"
            @click="maskClick"
            v-show="visible"
            v-if="mask">
@@ -9,7 +9,7 @@
       </div>
     </transition>
     <transition :name="transitionName">
-      <div class="gay-popup--container"
+      <div class="pm-popup--container"
            v-show="visible"
            :class="posClass">
         <slot></slot>
@@ -27,7 +27,7 @@
    */
 
   export default {
-    name: 'GayPopup',
+    name: 'PmPopup',
     props: {
       mask: {
         type: Boolean,
@@ -49,11 +49,11 @@
       posClass() {
         const position = this.position;
         return {
-          'gay-popup--top': position === 'top',
-          'gay-popup--left': position === 'left',
-          'gay-popup--right': position === 'right',
-          'gay-popup--bottom': position === 'bottom',
-          'gay-popup--center': ['top', 'left', 'right', 'bottom'].indexOf(position) < 0
+          'pm-popup--top': position === 'top',
+          'pm-popup--left': position === 'left',
+          'pm-popup--right': position === 'right',
+          'pm-popup--bottom': position === 'bottom',
+          'pm-popup--center': ['top', 'left', 'right', 'bottom'].indexOf(position) < 0
         }
           ;
       },

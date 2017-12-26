@@ -1,23 +1,23 @@
 <template>
-  <gay-layout title="Header">
+  <pm-layout title="Header">
     <div class="wrapper">
-      <gay-header title="默认"></gay-header>
-      <gay-header title="右侧纯文字">
+      <pm-header title="默认"></pm-header>
+      <pm-header title="右侧纯文字">
         <span slot="right">分享</span>
-      </gay-header>
+      </pm-header>
 
-      <gay-header title="右侧按钮">
-        <gay-button slot="right">分享</gay-button>
-      </gay-header>
+      <pm-header title="右侧按钮">
+        <pm-button slot="right">分享</pm-button>
+      </pm-header>
 
-      <gay-header title="中间插槽">
+      <pm-header title="中间插槽">
         <input type="text" value="中间插槽">
-      </gay-header>
+      </pm-header>
     </div>
-  </gay-layout>
+  </pm-layout>
 </template>
 <style scoped>
-  .wrapper .gay-header {
+  .wrapper .pm-header {
     margin-bottom: 15px;
   }
 </style>

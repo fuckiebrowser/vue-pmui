@@ -13,7 +13,7 @@ describe('Badge', () => {
   it('create', () => {
     vm = createTest(Badge);
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-badge')).to.equal(true);
+    expect(dom.classList.contains('pm-badge')).to.equal(true);
   });
 
   ['primary', 'success', 'danger', 'warning'].forEach((type) => {
@@ -21,26 +21,26 @@ describe('Badge', () => {
       vm = createTest(Badge, { type });
       const dom = vm.$el;
       await vm.$nextTick();
-      expect(dom.classList.contains(`gay-badge--${type}`)).to.equal(true);
+      expect(dom.classList.contains(`pm-badge--${type}`)).to.equal(true);
     });
   });
 
   it('size small', () => {
     vm = createTest(Badge, { size: 'small' });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-badge--small')).to.equal(true);
+    expect(dom.classList.contains('pm-badge--small')).to.equal(true);
   });
 
   it('size large', () => {
     vm = createTest(Badge, { size: 'large' });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-badge--large')).to.equal(true);
+    expect(dom.classList.contains('pm-badge--large')).to.equal(true);
   });
 
   it('shape square', () => {
     vm = createTest(Badge, { square: true });
     const dom = vm.$el;
-    expect(dom.classList.contains('gay-badge--square')).to.equal(true);
+    expect(dom.classList.contains('pm-badge--square')).to.equal(true);
   });
 
   it('slot', () => {

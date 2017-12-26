@@ -1,22 +1,22 @@
 <template>
   <popup ref="popup"
-         class="gay-picker"
+         class="pm-picker"
          position="bottom"
          @mask-click="cancel"
          :visible.sync="visible">
-    <div class="gay-picker--panel">
-      <div class="gay-picker--toolbar">
-        <button class="gay-picker--cancel"
+    <div class="pm-picker--panel">
+      <div class="pm-picker--toolbar">
+        <button class="pm-picker--cancel"
                 @click="cancel">{{cancelTxt}}
         </button>
         <slot name="title">{{title}}</slot>
-        <button class="gay-picker--submit"
+        <button class="pm-picker--submit"
                 @click="confirm">{{confirmTxt}}
         </button>
       </div>
-      <div class="gay-picker--container">
-        <div class="gay-picker--target"></div>
-        <div class="gay-picker--wheel">
+      <div class="pm-picker--container">
+        <div class="pm-picker--target"></div>
+        <div class="pm-picker--wheel">
           <div class="wheel-scroll"
                v-for="(s,si) in slots"
                ref="wheels"
@@ -40,7 +40,7 @@
   import Popup from '../popup';
 
   export default {
-    name: 'GayPicker',
+    name: 'PmPicker',
     components: { Popup },
     props: {
       title: { type: String, default: '请选择' },

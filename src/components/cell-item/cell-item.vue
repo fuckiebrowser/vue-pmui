@@ -1,12 +1,12 @@
 <template>
-  <label class="gay-cell-item"
+  <label class="pm-cell-item"
          @click="clickHandler">
-    <div class="gay-cell-item--label">
+    <div class="pm-cell-item--label">
       <slot name="label">
         {{label}}
       </slot>
     </div>
-    <div class="gay-cell-item--content">
+    <div class="pm-cell-item--content">
       <slot></slot>
       <i v-if="arrow"
          class="iconfont icon-right"></i>
@@ -16,7 +16,7 @@
 <style scoped></style>
 <script>
   export default {
-    name: 'GayCellItem',
+    name: 'PmCellItem',
     props: {
       label: String,
       arrow: Boolean,

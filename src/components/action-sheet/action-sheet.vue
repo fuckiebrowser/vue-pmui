@@ -1,18 +1,18 @@
 <template>
   <popup ref="popup"
-         class="gay-action-sheet"
+         class="pm-action-sheet"
          position="bottom"
          @mask-click="cancel"
          :visible.sync="visible">
-    <div class="gay-action-sheet--panel">
-      <div class="gay-action-sheet-item"
+    <div class="pm-action-sheet--panel">
+      <div class="pm-action-sheet-item"
            v-for="(a,i) in actions"
            :class="{ highlight: a.highlight }"
            @click="confirm(a,i)"
            :key="i">
         {{a.title}}
       </div>
-      <div class="gay-action-sheet-item cancel"
+      <div class="pm-action-sheet-item cancel"
            @click="cancel"> 取消
       </div>
     </div>
@@ -23,7 +23,7 @@
   import Popup from '../popup';
 
   export default {
-    name: 'GayActionSheet',
+    name: 'PmActionSheet',
     components: { Popup },
     props: {
       actions: {
