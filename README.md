@@ -15,7 +15,7 @@
 9. Switch
 10. Radio
 11. Dialog
-12. Toast
+12. Toast :heavy_check_mark:
 13. Swipe :heavy_check_mark:
 14. Popup :heavy_check_mark:
 15. ActionSheet :heavy_check_mark:
