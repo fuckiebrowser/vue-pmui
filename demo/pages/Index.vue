@@ -43,7 +43,8 @@
           'swipe',
           'popup',
           'picker',
-          'actionSheet'
+          'actionSheet',
+          'toast'
         ]
       };
     }

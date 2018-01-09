@@ -1,3 +1,4 @@
+// Components
 import Button from './components/button';
 import Header from './components/header';
 import Layout from './components/layout';
@@ -15,7 +16,10 @@ import Picker from './components/picker';
 import ActionSheet from './components/action-sheet';
 import BetterScroll from './components/better-scroll';
 
-// directive
+// Global Api
+import Toast from './components/toast';
+
+// Directives
 import Ripple from './directives/ripple';
 
 const version = '0.0.1';
@@ -44,6 +48,9 @@ function install(Vue) {
   components.forEach(comp => Vue.component(comp.name, comp));
   // directive
   Vue.directive(Ripple.name, Ripple);
+  // apis
+  Vue.prototype.$toast = Toast;
+  console.log([Toast]);
 }
 
 export default {

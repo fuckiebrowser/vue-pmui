@@ -15,6 +15,11 @@ export default new Router({
     { path: '/swipe', name: 'swipe', component: () => import('../pages/Swipe') },
     { path: '/popup', name: 'popup', component: () => import('../pages/Popup') },
     { path: '/picker', name: 'picker', component: () => import('../pages/Picker') },
-    { path: '/actionSheet', name: 'actionSheet', component: () => import('../pages/ActionSheet') }
+    {
+      path: '/actionSheet',
+      name: 'ActionSheet',
+      component: () => import('../pages/ActionSheet')
+    },
+    { path: '/toast', name: 'toast', component: () => import('../pages/Toast') }
   ]
 });

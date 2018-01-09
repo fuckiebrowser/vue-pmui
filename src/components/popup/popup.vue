@@ -5,14 +5,14 @@
            @click="maskClick"
            v-show="visible"
            v-if="mask">
-        <slot name="mask"></slot>
+        <slot name="mask" />
       </div>
     </transition>
     <transition :name="transitionName">
       <div class="pm-popup--container"
            v-show="visible"
            :class="posClass">
-        <slot></slot>
+        <slot />
       </div>
     </transition>
   </div>

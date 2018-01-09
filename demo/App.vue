@@ -34,7 +34,7 @@
   @import '../src/styles/index';
 
   body {
-    margin: 0;
+    margin: 0 auto;
     font-size: 14px;
   }
 
