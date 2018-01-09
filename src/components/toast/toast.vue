@@ -46,6 +46,7 @@
     computed: {
       typeIcon() {
         return {
+          'icon-loading': this.type === 'loading',
           'icon-check': this.type === 'success',
           'icon-close': this.type === 'error',
           'icon-warn': this.type === 'warning',

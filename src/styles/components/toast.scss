@@ -22,9 +22,29 @@
   &--icon {
     font-size: 20px;
     margin-right: 8px;
-  }
 
-  &--icon + &--content {
-    //margin-top: 10px;
+    &.icon-loading::before {
+      $circle-width: 2px;
+      content: ' ';
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-top: $circle-width solid transparent;
+      border-left: $circle-width solid $color-white;
+      border-right: $circle-width solid $color-white;
+      border-bottom: $circle-width solid $color-white;
+      border-radius: 50%;
+      box-sizing: border-box;
+      animation: spin infinite linear 800ms;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(359deg)
   }
 }

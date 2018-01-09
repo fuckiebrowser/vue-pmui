@@ -54,4 +54,6 @@ Toast.close = () => {
   Toast[type] = message => Toast({ message, type });
 });
 
+Toast.loading = (message = 'loading') => Toast({ message, duration: 0, type: 'loading' });
+
 export default Toast;

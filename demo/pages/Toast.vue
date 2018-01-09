@@ -6,6 +6,10 @@
         message
       </pm-button>
       <pm-button long
+                 @click="loading">
+        loading
+      </pm-button>
+      <pm-button long
                  type="success"
                  @click="success">
         success
@@ -42,19 +46,25 @@
   export default {
     methods: {
       message() {
-        this.$toast('哈哈哈');
+        this.$toast('message');
       },
       success() {
-        this.$toast.success('哈哈哈');
+        this.$toast.success('success');
       },
       error() {
-        this.$toast.error('哈哈哈');
+        this.$toast.error('error');
       },
       warning() {
-        this.$toast.warning('哈哈哈');
+        this.$toast.warning('warning');
       },
       info() {
-        this.$toast.info('哈哈哈');
+        this.$toast.info('info');
+      },
+      loading() {
+        const instance = this.$toast.loading();
+        setTimeout(() => {
+          instance.close();
+        }, 10000);
       }
     }
   };

@@ -50,7 +50,6 @@ function install(Vue) {
   Vue.directive(Ripple.name, Ripple);
   // apis
   Vue.prototype.$toast = Toast;
-  console.log([Toast]);
 }
 
 export default {
