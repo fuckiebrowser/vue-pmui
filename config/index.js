@@ -14,8 +14,8 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    // host: '10.1.39.111', // can be overwritten by process.env.HOST
-    host: null, // can be overwritten by process.env.HOST
+    host: '10.1.39.111', // can be overwritten by process.env.HOST
+    // host: null, // can be overwritten by process.env.HOST
     port: 5230, // can be overwritten by process.env.HOST, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,
@@ -52,10 +52,10 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../docs/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../docs'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '',
 

@@ -1,37 +1,41 @@
 <template>
-  <pm-popup visible
-            class="pm-toast"
-            :mask="mask">
+  <transition name="fade">
+    <pm-popup v-show="visible"
+              class="pm-toast"
+              :mask="mask">
 
-    <transition name="fade"
-                @after-leave="$emit('close')">
+      <transition name="zoom"
+                  @after-leave="$emit('close')">
 
-      <div v-show="show"
-           class="pm-toast--container">
+        <div class="pm-toast--container"
+             v-show="visible">
 
-        <i v-if="icon"
-           :class="icon"
-           class="pm-toast--icon"></i>
+          <i v-if="icon"
+             :class="icon"
+             class="pm-toast--icon"></i>
 
-        <i v-else-if="type"
-           class="pm-toast--icon iconfont"
-           :class="typeIcon"></i>
+          <i v-else-if="type"
+             class="pm-toast--icon iconfont"
+             :class="typeIcon"></i>
 
-        <div class="pm-toast--content">
-          {{message}}
+          <div class="pm-toast--content">
+            {{message}}
+          </div>
+
         </div>
 
-      </div>
-
-    </transition>
-  </pm-popup>
+      </transition>
+    </pm-popup>
+  </transition>
 </template>
 
 <script type="text/jsx">
   import PmPopup from '../popup';
+  import display from '../../mixins/display';
 
   export default {
-    name: 'PmToast',
+    name: 'PmDialog',
+    mixins: [display],
     components: { PmPopup },
     props: {
       type: String,
@@ -39,9 +43,6 @@
       icon: String,
       message: String,
       duration: Number
-    },
-    data() {
-      return { show: false }
     },
     computed: {
       typeIcon() {
@@ -52,19 +53,6 @@
           'icon-warn': this.type === 'warning',
           'icon-info': this.type === 'info',
         };
-      }
-    },
-    async mounted() {
-      this.show = true;
-      await this.$nextTick();
-
-      if (this.duration) {
-        setTimeout(
-          () => {
-            this.show = false;
-          },
-          this.duration
-        );
       }
     }
   };

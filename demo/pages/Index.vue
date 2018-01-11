@@ -44,7 +44,8 @@
           'popup',
           'picker',
           'actionSheet',
-          'toast'
+          'toast',
+          'dialog'
         ]
       };
     }

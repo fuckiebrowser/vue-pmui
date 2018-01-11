@@ -1,7 +1,7 @@
 # pm-UI
 
 > 骚气的紫色 mobile UI
-> [demo](https://fuckiebrowser.github.io/vue-pmui
+> [demo](https://fuckiebrowser.github.io/vue-pmui)
 
 计划
 1. Button :heavy_check_mark:

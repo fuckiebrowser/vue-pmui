@@ -1,0 +1,85 @@
+.#{$prefix}-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  &--container {
+    width: 270px;
+    overflow: hidden;
+
+    background: $color-white;
+    border-radius: 2px;
+
+    font-size: 16px;
+    text-align: center;
+  }
+
+  &--header {
+    height: 36px;
+    line-height: 36px;
+  }
+
+  &--close {
+    color: #999;
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+
+    @include vertical-center;
+    justify-content: center;
+
+    &:active {
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &--content {
+    margin: 16px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &--input {
+    width: 100%;
+    border: 1px solid $border-color;
+    outline: none;
+    padding: 8px 12px;
+    margin-top: 8px;
+  }
+
+  &--footer {
+    display: flex;
+    line-height: 1;
+    border-top: 1px solid $border-color;
+  }
+
+  &--button {
+    color: #999;
+    height: 50px;
+    @include vertical-center;
+    flex-grow: 1;
+    justify-content: center;
+
+    & + & {
+      border-left: 1px solid $border-color;
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    &.confirm {
+      color: $color-primary-1;
+      &:active {
+        background: $color-primary-1 * 1.65;
+      }
+    }
+  }
+}

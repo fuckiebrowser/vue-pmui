@@ -61,7 +61,7 @@
         this.$toast.info('info');
       },
       loading() {
-        const instance = this.$toast.loading();
+        const instance = this.$loading();
         setTimeout(() => {
           instance.close();
         }, 10000);

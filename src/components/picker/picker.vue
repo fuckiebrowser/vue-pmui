@@ -1,47 +1,54 @@
 <template>
-  <popup ref="popup"
-         class="pm-picker"
-         position="bottom"
-         @mask-click="cancel"
-         :visible.sync="visible">
-    <div class="pm-picker--panel">
-      <div class="pm-picker--toolbar">
-        <button class="pm-picker--cancel"
-                @click="cancel">{{cancelTxt}}
-        </button>
-        <slot name="title">{{title}}</slot>
-        <button class="pm-picker--submit"
-                @click="confirm">{{confirmTxt}}
-        </button>
-      </div>
-      <div class="pm-picker--container">
-        <div class="pm-picker--target"></div>
-        <div class="pm-picker--wheel">
-          <div class="wheel-scroll"
-               v-for="(s,si) in slots"
-               ref="wheels"
-               :key="si">
-            <ul>
-              <li class="wheel-item"
-                  v-for="v in s.values"
-                  :key="v"
-                  v-text="v">
-              </li>
-            </ul>
+  <transition name="fade">
+    <pm-popup ref="popup"
+              class="pm-picker"
+              position="bottom"
+              @mask-click="cancel"
+              v-show="visible">
+      <transition name="slide-from-bottom">
+        <div class="pm-picker--panel"
+             v-show="visible">
+          <div class="pm-picker--toolbar">
+            <button class="pm-picker--cancel"
+                    @click="cancel">{{cancelTxt}}
+            </button>
+            <slot name="title">{{title}}</slot>
+            <button class="pm-picker--submit"
+                    @click="confirm">{{confirmTxt}}
+            </button>
+          </div>
+          <div class="pm-picker--container">
+            <div class="pm-picker--target"></div>
+            <div class="pm-picker--wheel">
+              <div class="wheel-scroll"
+                   v-for="(s,si) in slots"
+                   ref="wheels"
+                   :key="si">
+                <ul>
+                  <li class="wheel-item"
+                      v-for="v in s.values"
+                      :key="v"
+                      v-text="v">
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </popup>
+      </transition>
+    </pm-popup>
+  </transition>
 </template>
 
 <script>
   import BScroll from 'better-scroll';
-  import Popup from '../popup';
+  import PmPopup from '../popup';
+  import display from '../../mixins/display';
 
   export default {
     name: 'PmPicker',
-    components: { Popup },
+    mixins: [display],
+    components: { PmPopup },
     props: {
       title: { type: String, default: '请选择' },
       confirmTxt: { type: String, default: '确定' },
@@ -51,7 +58,6 @@
     },
     data() {
       return {
-        visible: false,
         valueIndex: this.slots.map(() => 0)
       };
     },

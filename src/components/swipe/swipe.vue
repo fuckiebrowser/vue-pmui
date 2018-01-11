@@ -4,7 +4,9 @@
          ref="swipe">
       <div class="pm-swipe-container"
            ref="container">
-        <slot></slot>
+        <slot>
+          {{currentIndex}}
+        </slot>
       </div>
     </div>
 
@@ -16,16 +18,18 @@
       </span>
     </div>
 
-    <a class="pm-swipe-prev"
-       @click="prev"
-       v-ripple>
-      <i class="iconfont icon-back"></i>
-    </a>
-    <a class="pm-swipe-next"
-       @click="next"
-       v-ripple>
-      <i class="iconfont icon-right"></i>
-    </a>
+    <template v-if="showNav">
+      <a class="pm-swipe-prev"
+         @click="prev"
+         v-ripple>
+        <i class="iconfont icon-back"></i>
+      </a>
+      <a class="pm-swipe-next"
+         @click="next"
+         v-ripple>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </template>
   </div>
 
 </template>
@@ -40,12 +44,14 @@
      * @param {Boolean} loop 是否循环滚动
      * @param {Boolean} autoPlay 是否自动播放
      * @param {Boolean} showDots 是否显示导航点
+     * @param {Boolean} showNav 是否显示左右导航按钮
      * @param {Boolean} interval 滚动间隔
      */
     props: {
       height: String,
       loop: Boolean,
       showDots: Boolean,
+      showNav: Boolean,
       speed: {
         type: Number,
         default: 500

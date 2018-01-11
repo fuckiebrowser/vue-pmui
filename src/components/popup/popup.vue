@@ -1,24 +1,22 @@
 <template>
-  <div class="pm-popup">
-    <transition name="fade">
+  <div class="pm-popup"
+       v-show="visible">
       <div class="pm-popup--mask"
            @click="maskClick"
-           v-show="visible"
            v-if="mask">
-        <slot name="mask" />
+        <slot name="mask"/>
       </div>
-    </transition>
-    <transition :name="transitionName">
-      <div class="pm-popup--container"
-           v-show="visible"
-           :class="posClass">
-        <slot />
-      </div>
-    </transition>
+    <div class="pm-popup--container"
+         :class="posClass"
+         v-if="$slots.default">
+      <slot/>
+    </div>
   </div>
 </template>
 
 <script>
+  import display from '../../mixins/display';
+
   /**
    * @params {Boolean} visible 显示关闭弹出层
    * @params {Boolean} mask 是否显示遮罩层
@@ -28,6 +26,7 @@
 
   export default {
     name: 'PmPopup',
+    mixins: [display],
     props: {
       mask: {
         type: Boolean,
@@ -35,14 +34,6 @@
       },
       position: {
         type: String
-      },
-      visible: {
-        type: Boolean
-      }
-    },
-    watch: {
-      visible(val) {
-        this.$emit(val ? 'show' : 'hide');
       }
     },
     computed: {
@@ -66,12 +57,6 @@
     methods: {
       maskClick(e) {
         this.$emit('mask-click', e);
-      },
-      open() {
-        this.$emit('update:visible', true);
-      },
-      close() {
-        this.$emit('update:visible', false);
       }
     }
   };

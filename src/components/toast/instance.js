@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import toast from './toast';
 
+const ToastConstructor = Vue.extend(toast);
+
 const body = document.body;
 const defaults = {
   type: '',
@@ -13,36 +15,45 @@ const defaults = {
 const pool = [];
 
 function close() {
+  if (this.visible) {
+    this.hide();
+    return;
+  }
   pool.splice(pool.indexOf(this), 1);
   body.removeChild(this.$el);
   this.$destroy();
 }
 
-function mount(instance) {
-  instance.$mount();
-  body.appendChild(instance.$el);
+function createDom() {
+  const dom = document.createElement('div');
+  body.appendChild(dom);
+  return dom;
 }
 
 function Toast(options) {
   let props = {};
   if (typeof options === 'string') {
-    props = { ...defaults, message: options };
+    props = { message: options };
   } else {
-    props = { ...defaults, ...options };
+    props = options;
   }
 
-  const instance = new Vue({
-    render(h) {
-      return h(toast, { props, on: { close: () => this.close() } });
+  const instance = new ToastConstructor({
+    el: createDom(),
+    async mounted() {
+      this.show();
+      await this.$nextTick();
+      if (this.duration) {
+        setTimeout(() => {
+          this.hide();
+        }, this.duration);
+      }
     }
   });
-
-  pool.push(instance);
-  mount(instance);
-
+  Object.assign(instance, defaults, props);
   instance.close = close;
-  // setTimeout(() => instance.close(), props.duration);
-
+  instance.$on('close', instance.close);
+  pool.push(instance);
   return instance;
 }
 

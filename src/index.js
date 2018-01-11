@@ -18,6 +18,7 @@ import BetterScroll from './components/better-scroll';
 
 // Global Api
 import Toast from './components/toast';
+import Dialog from './components/dialog';
 
 // Directives
 import Ripple from './directives/ripple';
@@ -49,7 +50,8 @@ function install(Vue) {
   // directive
   Vue.directive(Ripple.name, Ripple);
   // apis
-  Vue.prototype.$toast = Toast;
+  Vue.use(Toast);
+  Vue.use(Dialog);
 }
 
 export default {

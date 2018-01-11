@@ -13,7 +13,9 @@
         {{a.title}}
       </div>
       <div class="pm-action-sheet-item cancel"
-           @click="cancel"> 取消
+           v-if="showCancel"
+           @click="cancel">
+        取消
       </div>
     </div>
   </popup>
@@ -28,6 +30,9 @@
     props: {
       actions: {
         type: Array, default: () => []
+      },
+      showCancel: {
+        type: Boolean, default: true
       }
     },
     data() {

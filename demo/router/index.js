@@ -20,6 +20,7 @@ export default new Router({
       name: 'ActionSheet',
       component: () => import('../pages/ActionSheet')
     },
-    { path: '/toast', name: 'toast', component: () => import('../pages/Toast') }
+    { path: '/toast', name: 'toast', component: () => import('../pages/Toast') },
+    { path: '/dialog', name: 'dialog', component: () => import('../pages/Dialog') }
   ]
 });

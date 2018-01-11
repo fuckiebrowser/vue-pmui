@@ -11,6 +11,41 @@
   }
 }
 
+/* zoom */
+
+.zoom {
+  &-enter-active {
+    animation: zoomIn 300ms;
+  }
+  &-leave-active {
+    animation: zoomOut 300ms;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0, 0);
+  }
+  80% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1, 1);
+  }
+  20% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
+
 /* slide-from */
 .slide-from {
   &-top,
