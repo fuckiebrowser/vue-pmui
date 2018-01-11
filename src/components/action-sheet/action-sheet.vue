@@ -1,24 +1,29 @@
 <template>
-  <popup ref="popup"
-         class="pm-action-sheet"
-         position="bottom"
-         @mask-click="cancel"
-         :visible.sync="visible">
-    <div class="pm-action-sheet--panel">
-      <div class="pm-action-sheet-item"
-           v-for="(a,i) in actions"
-           :class="{ highlight: a.highlight }"
-           @click="confirm(a,i)"
-           :key="i">
-        {{a.title}}
-      </div>
-      <div class="pm-action-sheet-item cancel"
-           v-if="showCancel"
-           @click="cancel">
-        取消
-      </div>
-    </div>
-  </popup>
+  <transition name="fade">
+    <popup ref="popup"
+           class="pm-action-sheet"
+           position="bottom"
+           @mask-click="cancel"
+           v-show="visible">
+      <transition name="slide-from-bottom">
+        <div class="pm-action-sheet--panel"
+             v-show="visible">
+          <div class="pm-action-sheet-item"
+               v-for="(a,i) in actions"
+               :class="{ highlight: a.highlight }"
+               @click="confirm(a,i)"
+               :key="i">
+            {{a.title}}
+          </div>
+          <div class="pm-action-sheet-item cancel"
+               v-if="showCancel"
+               @click="cancel">
+            取消
+          </div>
+        </div>
+      </transition>
+    </popup>
+  </transition>
 </template>
 
 <script>
