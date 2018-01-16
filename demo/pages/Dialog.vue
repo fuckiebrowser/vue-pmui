@@ -36,7 +36,7 @@
         </template>
         <template slot="footer">
           <div style="width: 100%;text-align: center">
-            <h3 >Footer Slot</h3>
+            <h3>Footer Slot</h3>
             <a @click="hide">Click me to hide</a>
           </div>
         </template>
@@ -74,8 +74,12 @@
         }
       },
       async prompt() {
-        const inputValue = await this.$prompt('error');
-        this.$toast(`你输入了${inputValue}`);
+        try {
+          const inputValue = await this.$prompt('error');
+          this.$toast(inputValue ? `你输入了${inputValue}` : '啥都没输入');
+        } catch (e) {
+          this.$toast.error('cancel');
+        }
       },
       custom() {
         const instance = this.$dialog({
@@ -85,8 +89,8 @@
           inputPlaceholder: '输入些什么吧',
           closeOnConfirm: false,
           confirm: (val) => {
-            this.$toast(`点击了确认${val}`);
-            instance.close(val);
+            this.$toast(val ? `点击了确认,输入了${val}` : 'confirm');
+            instance.close();
           },
           cancel: () => this.$toast('点击了取消')
         });

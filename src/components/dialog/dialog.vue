@@ -10,7 +10,7 @@
           <a class="pm-dialog--close"
              @click="cancel"
              v-if="showClose">
-            <i class="iconfont icon-close1"></i>
+            <i class="pm-icon icon-close1"></i>
           </a>
 
           <div class="pm-dialog--header">

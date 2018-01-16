@@ -3,7 +3,7 @@
           :class="{ fixed }">
     <div class="pm-header-left">
       <slot name="left">
-        <pm-button @click="back"><i class="iconfont icon-back"></i></pm-button>
+        <pm-button @click="back"><i class="pm-icon icon-back"></i></pm-button>
       </slot>
     </div>
     <div class="pm-header-title">

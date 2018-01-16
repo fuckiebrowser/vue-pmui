@@ -9,10 +9,12 @@ import TabItem from './components/tab-item';
 import Badge from './components/badge';
 import CellGroup from './components/cell-group';
 import CellItem from './components/cell-item';
+import Switch from './components/switch';
 import Swipe from './components/swipe';
 import SwipeItem from './components/swipe-item';
 import Popup from './components/popup';
 import Picker from './components/picker';
+import Radio from './components/radio';
 import ActionSheet from './components/action-sheet';
 import BetterScroll from './components/better-scroll';
 
@@ -37,10 +39,12 @@ const components = [
   Badge,
   CellGroup,
   CellItem,
+  Switch,
   Swipe,
   SwipeItem,
   Popup,
   Picker,
+  Radio,
   ActionSheet
 ];
 

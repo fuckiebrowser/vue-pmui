@@ -1,6 +1,6 @@
 <template>
   <div class="pm-cell-group">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

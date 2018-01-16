@@ -22,12 +22,12 @@
       <a class="pm-swipe-prev"
          @click="prev"
          v-ripple>
-        <i class="iconfont icon-back"></i>
+        <i class="pm-icon icon-back"></i>
       </a>
       <a class="pm-swipe-next"
          @click="next"
          v-ripple>
-        <i class="iconfont icon-right"></i>
+        <i class="pm-icon icon-right"></i>
       </a>
     </template>
   </div>

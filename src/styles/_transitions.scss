@@ -15,10 +15,10 @@
 
 .zoom {
   &-enter-active {
-    animation: zoomIn 300ms;
+    animation: zoomIn ease-in-out .3s;
   }
   &-leave-active {
-    animation: zoomOut 300ms;
+    animation: zoomOut ease-in-out .3s;
   }
 }
 

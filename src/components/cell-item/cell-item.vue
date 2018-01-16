@@ -7,9 +7,9 @@
       </slot>
     </div>
     <div class="pm-cell-item--content">
-      <slot></slot>
+      <slot />
       <i v-if="arrow"
-         class="iconfont icon-right"></i>
+         class="pm-icon icon-right"></i>
     </div>
   </label>
 </template>

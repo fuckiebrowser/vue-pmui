@@ -45,7 +45,10 @@
           'picker',
           'actionSheet',
           'toast',
-          'dialog'
+          'dialog',
+          'radio',
+          'checkbox',
+          'switch'
         ]
       };
     }

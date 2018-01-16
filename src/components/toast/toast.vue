@@ -15,7 +15,7 @@
              class="pm-toast--icon"></i>
 
           <i v-else-if="type"
-             class="pm-toast--icon iconfont"
+             class="pm-toast--icon pm-icon"
              :class="typeIcon"></i>
 
           <div class="pm-toast--content">
