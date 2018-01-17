@@ -1,40 +1,66 @@
 <template>
   <pm-layout title="Checkbox">
-      <pm-cell-group>
-        <pm-cell-item v-for="t in type"
-                      :key="t"
-                      :label="t">
-          {{ value }}
-          <pm-switch :type="t"
-                     v-model="value"/>
-        </pm-cell-item>
-      </pm-cell-group>
+    <h3>&ensp;CheckboxList</h3>
+    <pm-checkbox-list v-model="value"
+                   :options="options"/>
+    <h3>&ensp;CheckboxList - 左对齐</h3>
+    <pm-checkbox-list v-model="value"
+                   align="left"
+                   :options="options"/>
 
-      <pm-cell-group>
-        <pm-cell-item label="自定义值">
-          {{ value2 }}
-          <pm-switch v-model="value2"
-                     true-value="打开"
-                     false-value="关闭"
-          />
-        </pm-cell-item>
-      </pm-cell-group>
+    <pm-cell-group>
+      <pm-cell-item title="数组">
+        <pm-checkbox v-for="(o,i) in options"
+                  :key="i"
+                  :label="o.value"
+                  v-model="value">
+          {{o.label}}
+        </pm-checkbox>
+      </pm-cell-item>
+      <pm-cell-item title="选中的值">
+        {{ value }}
+      </pm-cell-item>
+    </pm-cell-group>
+
+    <pm-cell-group>
+      <pm-cell-item title="数字字符串" label>
+        <pm-checkbox true-label="on"
+                     false-label="off"
+                     v-model="value2">
+                     全选
+        </pm-checkbox>
+      </pm-cell-item>
+      <pm-cell-item title="选中的值" label>
+        {{ value2 }}
+      </pm-cell-item>
+    </pm-cell-group>
+
+    <pm-cell-group>
+      <pm-cell-item title="布尔值" label>
+        <pm-checkbox v-model="value3">
+                     是否
+        </pm-checkbox>
+      </pm-cell-item>
+      <pm-cell-item title="选中的值" label>
+        {{ value3 }}
+      </pm-cell-item>
+    </pm-cell-group>
   </pm-layout>
 </template>
 
-<style scoped>
-  .container {
-    padding: 0 15px;
-  }
-</style>
 <script>
-  export default {
-    data() {
-      return {
-        type: ['default', 'primary', 'success', 'danger', 'warning'],
-        value: false,
-        value2: '打开'
-      };
-    }
-  };
+export default {
+  data() {
+    return {
+      value: ['apple'],
+      options: [
+        { label: '士多啤梨', value: 'strawberry' },
+        { label: '苹果', value: 'apple' },
+        { label: '橙', value: 'orange' }
+      ],
+      value2: 'on',
+      value3: false
+    };
+  }
+};
 </script>

@@ -2,27 +2,27 @@
   <pm-layout title="Popup">
     <pm-cell-group>
       <pm-cell-item @click.native="center = true"
-                    label="center"
+                    title="center"
                     v-ripple
                     arrow>
       </pm-cell-item>
       <pm-cell-item @click.native="top = true"
-                    label="top"
+                    title="top"
                     v-ripple
                     arrow>
       </pm-cell-item>
       <pm-cell-item @click.native="left = true"
-                    label="left"
+                    title="left"
                     v-ripple
                     arrow>
       </pm-cell-item>
       <pm-cell-item @click.native="right = true"
-                    label="right"
+                    title="right"
                     v-ripple
                     arrow>
       </pm-cell-item>
       <pm-cell-item @click.native="bottom = true"
-                    label="bottom"
+                    title="bottom"
                     v-ripple
                     arrow>
       </pm-cell-item>

@@ -15,6 +15,9 @@ import SwipeItem from './components/swipe-item';
 import Popup from './components/popup';
 import Picker from './components/picker';
 import Radio from './components/radio';
+import RadioList from './components/radio-list';
+import Checkbox from './components/checkbox';
+import CheckboxList from './components/checkbox-list';
 import ActionSheet from './components/action-sheet';
 import BetterScroll from './components/better-scroll';
 
@@ -45,6 +48,9 @@ const components = [
   Popup,
   Picker,
   Radio,
+  RadioList,
+  Checkbox,
+  CheckboxList,
   ActionSheet
 ];
 

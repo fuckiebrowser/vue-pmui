@@ -8,7 +8,7 @@
       <pm-cell-group>
         <pm-cell-item
           v-for="item in list"
-          :label="item"
+          :title="item"
           :key="item"
           :link="'/'+item"
           route

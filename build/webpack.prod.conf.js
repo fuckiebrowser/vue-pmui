@@ -18,6 +18,10 @@ const webpackConfig = merge(baseWebpackConfig, {
   entry: {
 
   },
+  externals: {
+    'vue': 'window.Vue',
+    'vue-router': 'window.VueRouter',
+  },
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -66,8 +70,9 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: process.env.NODE_ENV === 'testing'
         ? 'index.html'
         : config.build.index,
-      template: 'index.html',
+      template: 'index.ejs',
       inject: true,
+      production: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -75,6 +80,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
+      // chunks: ['vendor','pmui','app']
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),

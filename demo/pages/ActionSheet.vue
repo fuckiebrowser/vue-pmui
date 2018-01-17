@@ -3,7 +3,7 @@
     <pm-cell-group>
       <pm-cell-item
         @click.native="pick"
-        :label="label"
+        :title="label"
         arrow>
       </pm-cell-item>
     </pm-cell-group>

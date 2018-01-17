@@ -4,7 +4,8 @@
       <pm-cell-item
         v-for="t in type"
         :key="t"
-        :label="t">
+        :title="t"
+        label>
         {{ value }}
         <pm-switch
           :type="t"
@@ -13,7 +14,7 @@
     </pm-cell-group>
 
     <pm-cell-group>
-      <pm-cell-item label="自定义值">
+      <pm-cell-item title="自定义值" label>
         {{ value2 }}
         <pm-switch
           v-model="value2"

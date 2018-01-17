@@ -57,8 +57,11 @@
       value: { type: Array, default: () => [] }
     },
     data() {
+      const { slots, value } = this._props;
+      const valueIndex = slots.map((s, i) => s.values.indexOf(value[i]) || 0);
+
       return {
-        valueIndex: this.slots.map(() => 0)
+        valueIndex
       };
     },
     methods: {
