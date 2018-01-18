@@ -10,7 +10,7 @@ plan
 4. Tabs :heavy_check_mark:
 5. Badge :heavy_check_mark:
 6. Cell :heavy_check_mark:
-7. Checkbox
+7. Checkbox :heavy_check_mark:
 9. Switch :heavy_check_mark:
 10. Radio :heavy_check_mark:
 11. Dialog :heavy_check_mark:

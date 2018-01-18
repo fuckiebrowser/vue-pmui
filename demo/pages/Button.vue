@@ -1,6 +1,6 @@
 <template>
   <pm-layout title="Button">
-    <div class="wrapper">
+    <div class="container">
       <h2>Small</h2>
       <pm-button size="small">default</pm-button>
       <pm-button size="small" type="primary">primary</pm-button>

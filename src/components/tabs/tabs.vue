@@ -41,7 +41,8 @@
     computed: {
       navStyle() {
         return {
-          width: `${this.scrollWidth}px`
+          // width: `${this.scrollWidth}px`
+          width: `100%`
         };
       },
       barStyle() {

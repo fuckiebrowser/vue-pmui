@@ -11,7 +11,7 @@ function resolve(dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    pmui: './src/main.js',
+    // pmui: './src/main.js',
     app: './demo/main.js'
   },
   output: {

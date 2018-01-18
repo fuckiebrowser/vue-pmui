@@ -42,6 +42,10 @@
     font-weight: normal;
   }
 
+  .container {
+    padding: 15px;
+  }
+
   .pm-header.fixed + .wrapper {
     padding-top: 60px;
   }
