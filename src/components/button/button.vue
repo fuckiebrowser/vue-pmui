@@ -5,7 +5,7 @@
     :class="btnClass"
     @click="handleClick"
     v-ripple>
-    <slot></slot>
+    <slot />
   </button>
 </template>
 

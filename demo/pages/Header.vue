@@ -1,7 +1,7 @@
 <template>
   <pm-layout title="Header">
     <div class="wrapper">
-      <pm-header title="默认"></pm-header>
+      <pm-header title="默认" />
       <pm-header title="右侧纯文字">
         <span slot="right">分享</span>
       </pm-header>

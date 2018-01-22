@@ -3,14 +3,16 @@
           :class="{ fixed }">
     <div class="pm-header-left">
       <slot name="left">
-        <pm-button @click="back"><i class="pm-icon icon-back"></i></pm-button>
+        <pm-button @click="back">
+          <i class="pm-icon icon-back"></i>
+        </pm-button>
       </slot>
     </div>
     <div class="pm-header-title">
       <slot>{{title}}</slot>
     </div>
     <div class="pm-header-right">
-      <slot name="right"></slot>
+      <slot name="right" />
     </div>
   </header>
 </template>
@@ -28,6 +30,7 @@
     methods: {
       back() {
         if (this.$router) this.$router.back();
+        else history.back();
       }
     }
   };

@@ -1,13 +1,16 @@
 <template>
   <footer class="pm-tabbar">
-    <slot></slot>
+    <slot/>
   </footer>
 </template>
 
 <script>
   export default {
     name: 'PmTabbar',
-    props: { type: String, value: [Number, String] },
+    props: {
+      type: String,
+      value: [Number, String]
+    },
     data() {
       return {
         items: [],

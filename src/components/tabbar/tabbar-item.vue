@@ -6,7 +6,7 @@
     <slot name="icon">
       <i class="pm-icon" :class="icon"></i>
     </slot>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -17,9 +17,9 @@
     components: { PmBadge },
     name: 'PmTabbarItem',
     props: {
-      dot: Boolean, // 圆点
+      // dot: Boolean, // 圆点
       icon: String, // 图标类
-      active: Boolean, // 是否激活状态
+      // active: Boolean, // 是否激活状态
       activeClass: { // 激活时的css类名
         type: String,
         default: 'active' // 默认active
@@ -31,10 +31,10 @@
     },
     computed: {
       styleClass() {
-        const { active, index, activeClass } = this;
+        const { index, activeClass } = this;
         let parentActive = false;
         if (this.$parent.getChildActive) parentActive = this.$parent.getChildActive(index);
-        return { [activeClass]: active || parentActive };
+        return { [activeClass]: parentActive };
       }
     },
     methods: {
