@@ -3,19 +3,40 @@
   "version": "1.0.0",
   "description": "Vue Mobile UI components",
   "author": "fuckiebrowser <1608880758@qq.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
+    "style": "gulp --gulpfile build/build-style.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "doc": "node build/build-doc.js"
   },
+  "main": "dist/vue-pmui.min.js",
+  "style": "dist/vue-pmui.min.js",
   "dependencies": {
     "better-scroll": "^1.5.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
+  },
+  "keywords": [
+    "component",
+    "vue",
+    "mobile"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuckiebrowser/vue-pmui"
+  },
+  "homepage": "https://github.com/fuckiebrowser/vue-pmui",
+  "bugs": {
+    "url": "https://github.com/fuckiebrowser/vue-pmui/issues"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -49,6 +70,11 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
     "html-webpack-plugin": "^2.30.1",
     "inject-loader": "^3.0.0",
     "karma": "^1.4.1",
@@ -87,7 +113,7 @@
     "npm": ">= 3.0.0"
   },
   "browserslist": [
-    "iOS >= 7",
-    "Android >= 4.1"
+    "iOS >= 10",
+    "Android >= 6"
   ]
 }

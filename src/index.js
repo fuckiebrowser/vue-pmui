@@ -1,3 +1,4 @@
+import BetterScroll from 'better-scroll';
 // Components
 import Button from './components/button';
 import Header from './components/header';
@@ -19,7 +20,7 @@ import RadioList from './components/radio-list';
 import Checkbox from './components/checkbox';
 import CheckboxList from './components/checkbox-list';
 import ActionSheet from './components/action-sheet';
-import BetterScroll from './components/better-scroll';
+
 
 // Global Api
 import Toast from './components/toast';
@@ -28,10 +29,9 @@ import Dialog from './components/dialog';
 // Directives
 import Ripple from './directives/ripple';
 
-const version = '0.0.1';
+const version = '1.0.0';
 
 const components = [
-  BetterScroll,
   Button,
   Header,
   Tabbar,
@@ -63,8 +63,41 @@ function install(Vue) {
   Vue.use(Toast);
   Vue.use(Dialog);
 }
-
-export default {
+const PMUI = {
   version,
-  install
+  install,
+  /* components */
+  Button,
+  Header,
+  Tabbar,
+  TabbarItem,
+  Layout,
+  Tabs,
+  TabItem,
+  Badge,
+  CellGroup,
+  CellItem,
+  Switch,
+  Swipe,
+  SwipeItem,
+  Popup,
+  Picker,
+  Radio,
+  RadioList,
+  Checkbox,
+  CheckboxList,
+  ActionSheet,
+  /* api */
+  Toast,
+  Dialog,
+  BetterScroll,
+  /* directive */
+  Ripple
 };
+/* istanbul ignore if */
+if (typeof window !== 'undefined' && window.Vue) {
+  window.PMUI = PMUI;
+  install(window.Vue);
+}
+
+export default PMUI;

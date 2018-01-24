@@ -3,19 +3,23 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
   <title>pm-ui</title>
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_472947_jlagze6f039grpb9.css">
+  <% if (!htmlWebpackPlugin.options.production) { %>
+  <link rel="stylesheet"
+        href="//at.alicdn.com/t/font_472947_jlagze6f039grpb9.css">
+  <% } %>
 </head>
 
 <body>
-  <div id="app"></div>
-  <!-- built files will be auto injected -->
+<div id="app"></div>
+<!-- built files will be auto injected -->
 
-  <% if (htmlWebpackPlugin.options.production) { %>
-    <script src="https://unpkg.com/vue@2.5.2/dist/vue.min.js"></script>
-    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
-  <% } %>
+<% if (htmlWebpackPlugin.options.production) { %>
+<script src="https://unpkg.com/vue@2.5.2/dist/vue.min.js"></script>
+<script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
+<% } %>
 </body>
 
 </html>

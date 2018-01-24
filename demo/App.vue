@@ -31,7 +31,7 @@
 </script>
 
 <style lang="scss">
-  @import '../src/styles/index';
+  @import '../dist/vuw-pmui.css';
 
   body {
     margin: 0 auto;

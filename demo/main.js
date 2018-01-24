@@ -3,10 +3,13 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import PmUI from '../src/index';
+
+if (!window.PMUI) {
+  window.PMUI = require('../dist/vue-pmui.min').default;
+}
 
 // Vue.config.productionTip = false;
-Vue.use(PmUI);
+Vue.use(window.PMUI);
 
 /* eslint-disable no-new */
 new Vue({

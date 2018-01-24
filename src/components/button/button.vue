@@ -47,5 +47,3 @@
     }
   };
 </script>
-
-<style lang="sass" rel="stylesheet/scss"></style>

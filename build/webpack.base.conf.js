@@ -12,7 +12,7 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     // pmui: './src/main.js',
-    app: './demo/main.js'
+    // app: './demo/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -59,7 +59,8 @@ module.exports = {
           resolve('packages'),
           resolve('src'),
           resolve('test')
-        ]
+        ],
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

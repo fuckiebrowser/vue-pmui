@@ -4,12 +4,6 @@
   </div>
 </template>
 
-<style scoped>
-  div {
-    overflow: hidden;
-  }
-</style>
-
 <script>
   import BScroll from 'better-scroll';
 
@@ -171,6 +165,3 @@
   };
 </script>
 
-<style scoped>
-
-</style>

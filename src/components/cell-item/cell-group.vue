@@ -9,7 +9,3 @@
     name: 'PmCellGroup'
   };
 </script>
-
-<style scoped>
-
-</style>
