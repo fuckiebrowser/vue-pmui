@@ -12,6 +12,7 @@
       <pm-cell-item title="单独使用" label>
         <pm-radio v-for="(o,i) in options"
                   :key="i"
+                  :disabled="o.disabled"
                   :label="o.value"
                   v-model="value">
           {{o.label}}
@@ -31,7 +32,7 @@ export default {
       value: '',
       options: [
         { label: '士多啤梨', value: 'strawberry' },
-        { label: '苹果', value: 'apple' },
+        { label: '苹果', value: 'apple', disabled: true },
         { label: '橙', value: 'orange' }
       ]
     };

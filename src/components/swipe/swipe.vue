@@ -12,9 +12,9 @@
 
     <div v-if="showDots"
          class="pm-swipe-dots">
-      <span :class="{active: currentIndex === item}"
-            v-for="item in dots"
-            @click="jump(item)">
+      <span :class="{active: currentIndex === di}"
+            v-for="(item, di) in dots"
+            @click="jump(di)">
       </span>
     </div>
 
@@ -63,14 +63,25 @@
       interval: {
         type: Number,
         default: 3000
+      },
+      index: {
+        type: Number,
+        default: 0
       }
     },
     data() {
       return {
         swipe: null,
-        currentIndex: 1,
+        currentIndex: 0,
         dots: []
       };
+    },
+    watch: {
+      index: 'jump',
+      currentIndex(index) {
+        this.$emit('change', index);
+        this.$emit('update:index', index);
+      }
     },
     methods: {
       initStyle() {
@@ -116,9 +127,9 @@
         });
 
         swipe.on('scrollEnd', () => {
+          this.scrolling = false;
           const { pageX } = swipe.getCurrentPage();
           this.currentIndex = pageX;
-          this.$emit('change', pageX);
           this.play();
         });
       },
@@ -142,7 +153,7 @@
         this.swipe.prev();
       },
       jump(index) {
-        if (this.scrolling) return;
+        if (this.scrolling || index === this.currentIndex) return;
         clearTimeout(this.timer);
         this.swipe.goToPage(index, 0, this.speed);
       }

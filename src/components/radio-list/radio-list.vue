@@ -7,10 +7,11 @@
                     disabled: o.disabled
                   }"
                   label
-                  @click.native="$emit('input', o.value)">
+                  @click.native="!o.disabled && $emit('input', o.value)">
       <template slot="title">
         <pm-radio v-if="alignLeft"
                   :value="value"
+                  :disabled="o.disabled"
                   :label="o.value"/>
 
         <div class="pm-radio--label">
@@ -20,6 +21,7 @@
 
       <pm-radio v-if="!alignLeft"
                 :value="value"
+                :disabled="o.disabled"
                 :label="o.value"/>
     </pm-cell-item>
   </pm-cell-group>

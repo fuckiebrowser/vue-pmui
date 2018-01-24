@@ -6,6 +6,7 @@
       <template slot="title">
         <pm-checkbox v-if="alignLeft"
                      :value="value"
+                     :disabled="o.disabled"
                      :label="o.value"
                      @input="inputHandler"/>
 
@@ -16,6 +17,7 @@
 
       <pm-checkbox v-if="!alignLeft"
                   :value="value"
+                  :disabled="o.disabled"
                   :label="o.value"
                   @input="inputHandler"/>
     </pm-cell-item>

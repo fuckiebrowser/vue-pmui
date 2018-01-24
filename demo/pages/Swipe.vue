@@ -1,6 +1,7 @@
 <template>
   <pm-layout title="Swipe">
     <pm-swipe @change="changeHandler"
+              :index.sync="index"
                loop
                show-dots>
       <pm-swipe-item>
@@ -32,12 +33,12 @@
   export default {
     data() {
       return {
-        index: 1
+        index: 0
       };
     },
     methods: {
       changeHandler(index) {
-        this.index = index;
+        this.$toast(`index: ${index}`, 1000);
       }
     }
   };

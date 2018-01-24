@@ -55,7 +55,7 @@ export default {
       value: ['apple'],
       options: [
         { label: '士多啤梨', value: 'strawberry' },
-        { label: '苹果', value: 'apple' },
+        { label: '苹果 disabled', value: 'apple', disabled: true },
         { label: '橙', value: 'orange' }
       ],
       value2: 'on',
