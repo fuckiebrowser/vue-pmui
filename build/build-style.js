@@ -17,7 +17,7 @@ gulp.task('css', function () {
       ]
     }))
     .pipe(cleanCSS())
-    .pipe(rename('vuw-pmui.css'))
+    .pipe(rename('vue-pmui.min.css'))
     .pipe(gulp.dest('../dist'));
 });
 

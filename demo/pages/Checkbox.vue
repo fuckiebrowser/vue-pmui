@@ -23,6 +23,20 @@
     </pm-cell-group>
 
     <pm-cell-group>
+      <pm-cell-item title="对象">
+        <pm-checkbox v-for="(o,i) in options"
+                     :key="i"
+                     :label="o"
+                     v-model="value4">
+          {{o.label}}
+        </pm-checkbox>
+      </pm-cell-item>
+      <pm-cell-item title="选中的值">
+        {{ value4 }}
+      </pm-cell-item>
+    </pm-cell-group>
+
+    <pm-cell-group>
       <pm-cell-item title="数字字符串" label>
         <pm-checkbox true-label="on"
                      false-label="off"
@@ -52,14 +66,15 @@
 export default {
   data() {
     return {
-      value: ['apple'],
       options: [
         { label: '士多啤梨', value: 'strawberry' },
         { label: '苹果 disabled', value: 'apple', disabled: true },
         { label: '橙', value: 'orange' }
       ],
+      value: ['apple'],
       value2: 'on',
-      value3: false
+      value3: false,
+      value4: []
     };
   }
 };

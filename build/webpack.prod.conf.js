@@ -26,6 +26,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     filename: 'vue-pmui.min.js',
     library: 'vue-pmui',
     libraryTarget: 'umd',
+    libraryExport: 'default',
     umdNamedDefine: true
   },
   plugins: [

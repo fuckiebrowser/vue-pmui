@@ -1,6 +1,5 @@
 .#{$prefix}-switch {
   @include vertical-center;
-  @include background;
   position: relative;
   height: 32px;
   width: 52px;
@@ -11,39 +10,63 @@
   box-shadow: 0 0 1px $border-color;
   justify-content: center;
 
-  &:not(.checked) {
-    @include background-gradient($border-color, $border-color);
+  @include background-gradient($border-color, $border-color);
+  &::before {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity ease-in-out .3s;
+  }
+  &--primary::before {
+    @include background-gradient($color-primary-1, $color-primary-2);
+  }
+  &--danger::before {
+    @include background-gradient($color-danger-1, $color-danger-2);
+  }
+  &--success::before {
+    @include background-gradient($color-success-1, $color-success-2);
+  }
+  &--warning::before {
+    @include background-gradient($color-warning-1, $color-warning-2);
   }
 
   &::before,
   &::after {
     content: ' ';
     display: block;
-    //transition: transform 250ms;
+    position: absolute;
+  }
+
+  &::after,
+  &--inner {
     transition: transform ease-in-out .3s;
     border-radius: 14px;
   }
 
-  &::before {
+  &::after {
     transform: scale3d(1, 1, 1);
     background: $color-white;
     width: 48px;
     height: 28px;
   }
-  &::after {
+  &--inner {
     position: absolute;
     left: 2px;
     width: 28px;
     height: 28px;
+    z-index: 1;
     background: $color-white;
     transform: translate3d(0, 0, 0);
     box-shadow: 0 3px 12px rgba(0, 0, 0, .16), 0 3px 1px rgba(0, 0, 0, .1);
   }
-
   &.checked::before {
-    transform: scale3d(0, 0, 0);
+    opacity: 1;
   }
   &.checked::after {
+    transform: scale3d(0, 0, 0);
+  }
+  &.checked &--inner {
     transform: translate3d(20px, 0, 0);
   }
 }

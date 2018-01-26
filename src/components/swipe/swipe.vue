@@ -40,12 +40,13 @@
     name: 'PmSwipe',
     /**
      * @param {String} height 轮播高度
-     * @param {Boolean} speed 动画滚动速度
+     * @param {Number} speed 动画滚动速度
      * @param {Boolean} loop 是否循环滚动
      * @param {Boolean} autoPlay 是否自动播放
      * @param {Boolean} showDots 是否显示导航点
      * @param {Boolean} showNav 是否显示左右导航按钮
      * @param {Boolean} interval 滚动间隔
+     * @param {Number} Index swipe索引值
      */
     props: {
       height: String,

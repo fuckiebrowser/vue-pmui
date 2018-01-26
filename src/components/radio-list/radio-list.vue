@@ -7,7 +7,7 @@
                     disabled: o.disabled
                   }"
                   label
-                  @click.native="!o.disabled && $emit('input', o.value)">
+                  @click.native="changeHandler(o)">
       <template slot="title">
         <pm-radio v-if="alignLeft"
                   :value="value"
@@ -28,35 +28,42 @@
 </template>
 
 <script type="text/jsx">
-import PmCellGroup from '../cell-group';
-import PmCellItem from '../cell-item';
-import PmRadio from '../radio';
+  import PmCellGroup from '../cell-group';
+  import PmCellItem from '../cell-item';
+  import PmRadio from '../radio';
 
-export default {
-  name: 'PmRadioList',
-  components: {
-    PmRadio,
-    PmCellGroup,
-    PmCellItem
-  },
-  props: {
-    value: {
-      type: [Boolean, String, Number],
-      default: () => ''
+  export default {
+    name: 'PmRadioList',
+    components: {
+      PmRadio,
+      PmCellGroup,
+      PmCellItem
     },
-    options: {
-      type: Array,
-      default: () => []
+    props: {
+      value: {
+        type: [Boolean, String, Number],
+        default: () => ''
+      },
+      options: {
+        type: Array,
+        default: () => []
+      },
+      align: {
+        type: String,
+        default: 'right'
+      }
     },
-    align: {
-      type: String,
-      default: 'right'
+    computed: {
+      alignLeft() {
+        return this.align === 'left';
+      }
+    },
+    methods: {
+      changeHandler({ disabled, value }) {
+        if (disabled) return;
+        this.$emit('input', value);
+        this.$emit('change', value, this.value);
+      }
     }
-  },
-  computed: {
-    alignLeft() {
-      return this.align === 'left';
-    }
-  }
-};
+  };
 </script>

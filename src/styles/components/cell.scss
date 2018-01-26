@@ -8,7 +8,7 @@
     @include vertical-center();
     background: $color-white no-repeat;
     padding-left: 16px;
-    height: $cell-height;
+    min-height: $cell-height;
 
     & + & {
       //border-top: 1px solid $cell-border-color;

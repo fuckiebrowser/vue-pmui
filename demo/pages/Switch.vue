@@ -7,19 +7,25 @@
         :title="t"
         label>
         {{ value }}
-        <pm-switch
-          :type="t"
-          v-model="value"/>
+        <pm-switch :type="t"
+                   v-model="value"/>
       </pm-cell-item>
     </pm-cell-group>
 
     <pm-cell-group>
-      <pm-cell-item title="自定义值" label>
+      <pm-cell-item title="自定义值"
+                    label>
         {{ value2 }}
-        <pm-switch
-          v-model="value2"
-          true-value="打开"
-          false-value="关闭"/>
+        <pm-switch v-model="value2"
+                   true-value="打开"
+                   false-value="关闭"/>
+      </pm-cell-item>
+    </pm-cell-group>
+
+    <pm-cell-group>
+      <pm-cell-item title="禁用"
+                    label>
+        <pm-switch v-model="value" disabled/>
       </pm-cell-item>
     </pm-cell-group>
   </pm-layout>

@@ -1,7 +1,7 @@
 <template>
   <button class="pm-switch"
           :class="typeClass"
-          @click="clickHandler">
+          @click.stop="changeHandler">
     <span class="pm-switch--inner"></span>
   </button>
 </template>
@@ -14,26 +14,29 @@
         type: [Boolean, String, Object],
         default: () => false
       },
-      trueValue: {
+      trueLabel: {
         type: [Boolean, String, Object],
         default: () => true
       },
-      falseValue: {
+      falseLabel: {
         type: [Boolean, String, Object],
         default: () => false
       },
       type: {
         type: String,
         default: () => ''
-      }
+      },
+      disabled: Boolean
     },
     computed: {
-      isChecked() {
-        return this.value === this.trueValue;
+      checked() {
+        return this.value === this.trueLabel;
       },
       typeClass() {
+        const { checked, disabled } = this;
         return {
-          checked: this.isChecked,
+          checked,
+          disabled,
           'pm-switch--danger': this.type === 'danger',
           'pm-switch--primary': this.type === 'primary',
           'pm-switch--success': this.type === 'success',
@@ -42,8 +45,11 @@
       }
     },
     methods: {
-      clickHandler() {
-        this.$emit('input', this.isChecked ? this.falseValue : this.trueValue);
+      changeHandler() {
+        if (this.disabled) return;
+        const val = this.checked ? this.falseLabel : this.trueLabel;
+        this.$emit('input', val);
+        this.$emit('change', val, this.value);
       }
     }
   };

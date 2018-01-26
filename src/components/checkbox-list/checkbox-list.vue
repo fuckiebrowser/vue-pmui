@@ -8,7 +8,7 @@
                      :value="value"
                      :disabled="o.disabled"
                      :label="o.value"
-                     @input="inputHandler"/>
+                     @change="changeHandler"/>
 
         <div class="pm-chebox-list--label">
           {{ o.label }}
@@ -19,7 +19,7 @@
                   :value="value"
                   :disabled="o.disabled"
                   :label="o.value"
-                  @input="inputHandler"/>
+                  @change="changeHandler"/>
     </pm-cell-item>
   </pm-cell-group>
 </template>
@@ -56,8 +56,9 @@ export default {
     }
   },
   methods: {
-    inputHandler(val) {
-      this.$emit('input', val);
+    changeHandler(newVal, oldVal) {
+      this.$emit('input', newVal);
+      this.$emit('change', newVal, oldVal);
     }
   }
 };

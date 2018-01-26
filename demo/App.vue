@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: 'app',
+    name: 'App',
     data() {
       return {
         transitionName: ''
@@ -31,8 +31,7 @@
 </script>
 
 <style lang="scss">
-  /*@import '~vue-pmui/dist/vuw-pmui.css';*/
-  @import '../src/styles/index.scss';
+  @import '../dist/vue-pmui.min.css';
 
   body {
     margin: 0 auto;

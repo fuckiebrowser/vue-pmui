@@ -10,11 +10,11 @@
              v-show="visible">
           <div class="pm-picker--toolbar">
             <button class="pm-picker--cancel"
-                    @click="cancel">{{cancelTxt}}
+                    @click="cancel">{{cancelText}}
             </button>
             <slot name="title">{{title}}</slot>
             <button class="pm-picker--submit"
-                    @click="confirm">{{confirmTxt}}
+                    @click="confirm">{{confirmText}}
             </button>
           </div>
           <div class="pm-picker--container">
@@ -51,8 +51,8 @@
     components: { PmPopup },
     props: {
       title: { type: String, default: '请选择' },
-      confirmTxt: { type: String, default: '确定' },
-      cancelTxt: { type: String, default: '取消' },
+      confirmText: { type: String, default: '确定' },
+      cancelText: { type: String, default: '取消' },
       slots: { type: Array, default: () => [] },
       value: { type: Array, default: () => [] }
     },

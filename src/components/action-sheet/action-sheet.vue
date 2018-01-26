@@ -17,8 +17,8 @@
           </div>
           <div class="pm-action-sheet-item cancel"
                v-if="showCancel"
-               @click="cancel">
-            取消
+               @click="hide">
+            {{ cancelText }}
           </div>
         </div>
       </transition>
@@ -28,33 +28,29 @@
 
 <script>
   import Popup from '../popup';
+  import display from '../../mixins/display';
 
   export default {
     name: 'PmActionSheet',
+    mixins: [display],
     components: { Popup },
     props: {
       actions: {
         type: Array, default: () => []
       },
+      cancelText: {
+        type: String,
+        default: '取消'
+      },
       showCancel: {
-        type: Boolean, default: true
+        type: Boolean,
+        default: true
       }
     },
-    data() {
-      return {
-        visible: false
-      };
-    },
     methods: {
-      open() {
-        this.visible = true;
-      },
-      cancel() {
-        this.visible = false;
-      },
       confirm(action, index) {
         if (action.callback) action.callback({ action, index });
-        this.cancel();
+        this.hide();
       }
     }
   };

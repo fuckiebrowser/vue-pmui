@@ -58,7 +58,8 @@ module.exports = {
           resolve('demo'),
           resolve('packages'),
           resolve('src'),
-          resolve('test')
+          resolve('test'),
+          resolve('dist')
         ],
         exclude: /node_modules/
       },

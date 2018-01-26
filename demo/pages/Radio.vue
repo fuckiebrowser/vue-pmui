@@ -22,6 +22,21 @@
         {{ value }}
       </pm-cell-item>
     </pm-cell-group>
+
+    <pm-cell-group>
+      <pm-cell-item title="对象选择" label>
+        <pm-radio v-for="(o,i) in options"
+                  :key="i"
+                  :disabled="o.disabled"
+                  :label="o"
+                  v-model="objVal">
+          {{o.label}}
+        </pm-radio>
+      </pm-cell-item>
+      <pm-cell-item title="选中的值" label>
+        {{ objVal }}
+      </pm-cell-item>
+    </pm-cell-group>
   </pm-layout>
 </template>
 
@@ -30,6 +45,7 @@ export default {
   data() {
     return {
       value: '',
+      objVal: null,
       options: [
         { label: '士多啤梨', value: 'strawberry' },
         { label: '苹果', value: 'apple', disabled: true },

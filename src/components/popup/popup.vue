@@ -45,14 +45,13 @@
           'pm-popup--right': position === 'right',
           'pm-popup--bottom': position === 'bottom',
           'pm-popup--center': ['top', 'left', 'right', 'bottom'].indexOf(position) < 0
-        }
-          ;
-      },
-      transitionName() {
-        const position = this.position;
-        if (position) return `slide-from-${position}`;
-        return '';
+        };
       }
+      // transitionName() {
+      //   const position = this.position;
+      //   if (position) return `slide-from-${position}`;
+      //   return '';
+      // }
     },
     methods: {
       maskClick(e) {
