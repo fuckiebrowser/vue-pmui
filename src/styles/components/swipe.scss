@@ -3,18 +3,18 @@
   height: (100*9/16)*1vw;
   position: relative;
 
-  &-container {
+  &__container {
     height: 100%;
     display: flex;
   }
 
-  &-item {
+  &__item {
     flex-shrink: 0;
     height: 100%;
   }
 
-  &-prev,
-  &-next {
+  &__prev,
+  &__next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -29,15 +29,15 @@
     }
   }
 
-  &-prev {
+  &__prev {
     left: 0;
   }
 
-  &-next {
+  &__next {
     right: 0;
   }
 
-  &-dots {
+  &__dots {
     position: absolute;
     bottom: 12px;
     width: 100%;

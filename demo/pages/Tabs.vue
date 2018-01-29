@@ -25,7 +25,6 @@
       <pm-tab-item index="2">
         <template slot="title">
           Switch
-          &ensp;
           <pm-badge type="danger"
                     size="small">5
           </pm-badge>
@@ -45,6 +44,22 @@
             </pm-cell-item>
           </pm-cell-group>
         </div>
+      </pm-tab-item>
+      <pm-tab-item index="3"
+                   title="Three">
+        Three
+      </pm-tab-item>
+      <pm-tab-item index="4"
+                   title="Four">
+        Four
+      </pm-tab-item>
+      <pm-tab-item index="5"
+                   title="Five">
+        Five
+      </pm-tab-item>
+      <pm-tab-item index="6"
+                   title="Six">
+        Six
       </pm-tab-item>
     </pm-tabs>
   </pm-layout>

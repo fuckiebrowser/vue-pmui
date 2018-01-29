@@ -11,6 +11,11 @@
   <link rel="stylesheet"
         href="https://unpkg.com/vue-pmui@1.0.2/dist/vue-pmui.min.css">
   <% } %>
+
+  <% if (!htmlWebpackPlugin.options.production) { %>
+  <link rel="stylesheet"
+        href="//at.alicdn.com/t/font_472947_jlagze6f039grpb9.css">
+  <% } %>
 </head>
 
 <body>

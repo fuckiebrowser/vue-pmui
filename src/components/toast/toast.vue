@@ -7,18 +7,18 @@
       <transition name="zoom"
                   @after-leave="$emit('close')">
 
-        <div class="pm-toast--container"
+        <div class="pm-toast__container"
              v-show="visible">
 
           <i v-if="icon"
              :class="icon"
-             class="pm-toast--icon"></i>
+             class="pm-toast__icon"></i>
 
           <i v-else-if="type"
-             class="pm-toast--icon pm-icon"
+             class="pm-toast__icon pm-icon"
              :class="typeIcon"></i>
 
-          <div class="pm-toast--content">
+          <div class="pm-toast__content">
             {{message}}
           </div>
 

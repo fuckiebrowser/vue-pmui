@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
 
-  &--container {
+  &__container {
     width: 270px;
     overflow: hidden;
 
@@ -16,12 +16,12 @@
     text-align: center;
   }
 
-  &--header {
+  &__header {
     height: 36px;
     line-height: 36px;
   }
 
-  &--close {
+  &__close {
     color: #999;
     font-size: 18px;
     position: absolute;
@@ -40,13 +40,13 @@
     }
   }
 
-  &--content {
+  &__content {
     margin: 16px;
     font-size: 14px;
     line-height: 22px;
   }
 
-  &--input {
+  &__input {
     width: 100%;
     border: 1px solid $border-color;
     outline: none;
@@ -54,13 +54,13 @@
     margin-top: 8px;
   }
 
-  &--footer {
+  &__footer {
     display: flex;
     line-height: 1;
     border-top: 1px solid $border-color;
   }
 
-  &--button {
+  &__button {
     color: #999;
     height: 50px;
     @include vertical-center;

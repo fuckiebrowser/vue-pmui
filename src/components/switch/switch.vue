@@ -2,7 +2,7 @@
   <button class="pm-switch"
           :class="typeClass"
           @click.stop="changeHandler">
-    <span class="pm-switch--inner"></span>
+    <span class="pm-switch__inner"></span>
   </button>
 </template>
 

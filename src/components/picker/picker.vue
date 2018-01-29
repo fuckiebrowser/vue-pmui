@@ -6,20 +6,20 @@
               @mask-click="cancel"
               v-show="visible">
       <transition name="slide-from-bottom">
-        <div class="pm-picker--panel"
+        <div class="pm-picker__panel"
              v-show="visible">
-          <div class="pm-picker--toolbar">
-            <button class="pm-picker--cancel"
+          <div class="pm-picker__toolbar">
+            <button class="pm-picker__cancel"
                     @click="cancel">{{cancelText}}
             </button>
             <slot name="title">{{title}}</slot>
-            <button class="pm-picker--submit"
+            <button class="pm-picker__submit"
                     @click="confirm">{{confirmText}}
             </button>
           </div>
-          <div class="pm-picker--container">
-            <div class="pm-picker--target"></div>
-            <div class="pm-picker--wheel">
+          <div class="pm-picker__container">
+            <div class="pm-picker__target"></div>
+            <div class="pm-picker__wheel">
               <div class="wheel-scroll"
                    v-for="(s,si) in slots"
                    ref="wheels"
@@ -59,7 +59,6 @@
     data() {
       const { slots, value } = this._props;
       const valueIndex = slots.map((s, i) => s.values.indexOf(value[i]) || 0);
-
       return {
         valueIndex
       };

@@ -1,45 +1,43 @@
 .#{$prefix}-header {
-  @include background-gradient($color-primary-1, $color-primary-2);
-
-  color: $navbar-font-color;
-  font-size: $navbar-font-size;
-  box-shadow: 0 1px 6px #ccc;
+  @include background-gradient($header__background-color-1, $header__background-color-2);
+  @include default-shadow;
   display: flex;
-
-  min-height: 44px;
+  color: $header__font-color;
+  min-height: $header__height;
+  font-size: $header__font-size;
 
   &.fixed {
     position: fixed;
     width: 100vw;
   }
 
-  &-left,
-  &-right{
+  &__left,
+  &__right{
     flex-basis: 25%;
     > * {
       padding: 0 10px;
     }
   }
 
-  &-left,
-  &-right,
-  &-title {
-    height: $navbar-height;
-    line-height: $navbar-height;
+  &__left,
+  &__right,
+  &__title {
     display: flex;
     align-items: center;
+    height: $header__height;
+    line-height: $header__height;
   }
 
-  &-title {
+  &__title {
     flex-basis: 50%;
     justify-content: center;
   }
 
-  &-left {
+  &__left {
     justify-content: flex-start;
   }
 
-  &-right {
+  &__right {
     justify-content: flex-end;
   }
 }

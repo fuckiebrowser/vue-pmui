@@ -1,20 +1,19 @@
-$_border: 1px solid $border-color;
 .#{$prefix}-picker {
-  &--panel {
+  &__panel {
     display: flex;
     flex-direction: column;
     height: 273px;
     background: $color-white;
   }
 
-  &--container {
+  &__container {
     /* flex */
     padding: 20px 0;
     position: relative;
     width: 100vw;
   }
 
-  &--toolbar {
+  &__toolbar {
     /* flex */
     @include vertical-center;
     justify-content: space-between;
@@ -22,22 +21,22 @@ $_border: 1px solid $border-color;
     /* box */
     height: 60px;
     /* style */
-    border-bottom: $_border;
+    border-bottom: $border;
   }
 
-  &--target {
+  &__target {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 
     height: 37px;
     width: 100%;
-    border-top: $_border;
-    border-bottom: $_border;
+    border-top: $border;
+    border-bottom: $border;
   }
 
-  &--cancel,
-  &--submit {
+  &__cancel,
+  &__submit {
     background: transparent;
     border: none;
     height: 100%;
@@ -49,11 +48,11 @@ $_border: 1px solid $border-color;
     }
   }
 
-  &--submit {
+  &__submit {
     color: $color-primary-1;
   }
 
-  &--wheel {
+  &__wheel {
     font-size: 20px;
     display: flex;
     flex-grow: 1;

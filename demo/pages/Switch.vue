@@ -17,15 +17,18 @@
                     label>
         {{ value2 }}
         <pm-switch v-model="value2"
-                   true-value="打开"
-                   false-value="关闭"/>
+                   type="primary"
+                   true-label="打开"
+                   false-label="关闭"/>
       </pm-cell-item>
     </pm-cell-group>
 
     <pm-cell-group>
       <pm-cell-item title="禁用"
                     label>
-        <pm-switch v-model="value" disabled/>
+        <pm-switch type="primary"
+                   v-model="value"
+                   disabled/>
       </pm-cell-item>
     </pm-cell-group>
   </pm-layout>

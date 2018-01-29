@@ -12,31 +12,74 @@ $color-success-2: #a8e063;
 $color-warning-1: #ffb75e;
 $color-warning-2: #ed8f03;
 
-$border-color: #ebebeb;
+$color-active: rgba(0, 0, 0, .01);
 
-@mixin background() {
-  &--primary {
-    @include background-gradient($color-primary-1, $color-primary-2);
-  }
-  &--danger {
-    @include background-gradient($color-danger-1, $color-danger-2);
-  }
-  &--success {
-    @include background-gradient($color-success-1, $color-success-2);
-  }
-  &--warning {
-    @include background-gradient($color-warning-1, $color-warning-2);
+$border-color: #ebebeb;
+$border: 1px solid $border-color;
+
+@mixin background($dom:null) {
+  $color-map: (
+    danger: ($color-danger-1, $color-danger-2),
+    primary: ($color-primary-1, $color-primary-2),
+    success: ($color-success-1, $color-success-2),
+    warning: ($color-warning-1, $color-warning-2)
+  );
+
+  @each $type, $color in $color-map {
+    $color-1: nth($color, 1);
+    $color-2: nth($color, 2);
+    &--#{$type} {
+      @if $dom == 'before' {
+        &::before {
+          @include background-gradient($color-1, $color-2);
+        }
+      } @else {
+        @include background-gradient($color-1, $color-2);
+      }
+    }
   }
 }
 
-$button-font-color: #fff;
+/* button start */
+// default
+$button__color: #666;
+$button__background: #fcfcfc;
+$button__height: 50px;
+$button__font-size: 16px;
+$button__padding: 17px 16px;
+$button__border-radius: 4px;
+// small
+$button-small__height: 30px;
+$button-small__font-size: 12px;
+$button-small__padding: 9px 10px;
+/* button end */
 
-/* Navbar */
-$navbar-font-size: 16px;
-$navbar-height: 44px;
-// $navbar-bg: ;
-$navbar-font-color: #fff;
-// $navbar-padding:;
+
+/* badge start */
+// default
+$badge__padding: 3px 6px;
+$badge__font-size: 15px;
+$badge__border-radius: 12px;
+$badge__color: #666;
+$badge__background: $color-white;
+// small
+$badge-small__padding: 2px 4px;
+$badge-small__font-size: 12px;
+$badge-small__border-radius: 8px;
+// large
+$badge-large__padding: 4px 8px;
+$badge-large__font-size: 18px;
+$badge-large__border-radius: 14px;
+/* badge end */
+
+
+/* header start */
+$header__height: 44px;
+$header__font-size: 16px;
+$header__font-color: $color-white;
+$header__background-color-1: $color-primary-1;
+$header__background-color-2: $color-primary-2;
+/* header end */
 
 /* tabs */
 $tabs-background: $color-white;
@@ -46,3 +89,18 @@ $cell-height: 56px;
 $cell-content-text-align: right;
 $cell-border-color: #dadada;
 $cell-placeholder-color: #dadada;
+
+/* action-sheet start */
+$action-sheet-item__color: inherit;
+$action-sheet-item__padding: 17px 16px;
+$action-sheet-item__font-size: 16px;
+$action-sheet-item__background: $color-white;
+$action-sheet-item__highlight-color: $color-primary-1;
+$action-sheet-item__active-background: $border-color;
+/* action-sheet end */
+
+/* tabs start */
+$tabs-bar__height: 2px;
+
+$tabs-item__height: 48px;
+/* tabs end */

@@ -1,20 +1,21 @@
 .#{$prefix}-action-sheet {
-  &--panel {
+  &__panel {
     width: 100vw;
   }
 
-  &-item {
-    background: $color-white;
+  &__item {
     text-align: center;
-    padding: 17px 16px;
-    font-size: 16px;
+    color: $action-sheet-item__color;
+    background: $action-sheet-item__background;
+    padding: $action-sheet-item__padding;
+    font-size: $action-sheet-item__font-size;
 
     & + & {
-      border-top: $_border;
+      border-top: $border;
     }
 
     &.highlight {
-      color: $color-primary-1;
+      color: $action-sheet-item__highlight-color;
     }
 
     &.cancel {
@@ -22,7 +23,7 @@
     }
 
     &:active {
-      background: $border-color;
+      background: $action-sheet-item__active-background;
     }
   }
 }

@@ -2,8 +2,8 @@
 .#{$prefix}-checkbox {
   &-list {
     .pm-cell-item {
-      &--title,
-      &--content {
+      &__title,
+      &__content {
         @include vertical-center;
       }
 

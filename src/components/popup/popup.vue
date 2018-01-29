@@ -1,12 +1,12 @@
 <template>
   <div class="pm-popup"
        v-show="visible">
-      <div class="pm-popup--mask"
+      <div class="pm-popup__mask"
            @click="maskClick"
            v-if="mask">
         <slot name="mask"/>
       </div>
-    <div class="pm-popup--container"
+    <div class="pm-popup__container"
          :class="posClass"
          v-if="$slots.default">
       <slot/>

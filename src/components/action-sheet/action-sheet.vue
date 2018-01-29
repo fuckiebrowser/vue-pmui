@@ -3,19 +3,19 @@
     <popup ref="popup"
            class="pm-action-sheet"
            position="bottom"
-           @mask-click="cancel"
+           @mask-click="hide"
            v-show="visible">
       <transition name="slide-from-bottom">
-        <div class="pm-action-sheet--panel"
+        <div class="pm-action-sheet__panel"
              v-show="visible">
-          <div class="pm-action-sheet-item"
+          <div class="pm-action-sheet__item"
                v-for="(a,i) in actions"
                :class="{ highlight: a.highlight }"
                @click="confirm(a,i)"
                :key="i">
             {{a.title}}
           </div>
-          <div class="pm-action-sheet-item cancel"
+          <div class="pm-action-sheet__item cancel"
                v-if="showCancel"
                @click="hide">
             {{ cancelText }}

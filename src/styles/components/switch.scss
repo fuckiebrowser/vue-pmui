@@ -10,7 +10,8 @@
   box-shadow: 0 0 1px $border-color;
   justify-content: center;
 
-  @include background-gradient($border-color, $border-color);
+  //@include background-gradient($border-color, $border-color);
+  background: $border-color;
   &::before {
     width: 100%;
     height: 100%;
@@ -18,18 +19,8 @@
     opacity: 0;
     transition: opacity ease-in-out .3s;
   }
-  &--primary::before {
-    @include background-gradient($color-primary-1, $color-primary-2);
-  }
-  &--danger::before {
-    @include background-gradient($color-danger-1, $color-danger-2);
-  }
-  &--success::before {
-    @include background-gradient($color-success-1, $color-success-2);
-  }
-  &--warning::before {
-    @include background-gradient($color-warning-1, $color-warning-2);
-  }
+
+  @include background(before);
 
   &::before,
   &::after {
@@ -39,7 +30,7 @@
   }
 
   &::after,
-  &--inner {
+  &__inner {
     transition: transform ease-in-out .3s;
     border-radius: 14px;
   }
@@ -50,7 +41,7 @@
     width: 48px;
     height: 28px;
   }
-  &--inner {
+  &__inner {
     position: absolute;
     left: 2px;
     width: 28px;
@@ -66,7 +57,7 @@
   &.checked::after {
     transform: scale3d(0, 0, 0);
   }
-  &.checked &--inner {
+  &.checked &__inner {
     transform: translate3d(20px, 0, 0);
   }
 }

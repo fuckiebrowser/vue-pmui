@@ -1,25 +1,23 @@
 .#{$prefix}-badge {
   display: inline-block;
   text-align: center;
-
-  border-radius: 12px;
-  font-size: 15px;
   line-height: 1;
-  padding: 2px 8px;
-
-  color: #666;
-  background: $color-white;
+  padding: $badge__padding;
+  font-size: $badge__font-size;
+  border-radius: $badge__border-radius;
+  color: $badge__color;
+  background: $badge__background;
   @include default-shadow();
 
   &--small {
-    border-radius: 8px;
-    font-size: 12px;
-    padding: 2px 6px;
+    padding: $badge-small__padding;
+    font-size: $badge-small__font-size;
+    border-radius: $badge-small__border-radius;
   }
   &--large {
-    border-radius: 14px;
-    font-size: 18px;
-    padding: 2px 10px;
+    padding: $badge-large__padding;
+    font-size: $badge-large__font-size;
+    border-radius: $badge-large__border-radius;
   }
 
   &--primary,
@@ -30,21 +28,23 @@
     border: none;
   }
 
-  &--primary {
-    @include background-gradient($color-primary-1, $color-primary-2);
-  }
+  @include background;
 
-  &--success {
-    @include background-gradient($color-success-1, $color-success-2);
-  }
-
-  &--warning {
-    @include background-gradient($color-warning-1, $color-warning-2);
-  }
-
-  &--danger {
-    @include background-gradient($color-danger-1, $color-danger-2);
-  }
+  //&--primary {
+  //  @include background-gradient($color-primary-1, $color-primary-2);
+  //}
+  //
+  //&--success {
+  //  @include background-gradient($color-success-1, $color-success-2);
+  //}
+  //
+  //&--warning {
+  //  @include background-gradient($color-warning-1, $color-warning-2);
+  //}
+  //
+  //&--danger {
+  //  @include background-gradient($color-danger-1, $color-danger-2);
+  //}
 
   &--square {
     border-radius: 2px;

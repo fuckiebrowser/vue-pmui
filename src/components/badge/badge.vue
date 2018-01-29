@@ -1,7 +1,7 @@
 <template>
  <span class="pm-badge"
        :class="styleClass">
-   <slot>0</slot>
+   <slot />
  </span>
 </template>
 

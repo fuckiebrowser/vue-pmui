@@ -14,7 +14,7 @@
                   :disabled="o.disabled"
                   :label="o.value"/>
 
-        <div class="pm-radio--label">
+        <div class="pm-radio__label">
           {{ o.label }}
         </div>
       </template>

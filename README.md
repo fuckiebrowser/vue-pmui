@@ -23,9 +23,20 @@ Vue.use(PmUI);
 Import styles
 ``` html
 <style lang="scss">
-  @import '~vue-pmui/dist/vuw-pmui.css';
+  @import '~vue-pmui/dist/vue-pmui.min.css';
+  // or
+  @import '~vue-pmui/src/styles/build.scss';
+  /* edit variables */
 </style>
 ```
+
+## CDN
+```html
+<link rel="stylesheet" href="https://unpkg.com/vue-pmui/dist/vue-pmui.min.css">
+<script src="https://unpkg.com/vue-pmui/dist/vue-pmui.min.js">
+```
+
+
 ## Development
 
 ```bash

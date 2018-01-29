@@ -1,8 +1,8 @@
 <template>
   <div class="pm-swipe">
-    <div class="pm-swipe-scroll"
+    <div class="pm-swipe__scroll"
          ref="swipe">
-      <div class="pm-swipe-container"
+      <div class="pm-swipe__container"
            ref="container">
         <slot>
           {{currentIndex}}
@@ -11,7 +11,7 @@
     </div>
 
     <div v-if="showDots"
-         class="pm-swipe-dots">
+         class="pm-swipe__dots">
       <span :class="{active: currentIndex === di}"
             v-for="(item, di) in dots"
             @click="jump(di)">
@@ -19,12 +19,12 @@
     </div>
 
     <template v-if="showNav">
-      <a class="pm-swipe-prev"
+      <a class="pm-swipe__prev"
          @click="prev"
          v-ripple>
         <i class="pm-icon icon-back"></i>
       </a>
-      <a class="pm-swipe-next"
+      <a class="pm-swipe__next"
          @click="next"
          v-ripple>
         <i class="pm-icon icon-right"></i>
@@ -124,7 +124,7 @@
 
         swipe.on('scrollCancel', () => {
           this.scrolling = false;
-          if (this.autoPlay) this.play();
+          this.play();
         });
 
         swipe.on('scrollEnd', () => {
@@ -139,6 +139,7 @@
         this.dots = this.children.length;
       },
       play() {
+        if (!this.autoPlay) return;
         this.timer = setTimeout(() => {
           this.next();
         }, this.interval);
@@ -163,7 +164,7 @@
       await this.$nextTick();
       this.initStyle();
       this.initScroll();
-      if (this.autoPlay) this.play();
+      this.play();
       if (this.showDots) this.initDots();
     },
     beforeDestroy() {

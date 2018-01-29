@@ -1,17 +1,17 @@
 <template>
   <header class="pm-header"
           :class="{ fixed }">
-    <div class="pm-header-left">
+    <div class="pm-header__left">
       <slot name="left">
         <pm-button @click="back">
           <i class="pm-icon icon-back"></i>
         </pm-button>
       </slot>
     </div>
-    <div class="pm-header-title">
+    <div class="pm-header__title">
       <slot>{{title}}</slot>
     </div>
-    <div class="pm-header-right">
+    <div class="pm-header__right">
       <slot name="right" />
     </div>
   </header>

@@ -43,7 +43,7 @@
     },
     methods: {
       pick() {
-        this.$refs.sheet.open();
+        this.$refs.sheet.show();
       }
     }
   };

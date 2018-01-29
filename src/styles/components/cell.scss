@@ -1,24 +1,26 @@
 .#{$prefix}-cell {
   &-group {
-    box-shadow: 0 0 0.2rem #dadada;
+    @include default-shadow;
     margin-bottom: 30px;
   }
 
   &-item {
     @include vertical-center();
+    position: relative;
     background: $color-white no-repeat;
     padding-left: 16px;
     min-height: $cell-height;
 
+    &.is-label:active {
+      background: $color-active;
+    }
+
     & + & {
-      //border-top: 1px solid $cell-border-color;
       background-image: linear-gradient(90deg, transparent 0, transparent 16px, $cell-border-color 16px);
       background-size: 100% 1px;
     }
 
-    &--label {
-    }
-    &--content {
+    &__content {
       flex: 1;
       justify-content: flex-end;
       height: 100%;
@@ -34,6 +36,7 @@
         font-size: inherit;
         outline: none;
         border: none;
+        background: transparent;
         text-align: $cell-content-text-align;
       }
 

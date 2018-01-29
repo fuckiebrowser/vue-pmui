@@ -1,35 +1,35 @@
 <script type="text/jsx">
-  import BetterScroll from "../better-scroll/better-scroll";
+  // import BetterScroll from "../better-scroll/better-scroll";
+  import BScroll from 'better-scroll';
 
   export default {
-    components: { BetterScroll },
+    // components: { BetterScroll },
     name: 'PmTabs',
     render(h) {
       const navItems = this.tabs.map(tab => (
-        <a class={[
-          'pm-tabs-nav-item',
-          this.currentIndex === tab.index ? 'active' : null
-        ]}
-            onClick={ev => this.clickHandler(tab.index)}
-            v-ripple>
+        <a onClick={ev => this.clickHandler(tab.index)}
+           v-ripple
+           class={[
+             'pm-tabs__nav-item',
+             this.currentIndex === tab.index ? 'active' : null
+           ]}>
+          {/* onClick={ev => this.clickHandler(tab.index)} */}
           {tab.currentTitle}
         </a>
       ));
 
       const nav =
-        <better-scroll ref="scroll"
-                       style="width:100%;"
-                       scrollX
-                       tap="touchend"
-                       data={this.tabs}>
-          <div class="pm-tabs-nav"
-              style={this.navStyle}>
+        <div ref="scroll"
+             class="pm-tabs__wrapper">
+          <div class="pm-tabs__nav"
+               style={this.navStyle}>
             {navItems}
-            <div class="pm-tabs-bar" style={this.barStyle}> </div>
+            <div class="pm-tabs__bar"
+                 style={this.barStyle}/>
           </div>
-        </better-scroll>
+        </div>
       ;
-      const content = <div class="pm-tabs-content">{this.$slots.default}</div>;
+      const content = <div class="pm-tabs__content">{this.$slots.default}</div>;
 
       return (<div class="pm-tabs">
         {[nav, content]}
@@ -41,8 +41,8 @@
     computed: {
       navStyle() {
         return {
-          // width: `${this.scrollWidth}px`
-          width: `100%`
+          width: `${this.scrollWidth}px`
+          // width: `100%`
         };
       },
       barStyle() {
@@ -73,20 +73,15 @@
       },
       async tabs() {
         await this.$nextTick();
-        const tabs = this.$el.querySelectorAll('.pm-tabs-nav-item');
-        let width = 0;
-        tabs.forEach((t) => {
-          width += +t.offsetWidth;
-        });
-        this.scrollWidth = width;
+        this.initNav();
       },
     },
     methods: {
       async autoScroll() {
-        const currentTab = this.$el.querySelector('.pm-tabs-nav-item.active');
+        const currentTab = this.$el.querySelector('.pm-tabs__nav-item.active');
         this.barLeft = currentTab.offsetLeft;
         this.barWidth = currentTab.offsetWidth;
-        this.$refs.scroll.scrollToElement(currentTab, 500, true);
+        this.scroll.scrollToElement(currentTab, 500, true);
       },
       clickHandler(index) {
         this.$emit('tabClick', index);
@@ -102,11 +97,34 @@
         const childIndex = this.tabs.findIndex(tab => `${tab.index}` === `${index}`);
         if (childIndex < 0) return;
         this.tabs.splice(childIndex, 1);
+      },
+      initNav() {
+        const navList = this.$refs.scroll.querySelectorAll('.pm-tabs__nav-item');
+        const scrollWidth = this.$refs.scroll.offsetWidth;
+        const currentWidth = [...navList].reduce((a, b) => {
+          return a + b.offsetWidth;
+        }, 0);
+        this.scrollWidth = currentWidth < scrollWidth ? scrollWidth : currentWidth;
+
+        if (this.scroll) {
+          this.scroll.refresh();
+          this.autoScroll();
+        }
+      },
+      initScroll() {
+        this.initNav();
+        this.scroll = new BScroll(this.$refs.scroll, {
+          probeType: 1,
+          click: true,
+          scrollX: true,
+          scrollY: false
+        });
+        this.$nextTick(this.autoScroll);
       }
     },
     async mounted() {
       await this.$nextTick();
-      this.autoScroll();
+      setTimeout(this.initScroll, 20);
     }
   };
 </script>

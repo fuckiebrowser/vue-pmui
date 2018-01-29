@@ -20,11 +20,10 @@
       <pm-button type="warning" long>warning</pm-button>
       <pm-button type="danger" long>danger</pm-button>
       <h2>Round</h2>
-      <pm-button size="small" round>default</pm-button>
-      <pm-button type="primary" size="small" round>primary</pm-button>
-      <pm-button type="success" size="small" round>success</pm-button>
-      <pm-button type="warning" size="small" round>warning</pm-button>
-      <pm-button type="danger" size="small" round>danger</pm-button>
+      <pm-button long round>long</pm-button>
+      <pm-button size="small" round>small</pm-button>
+      <pm-button round>normal</pm-button>
+
     </div>
   </pm-layout>
 </template>

@@ -5,25 +5,25 @@
               @mask-click="closeOnClickMask && cancel">
       <transition name="zoom"
                   @after-leave="$emit('close')">
-        <div class="pm-dialog--container"
+        <div class="pm-dialog__container"
              v-show="visible">
-          <a class="pm-dialog--close"
+          <a class="pm-dialog__close"
              @click="cancel"
              v-if="showClose">
             <i class="pm-icon icon-close1"></i>
           </a>
 
-          <div class="pm-dialog--header">
+          <div class="pm-dialog__header">
             <slot name="header">
               {{title}}
             </slot>
           </div>
 
-          <div class="pm-dialog--content">
+          <div class="pm-dialog__content">
             <slot>{{content}}</slot>
             <input v-if="showInput"
                    placeholder=""
-                   class="pm-dialog--input"
+                   class="pm-dialog__input"
                    v-model="value"
                    :placeholder="inputPlaceholder"
                    :type="inputType">
@@ -31,12 +31,12 @@
 
           <div class="pm-dialog--footer">
             <slot name="footer">
-              <a class="pm-dialog--button"
+              <a class="pm-dialog__button"
                  v-if="showCancelButton"
                  @click="cancel">
                 {{cancelButtonText}}
               </a>
-              <a class="pm-dialog--button confirm"
+              <a class="pm-dialog__button confirm"
                  v-if="showConfirmButton"
                  @click="confirm">
                 {{confirmButtonText}}

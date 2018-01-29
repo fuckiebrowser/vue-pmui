@@ -1,12 +1,12 @@
 <template>
   <div class="pm-layout">
     <slot name="top">
-      <pm-header :title="title"></pm-header>
+      <pm-header :title="title"/>
     </slot>
     <section class="pm-container">
-      <slot></slot>
+      <slot/>
     </section>
-    <slot name="bottom"></slot>
+    <slot name="bottom"/>
   </div>
 </template>
 <script>

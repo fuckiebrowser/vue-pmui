@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import PMUI from 'vue-pmui';
+// import PMUI from '../src/index';
 
 import App from './App';
 import router from './router';

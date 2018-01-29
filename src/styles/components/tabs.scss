@@ -1,57 +1,41 @@
 .#{$prefix}-tabs {
   background: $tabs-background;
   @include default-shadow();
+  &__wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
 
-  &-bar {
+  &__bar {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 2px;
+    height: $tabs-bar__height;
     transition: all 500ms;
     @include background-gradient($color-primary-1, $color-primary-2);
   }
 
-  &-nav {
-    list-style: none;
+  &__nav {
     margin: 0;
     padding: 0;
     display: flex;
 
-
     &-item {
-      @include vertical-center();
+      @include vertical-center;
       justify-content: center;
       flex-shrink: 0;
       flex-grow: 1;
       position: relative;
 
-      height: 48px;
+      height: $tabs-item__height;
       min-width: 20vw;
       padding: 0 16px 2px;
       text-align: center;
       box-sizing: border-box;
       transition: all 500ms;
 
-      //&::after {
-      //  content: ' ';
-      //  display: block;
-      //  position: absolute;
-      //  left: 0;
-      //  right: 0;
-      //  bottom: 0;
-      //  width: 100%;
-      //  height: 2px;
-      //  background: $color-primary-1;
-      //  transition: transform 500ms;
-      //  transform: scale(0, 1);
-      //}
-
       &.active {
         color: $color-primary-1;
-
-        //&::after {
-        //  transform: scale(1, 1);
-        //}
       }
     }
   }

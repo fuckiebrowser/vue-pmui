@@ -1,7 +1,7 @@
 <template>
   <div class="pm-tabs-content-item"
        v-show="show">
-    <slot></slot>
+    <slot/>
   </div>
 </template>
 

@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
 
-  &--container {
+  &__container {
     color: $color-white;
     background: rgba(0, 0, 0, .6);
 
@@ -19,7 +19,7 @@
     line-height: 20px;
   }
 
-  &--icon {
+  &__icon {
     font-size: 20px;
     margin-right: 8px;
 

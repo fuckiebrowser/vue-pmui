@@ -31,7 +31,7 @@
 </script>
 
 <style lang="scss">
-  @import '../dist/vue-pmui.min.css';
+  @import '~vue-pmui/src/styles/index.scss';
 
   body {
     margin: 0 auto;
