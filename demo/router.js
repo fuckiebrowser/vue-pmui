@@ -24,6 +24,7 @@ export default new Router({
     { path: '/dialog', name: 'dialog', component: () => import('./pages/Dialog') },
     { path: '/switch', name: 'switch', component: () => import('./pages/Switch') },
     { path: '/checkbox', name: 'checkbox', component: () => import('./pages/Checkbox') },
-    { path: '/radio', name: 'radio', component: () => import('./pages/Radio') }
+    { path: '/radio', name: 'radio', component: () => import('./pages/Radio') },
+    { path: '/ripple', name: 'ripple', component: () => import('./pages/Ripple') }
   ]
 });

@@ -38,8 +38,8 @@
   export default {
     data() {
       return {
-        type: ['default', 'primary', 'success', 'danger', 'warning'],
-        value: false,
+        type: ['primary', 'success', 'danger', 'warning'],
+        value: true,
         value2: '打开'
       };
     }

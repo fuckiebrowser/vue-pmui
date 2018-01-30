@@ -69,10 +69,6 @@
   }
 
   &.disabled {
-    &::before {
-      background: $border-color;
-    }
-
     .pm-icon {
       color: $disable-color;
     }

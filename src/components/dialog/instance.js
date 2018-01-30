@@ -5,7 +5,7 @@ const body = document.body;
 const defaults = {
   title: '提示', // 提示框标题
   content: '', // 提示框内容，如果是一个function则相当于render函数
-  showClose: false, // 是否显示右上角关闭按钮
+  showClose: true, // 是否显示右上角关闭按钮
   showMask: true, // 是否显示遮罩层
   closeOnClickMask: true, // 是否点击遮罩层
   closeOnConfirm: true, // 是否确认时关闭对话框

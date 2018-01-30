@@ -20,18 +20,24 @@
           <div class="pm-picker__container">
             <div class="pm-picker__target"></div>
             <div class="pm-picker__wheel">
-              <div class="wheel-scroll"
-                   v-for="(s,si) in slots"
-                   ref="wheels"
-                   :key="si">
-                <ul>
-                  <li class="wheel-item"
-                      v-for="v in s.values"
-                      :key="v"
-                      v-text="v">
-                  </li>
-                </ul>
-              </div>
+              <template v-for="(s,si) in slots">
+                <div class="wheel-scroll"
+                     ref="wheels"
+                     :key="si"
+                     v-if="s.values">
+                  <ul>
+                    <li class="wheel-item"
+                        v-for="v in s.values"
+                        :key="v"
+                        v-text="v">
+                    </li>
+                  </ul>
+                </div>
+                <div class="pm-picker__separator"
+                     v-else>
+                  {{s}}
+                </div>
+              </template>
             </div>
           </div>
         </div>

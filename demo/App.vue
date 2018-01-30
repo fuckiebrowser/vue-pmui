@@ -43,7 +43,7 @@
   }
 
   .container {
-    padding: 15px;
+    padding: 0 15px;
   }
 
   .pm-header.fixed + .wrapper {

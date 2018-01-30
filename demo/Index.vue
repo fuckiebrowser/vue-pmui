@@ -18,6 +18,17 @@
           </pm-cell-item>
         </pm-cell-group>
       </template>
+
+      <h4> Directives </h4>
+      <pm-cell-group>
+        <pm-cell-item
+          title="Ripple"
+          link="/ripple"
+          route
+          arrow
+          v-ripple>
+        </pm-cell-item>
+      </pm-cell-group>
     </div>
   </pm-layout>
 </template>

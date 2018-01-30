@@ -78,7 +78,7 @@
     &.confirm {
       color: $color-primary-1;
       &:active {
-        background: $color-primary-1 * 1.65;
+        background: rgba(71, 118, 230, .1);
       }
     }
   }

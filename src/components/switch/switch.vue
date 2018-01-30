@@ -33,14 +33,13 @@
         return this.value === this.trueLabel;
       },
       typeClass() {
-        const { checked, disabled } = this;
+        const { checked, disabled, type } = this;
+        const isPrimary = !['danger', 'success', 'warning'].includes(type);
+        const realType = isPrimary ? 'primary' : type;
         return {
           checked,
           disabled,
-          'pm-switch--danger': this.type === 'danger',
-          'pm-switch--primary': this.type === 'primary',
-          'pm-switch--success': this.type === 'success',
-          'pm-switch--warning': this.type === 'warning'
+          [`pm-switch--${realType}`]: !disabled
         };
       }
     },

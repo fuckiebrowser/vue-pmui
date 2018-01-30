@@ -12,7 +12,6 @@
       <pm-cell-item title="单独使用" label>
         <pm-radio v-for="(o,i) in options"
                   :key="i"
-                  :disabled="o.disabled"
                   :label="o.value"
                   v-model="value">
           {{o.label}}

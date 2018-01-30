@@ -13,8 +13,17 @@ function style($el, value) {
   });
 }
 
-function show(e, $el, binding) {
-  const el = $el;
+function show(e) {
+  const el = this;
+
+  const {
+    rippleClass,
+    rippleColor,
+    rippleCenter,
+    rippleRadius,
+    rippleDuration
+  } = this.dataset;
+
   const container = document.createElement('span');
   const animation = document.createElement('span');
 
@@ -22,28 +31,29 @@ function show(e, $el, binding) {
   container.className = 'ripple-container';
 
   // Add the animation container className
-  if (binding.class) {
-    container.className += ` ${binding.class}`;
+  if (rippleClass) {
+    container.className += ` ${rippleClass}`;
   }
   // Set the radius of animation
-  const size = binding.radius ||
+  const size = rippleRadius ||
     (el.clientWidth > el.clientHeight ? el.clientWidth : el.clientHeight);
   animation.className = 'ripple-animation';
-  const radius = `${size * (binding.center ? 1 : 2)}px`;
+  const isCenter = rippleCenter === 'true';
+  const radius = `${size * 2}px`;
   animation.style.width = radius;
   animation.style.height = radius;
   // Set the duration of animation
-  animation.style.transitionDuration = `${binding.duration || 500}ms`;
+  animation.style.transitionDuration = `${+rippleDuration || 500}ms`;
   // Set the background color of animation
-  animation.style.background = binding.color || 'currentColor';
+  animation.style.background = rippleColor || 'currentColor';
 
   el.appendChild(container);
   const computed = window.getComputedStyle(el);
   if (computed.position !== 'absolute' && computed.position !== 'fixed') el.style.position = 'relative';
 
   const offset = el.getBoundingClientRect();
-  const x = binding.center ? '50%' : `${e.clientX - offset.left}px`;
-  const y = binding.center ? '50%' : `${e.clientY - offset.top}px`;
+  const x = isCenter ? '50%' : `${e.clientX - offset.left}px`;
+  const y = isCenter ? '50%' : `${e.clientY - offset.top}px`;
 
   animation.classList.add('ripple-animation--enter');
   animation.classList.add('ripple-animation--visible');
@@ -52,24 +62,26 @@ function show(e, $el, binding) {
   animation.style.left = x;
   animation.style.top = y;
 
-  style(animation, 'translate(-50%, -50%) scale3d(0.01,0.01,0.01)', binding);
+  style(animation, 'translate(-50%, -50%) scale3d(0.01,0.01,0.01)');
   // save the event timestamp
   animation.dataset.activated = Date.now();
 
   setTimeout(() => {
     animation.classList.remove('ripple-animation--enter');
-    style(animation, 'translate(-50%, -50%) scale3d(0.99,0.99,0.99)', binding);
+    style(animation, 'translate(-50%, -50%) scale3d(0.99,0.99,0.99)');
   }, 0);
 }
 
-function hide($el, binding) {
-  const el = $el;
+function hide() {
+  const el = this;
   const ripples = el.getElementsByClassName('ripple-animation');
+
+  const { rippleDuration } = this.dataset;
 
   if (ripples.length === 0) return;
   const animation = ripples[ripples.length - 1];
   const diff = Date.now() - Number(animation.dataset.activated);
-  let delay = binding.duration - diff;
+  let delay = rippleDuration - diff;
   delay = delay < 0 ? 0 : delay;
 
   setTimeout(() => {
@@ -90,7 +102,12 @@ function hide($el, binding) {
 }
 
 function bind(el, { value = DEFAULT_OPTION }) {
-  el.addEventListener('mousedown', e => show(e, el, value), false);
+  const keys = Object.keys(value);
+  keys.forEach((key) => {
+    el.setAttribute(`data-ripple-${key}`, value[key]);
+  });
+
+  el.addEventListener('mousedown', show, false);
 
   [
     'tap',
@@ -99,7 +116,7 @@ function bind(el, { value = DEFAULT_OPTION }) {
     'mouseup',
     'mouseleave',
     'dragstart'
-  ].forEach(en => el.addEventListener(en, () => hide(el, value), false));
+  ].forEach(en => el.addEventListener(en, hide, false));
 }
 
 function unbind(el, { value = DEFAULT_OPTION }) {
@@ -117,6 +134,13 @@ function unbind(el, { value = DEFAULT_OPTION }) {
   ].forEach(en => el.removeEventListener(en, () => hide(el, value), false));
 }
 
+function update(el, { value = DEFAULT_OPTION }) {
+  const keys = Object.keys(value);
+  keys.forEach((key) => {
+    el.setAttribute(`data-ripple-${key}`, value[key]);
+  });
+}
+
 function install(vue) {
   vue.directive(this.name, this);
 }
@@ -125,5 +149,6 @@ export default {
   name: 'ripple',
   bind,
   unbind,
+  update,
   install
 };

@@ -81,7 +81,7 @@
     },
     methods: {
       time() {
-        this.$refs.picker.open();
+        this.$refs.time.open();
       },
       fruit() {
         this.$refs.fruit.open();

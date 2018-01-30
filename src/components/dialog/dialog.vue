@@ -29,7 +29,7 @@
                    :type="inputType">
           </div>
 
-          <div class="pm-dialog--footer">
+          <div class="pm-dialog__footer">
             <slot name="footer">
               <a class="pm-dialog__button"
                  v-if="showCancelButton"
@@ -81,7 +81,7 @@
       },
       showClose: {
         type: Boolean,
-        default: false
+        default: true
       },
       showMask: {
         type: Boolean,
