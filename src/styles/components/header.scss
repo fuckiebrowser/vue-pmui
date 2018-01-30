@@ -17,6 +17,15 @@
     > * {
       padding: 0 10px;
     }
+
+    .#{$prefix}-button {
+      font-size: inherit;
+      color: inherit;
+      background: inherit;
+      height: 100%;
+      box-shadow: none;
+      padding: 0 14px;
+    }
   }
 
   &__left,
@@ -40,6 +49,7 @@
   &__right {
     justify-content: flex-end;
   }
+
 }
 
 

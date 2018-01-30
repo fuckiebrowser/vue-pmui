@@ -38,14 +38,3 @@
   }
 }
 
-.#{$prefix}-header__left,
-.#{$prefix}-header__right {
-  .#{$prefix}-button {
-    font-size: inherit;
-    color: inherit;
-    background: inherit;
-    height: 100%;
-    box-shadow: none;
-  }
-}
-
