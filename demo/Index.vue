@@ -60,6 +60,7 @@
           'radio',
           'checkbox',
           'switch',
+          'rate',
           'cell'
         ]
       };

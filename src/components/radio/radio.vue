@@ -1,7 +1,7 @@
 <template>
   <div class="pm-radio"
        :class="{ disabled, checked }"
-       @click.stop="changeHanlder">
+       @click.stop="changeHandler">
     <transition name="zoom">
       <i class="pm-icon icon-radioboxfill"
          v-if="checked"></i>
@@ -30,7 +30,7 @@
       }
     },
     methods: {
-      changeHanlder() {
+      changeHandler() {
         if (this.disabled) return;
         this.$emit('input', this.label);
         this.$emit('change', this.label, this.value);

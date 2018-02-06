@@ -4,10 +4,9 @@
       <pm-cell-item
         title="时间选择器"
         label
-        arrow>
-        <input @click="time"
-               placeholder="时间"
-               :value="one.value[0] + ':' + one.value[1] + ':' + one.value[2]">
+        arrow
+        @click.native="time">
+        {{one.value[0] + ':' + one.value[1] + ':' + one.value[2]}}
       </pm-cell-item>
       <pm-cell-item
         title="选中的值">
@@ -19,10 +18,9 @@
       <pm-cell-item
         title="水果"
         label
-        arrow>
-        <input @click="fruit"
-               placeholder="水果"
-               :value="two.value[0]">
+        arrow
+        @click.native="fruit">
+        {{ two.value[0] }}
       </pm-cell-item>
       <pm-cell-item
         title="选中的值">
@@ -31,7 +29,7 @@
     </pm-cell-group>
 
     <pm-picker
-      ref="picker"
+      ref="time"
       v-model="one.value"
       :slots="one.slots">
     </pm-picker>

@@ -15,6 +15,7 @@ import Swipe from './components/swipe';
 import SwipeItem from './components/swipe-item';
 import Popup from './components/popup';
 import Picker from './components/picker';
+import Rate from './components/rate';
 import Radio from './components/radio';
 import RadioList from './components/radio-list';
 import Checkbox from './components/checkbox';
@@ -47,6 +48,7 @@ const components = [
   SwipeItem,
   Popup,
   Picker,
+  Rate,
   Radio,
   RadioList,
   Checkbox,

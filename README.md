@@ -43,12 +43,11 @@ Import styles
 npm run dev
 ```
 
-## Plan
+## Todo
 1. TimePicker
 2. DatetimePicker
 3. PullRefresh
 4. InfiniteScroll
-5. Range
 6. Progress
 7. Stepper
 8. ...

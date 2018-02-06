@@ -52,7 +52,7 @@
 
   .pm-layout {
     transform: translateZ(0);
-    background: #efeff4;
+    background: #efefef;
   }
 
   .pm-container {
